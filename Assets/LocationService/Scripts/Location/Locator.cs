@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Locator : MonoBehaviour
 {
@@ -13,23 +14,24 @@ public class Locator : MonoBehaviour
     float locationAnalyzeTime;
     bool isMobilePlatform;
     bool isLocationUpdating;
-    GoogleMapDrawer googleMapDrawer;
+    //GoogleMapDrawer googleMapDrawer;
     SpotManager spotManager;
     [SerializeField]
     float initlat = 35.513f;
     [SerializeField]
     float initlong = 139.619f;
-
+    public UnityEvent OnLocationUpdate;
 
     // Use this for initialization
     void Start()
     {
+        OnLocationUpdate = new UnityEvent();
         locationService = Input.location;
         locationCoordination = ScriptableObject.CreateInstance<LocationCoordination>();
         distanceCalculator = gameObject.GetComponent<DistanceCalculator>();
-        googleMapDrawer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<GoogleMapDrawer>();
+        //googleMapDrawer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<GoogleMapDrawer>();
         spotManager = GameObject.FindGameObjectWithTag("SpotManager").GetComponent<SpotManager>();
-        googleMapDrawer.Calculator = locationCoordination;
+        //googleMapDrawer.Calculator = locationCoordination;
         //ロケーションサービスが無効、かつユーザーが許可しているなら
         //ロケーションサービスを有効化
         switch (Application.platform)
@@ -66,7 +68,8 @@ public class Locator : MonoBehaviour
             if (!(isLocationUpdating) && locationAnalyzeCounter >= locationAnalyzeTime)
             {
                 StartCoroutine(LocationUpdate());
-                googleMapDrawer.BuildMap();
+                OnLocationUpdate.Invoke();
+                //googleMapDrawer.BuildMap();
                 spotManager.StartSpotLocationUpdate();
                 
                 locationAnalyzeCounter = 0.0f;

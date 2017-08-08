@@ -21,6 +21,7 @@ public class GoogleMapDrawer : MonoBehaviour {
             //検索用のLocationCoordinationの参照を
             //渡す
             calculator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().locationCoordination;
+            GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().OnLocationUpdate.AddListener(BuildMap);
             BuildMap();
         }
 	}
