@@ -13,9 +13,20 @@
 *.userprefs
 *.pidb
 *.booproj
+!*.dll
+!*.lib
 
 # Unity3D generated meta files
 *.pidb.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+#dont filtering Vuforia assemblies
+!Assets/Plugins/WSA/x64/*.lib
+!Assets/Plugins/WSA/x64/*.dll
+!Assets/Plugins/WSA/x86/*.lib
+!Assets/Plugins/WSA/x86/*.dll
+
+!Assets/Vuforia/Editor/Scripts/Vuforia.UnityExtensions.Editor.dll
+!Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.Editor.dll
