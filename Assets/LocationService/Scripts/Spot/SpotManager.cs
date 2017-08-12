@@ -14,7 +14,7 @@ public class SpotManager : MonoBehaviour {
     Locator ref_Locator;
     List<SpotClass> ref_SpotClasses;
     //SpotClass[] ref_SpotClasses;
-
+    Transform AttacedTransform;
     private void Start()
     {
         ref_SpotClasses = new List<SpotClass>();
@@ -24,6 +24,7 @@ public class SpotManager : MonoBehaviour {
         {
             CreateSpotClass(ref_spotData.SpotName);
         }
+        AttacedTransform = gameObject.transform;
     }
 
     public void StartSpotLocationUpdate()
@@ -74,8 +75,22 @@ public class SpotManager : MonoBehaviour {
             Vector2 Diff = long_lati_calculator.GetInstance.CalculateLetiAndLongDifferenceOfAtoB(
                 spotClass.ThisSpotData.GetSpotCoordInVec2,
                 ref_Locator.locationCoordination.GetLocationCoordInVec2);
+            /*
+             * 変化するもの
+             mapズーム率
+             画像解像度
+             Unity上のスケール
+             1unitがmap上での何mか？ / 17レベルを基準にしたmapzoomの相対値
+            求めるもの
+            Unity座標１当たりがmapでは何メートルなのか
+             */
+            long_lati_calculator instance = long_lati_calculator.GetInstance;
+            int zoomlevel = 17;
 
-            Vector3 SpotPosition = new Vector3(Diff.x / LongDegPerWorldSpace, 1,Diff.y / LetiDegPerWorldSpace);
+            
+            //instance.EarthRadius / zoomlevel
+
+            Vector3 SpotPosition = new Vector3(Diff.x / ((float)(2.0 * Mathf.PI * instance.Equator )/ zoomlevel), AttacedTransform.position.y, Diff.y / ((float)( (2.0 * Mathf.PI * instance.earthRadius )/ zoomlevel)));
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();
         }

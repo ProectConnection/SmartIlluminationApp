@@ -4,8 +4,9 @@ using UnityEngine;
 
 public sealed class long_lati_calculator {
 
-    const int Equator = 6378150;        //赤道半径
-    const int EarthRadius = 6356752;    //地球の半径
+    public int Equator = 6378150;        //赤道半径
+    public const int EarthRadius = 6356752;    //極半径
+    public int earthRadius = EarthRadius;    //極半径
     float LongitudeMetricsPerDegree = (2.0f * Mathf.PI * EarthRadius) / 360;
     public float longitudeMetricsPerDegree
     {
