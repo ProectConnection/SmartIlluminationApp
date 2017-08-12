@@ -34,7 +34,7 @@ public class SpotManager : MonoBehaviour {
 
     void CreateSpotClass(string SpotID)
     {
-        ref_SpotClasses.Add(Instantiate(SpotPrefab).GetComponent<SpotClass>());
+        ref_SpotClasses.Add(Instantiate(SpotPrefab,gameObject.transform).GetComponent<SpotClass>());
         ref_SpotClasses[ref_SpotClasses.Count - 1].SetThisSpotData(FindSpotData(SpotID));
     }
 
@@ -70,7 +70,6 @@ public class SpotManager : MonoBehaviour {
     {
         foreach(SpotClass spotClass in ref_SpotClasses)
         {
-            Debug.Log("spotClass" + spotClass);
             //現在位置が0,0で表示されている前提で移動する
             Vector2 Diff = long_lati_calculator.GetInstance.CalculateLetiAndLongDifferenceOfAtoB(
                 spotClass.ThisSpotData.GetSpotCoordInVec2,
