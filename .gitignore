@@ -30,3 +30,4 @@ sysinfo.txt
 
 !Assets/Vuforia/Editor/Scripts/Vuforia.UnityExtensions.Editor.dll
 !Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.Editor.dll
+*.apk
