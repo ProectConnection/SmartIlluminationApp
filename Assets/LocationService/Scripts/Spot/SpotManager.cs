@@ -11,20 +11,27 @@ public class SpotManager : MonoBehaviour {
     GameObject SpotPrefab;
     [SerializeField]
     SpotData[] RegistrationSpot;
+    [SerializeField]
+    string SpotDataResourcePass;
     Locator ref_Locator;
     List<SpotClass> ref_SpotClasses;
     //SpotClass[] ref_SpotClasses;
     Transform AttacedTransform;
     private void Start()
     {
+        AttacedTransform = gameObject.transform;
         ref_SpotClasses = new List<SpotClass>();
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         //CreateSpotClass("Yokohama Digital Arts");
+        
+        RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
+        Debug.Log(RegistrationSpot);
         foreach (var ref_spotData in RegistrationSpot)
         {
             CreateSpotClass(ref_spotData.SpotName);
         }
-        AttacedTransform = gameObject.transform;
+        
+        
     }
 
     public void StartSpotLocationUpdate()
@@ -35,7 +42,7 @@ public class SpotManager : MonoBehaviour {
 
     void CreateSpotClass(string SpotID)
     {
-        ref_SpotClasses.Add(Instantiate(SpotPrefab,gameObject.transform).GetComponent<SpotClass>());
+        ref_SpotClasses.Add(Instantiate(SpotPrefab,AttacedTransform).GetComponent<SpotClass>());
         ref_SpotClasses[ref_SpotClasses.Count - 1].SetThisSpotData(FindSpotData(SpotID));
     }
 
@@ -86,11 +93,12 @@ public class SpotManager : MonoBehaviour {
              */
             long_lati_calculator instance = long_lati_calculator.GetInstance;
             int zoomlevel = 17;
+            int scale = 2;
 
             
             //instance.EarthRadius / zoomlevel
 
-            Vector3 SpotPosition = new Vector3(Diff.x / ((float)(2.0 * Mathf.PI * instance.Equator )/ zoomlevel), AttacedTransform.position.y, Diff.y / ((float)( (2.0 * Mathf.PI * instance.earthRadius )/ zoomlevel)));
+            Vector3 SpotPosition = new Vector3(Diff.x / ((float)(2.0 * Mathf.PI * instance.Equator )/ (zoomlevel * scale)), AttacedTransform.position.y, Diff.y / ((float)( (2.0 * Mathf.PI * instance.earthRadius )/ (zoomlevel * scale))));
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();
         }
