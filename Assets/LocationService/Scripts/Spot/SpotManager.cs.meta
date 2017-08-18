@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 1638eeab1ca324643a380bc26905404d
-timeCreated: 1501030982
+timeCreated: 1503063877
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - SpotPrefab: {fileID: 1538312874681278, guid: 2bf63987cf2bd2d4191b0bca4bd2c3ed,
       type: 2}
-  executionOrder: 0
+  executionOrder: -50
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

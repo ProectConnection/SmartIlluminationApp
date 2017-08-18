@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
+[RequireComponent(typeof(Renderer))]
 public class SpotClass : MonoBehaviour {
     Transform gameObjectTransform;
+    Renderer thisRenderer;
+    public Transform thisTransform
+    {
+        get
+        {
+            return gameObjectTransform;
+        }
+    }
+
     SpotData thisSpotData;
     bool IsActivate = false;
-
     public bool isActivate
     {
         get
@@ -21,9 +30,24 @@ public class SpotClass : MonoBehaviour {
         }
     }
 
+    bool IsVisible = true;
+    public bool visible
+    {
+        get
+        {
+            return IsVisible;
+        }
+        set
+        {
+            thisRenderer.enabled = value;
+            IsVisible = value;
+        }
+    }
+
     private void Start()
     {
         gameObjectTransform = gameObject.transform;
+        thisRenderer = GetComponent<Renderer>();   
     }
 
     public void SetWorldPosition(Vector3 newPosition)

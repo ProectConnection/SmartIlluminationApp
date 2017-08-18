@@ -48,12 +48,8 @@ public sealed class long_lati_calculator {
 
     public Vector2 CalculateLetiAndLongDifferenceOfAtoB(Vector2 a, Vector2 b)
     {
-        return new Vector2(Mathf.Sqrt((GetInstance.longitudeMetricsPerDegree * (a.x - b.x)) *
-                                      (GetInstance.longitudeMetricsPerDegree * (a.x - b.x))
-                                     ),
-                           Mathf.Sqrt((GetInstance.CalculateLatitudeMetricParDegree((a.y + b.y ) / 2) * (a.y - b.y)) *
-                                      (GetInstance.CalculateLatitudeMetricParDegree((a.y + b.y ) / 2) * (a.y - b.y))
-                                     )
-                );
+        return new Vector2((GetInstance.longitudeMetricsPerDegree * (a.x - b.x)),
+                           (GetInstance.CalculateLatitudeMetricParDegree((a.y + b.y ) / 2) * (a.y - b.y))
+                           );
     }
 }

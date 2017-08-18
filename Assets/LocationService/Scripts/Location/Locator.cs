@@ -70,7 +70,6 @@ public class Locator : MonoBehaviour
                 StartCoroutine(LocationUpdate());
                 OnLocationUpdate.Invoke();
                 //googleMapDrawer.BuildMap();
-                spotManager.StartSpotLocationUpdate();
                 
                 locationAnalyzeCounter = 0.0f;
             }
