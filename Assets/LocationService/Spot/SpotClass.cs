@@ -72,4 +72,9 @@ public class SpotClass : MonoBehaviour {
     {
         return gameObjectTransform.position;
     }
+
+    public void SpotIntaract()
+    {
+            thisRenderer.material.color = Color.blue;
+    }
 }
