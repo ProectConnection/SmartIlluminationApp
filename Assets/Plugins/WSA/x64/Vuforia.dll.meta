@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: fe431f69902afc64fb656b7430088a0a
-timeCreated: 1486470568
-licenseType: Pro
+guid: 9fe0ec97fa53443de824e220056307f2
+timeCreated: 1503310084
+licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
+  isOverridable: 0
   platformData:
     Any:
-      enabled: 1
+      enabled: 0
       settings: {}
+    Editor:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+    WindowsStoreApps:
+      enabled: 1
+      settings:
+        CPU: x64
   userData: 
   assetBundleName: 
   assetBundleVariant: 
