@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="mmm" size="100.000000 92.786072" />
+    <ImageTarget name="IMG_2024" size="100.000000 133.333328" />
+    <ImageTarget name="mk" size="100.000000 101.538460" />
+    <ImageTarget name="mm" size="100.000000 194.462540" />
+    <ImageTarget name="mak2" size="100.000000 99.498749" />
+    <ImageTarget name="mak" size="100.000000 99.498749" />
+    <ImageTarget name="IMG_2020" size="100.000000 133.333328" />
+    <ImageTarget name="IMG_2019" size="100.000000 75.000000" />
+  </Tracking>
+</QCARConfig>
