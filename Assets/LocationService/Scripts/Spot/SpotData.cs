@@ -2,7 +2,6 @@
 
 [CreateAssetMenu(fileName = "SpotData", menuName = "SpotAsset",order = 1)]
 public class SpotData : ScriptableObject{
-    
     [SerializeField]
     string spotName;
     public string SpotName
@@ -40,5 +39,13 @@ public class SpotData : ScriptableObject{
         {
             return new Vector2(longitude, letitude);
         }
+    }
+
+    public void SetNewDatas(string tname,float tLongitude,float tLetitude)
+    {
+        spotName = tname;
+        Longitude = tLongitude;
+        Letitude = tLetitude;
+
     }
 }
