@@ -28,10 +28,16 @@ public class MapSpotVisilizer : MonoBehaviour {
     IEnumerator SpotLocationUpdate()
     {
         ref_SpotManager.ChangeSpotParentTransform(transform);
+        long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
         foreach (SpotClass spotClass in ref_SpotManager.ref_SpotClasses)
         {
+            //スポットと現在位置の距離を計測
+            float distance = calcInstance.CalculateLetiAndLongDistanceOfAtoB(spotClass.ThisSpotData.GetSpotCoordInVec2,
+                                                            ref_Locator.locationCoordination.GetLocationCoordInVec2);
+
+            spotClass.isSpotNearPlayer = distance <= spotClass.ThisSpotData.spotActivateDistance;
             //現在位置が0,0で表示されている前提で移動する
-            Vector2 Diff = long_lati_calculator.GetInstance.CalculateLetiAndLongDifferenceOfAtoB(
+            Vector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
                 spotClass.ThisSpotData.GetSpotCoordInVec2,
                 ref_Locator.locationCoordination.GetLocationCoordInVec2);
             /*
@@ -43,7 +49,6 @@ public class MapSpotVisilizer : MonoBehaviour {
             求めるもの
             Unity座標１当たりがmapでは何メートルなのか
              */
-            long_lati_calculator instance = long_lati_calculator.GetInstance;
 
             //Vector3 SpotPosition = new Vector3(Diff.x / ((float)(2.0 * Mathf.PI * instance.Equator ) / (zoomlevel * scale)), AttacedTransform.position.y, Diff.y / ((float)( (2.0 * Mathf.PI * instance.earthRadius )/ (zoomlevel * scale))));
             Vector3 SpotPosition = new Vector3((Diff.x / (MapMeterPerOneUnit.x / ref_GoogleMapDrawer.mapScale)) * ref_GoogleMapDrawer.transform.localScale.x,

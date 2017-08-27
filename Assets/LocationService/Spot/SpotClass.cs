@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpotClass : MonoBehaviour {
     Transform gameObjectTransform;
     Renderer thisRenderer;
+    
     public Transform thisTransform
     {
         get
@@ -44,6 +45,19 @@ public class SpotClass : MonoBehaviour {
         }
     }
 
+    bool IsSpotNearPlayer = false;
+    public bool isSpotNearPlayer
+    {
+        get
+        {
+            return IsSpotNearPlayer;
+        }
+        set
+        {
+            IsSpotNearPlayer = value;
+        }
+    }
+
     private void Start()
     {
         gameObjectTransform = gameObject.transform;
@@ -75,6 +89,15 @@ public class SpotClass : MonoBehaviour {
 
     public void SpotIntaract()
     {
+        //プレイヤーとスポットの距離が一定範囲内かどうかによって処理を変える
+        if (isSpotNearPlayer)
+        {
             thisRenderer.material.color = Color.blue;
+        }
+        else
+        {
+
+        }
+            
     }
 }

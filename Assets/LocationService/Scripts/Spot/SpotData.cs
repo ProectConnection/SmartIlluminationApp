@@ -32,6 +32,15 @@ public class SpotData : ScriptableObject{
             return Letitude;
         }
     }
+    [SerializeField]
+    float SpotActivateDistance = 150.0f;
+    public float spotActivateDistance
+    {
+        get
+        {
+            return SpotActivateDistance;
+        }
+    }
 
     public Vector2 GetSpotCoordInVec2
     {
