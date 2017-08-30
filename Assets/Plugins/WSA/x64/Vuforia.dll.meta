@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 839051c9c94c1d54fb1f691459fab748
-timeCreated: 1503472010
+guid: 9fe0ec97fa53443de824e220056307f2
+timeCreated: 1503310084
 licenseType: Free
 PluginImporter:
   serializedVersion: 1
@@ -9,19 +9,7 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
-<<<<<<< HEAD
-    Editor:
-      enabled: 0
-      settings:
-        DefaultValueInitialized: true
-    WindowsStoreApps:
-      enabled: 1
-      settings:
-        CPU: x64
-    data:
-=======
     Any:
->>>>>>> origin/Umenai
       enabled: 0
       settings: {}
     Editor:
