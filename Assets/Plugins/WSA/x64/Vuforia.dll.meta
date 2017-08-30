@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: fe431f69902afc64fb656b7430088a0a
-timeCreated: 1486470568
-licenseType: Pro
+guid: 839051c9c94c1d54fb1f691459fab748
+timeCreated: 1503472010
+licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -9,6 +9,7 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
+<<<<<<< HEAD
     Editor:
       enabled: 0
       settings:
@@ -18,8 +19,19 @@ PluginImporter:
       settings:
         CPU: x64
     data:
+=======
+    Any:
+>>>>>>> origin/Umenai
       enabled: 0
       settings: {}
+    Editor:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+    WindowsStoreApps:
+      enabled: 1
+      settings:
+        CPU: x64
   userData: 
   assetBundleName: 
   assetBundleVariant: 
