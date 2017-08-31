@@ -1,10 +1,11 @@
-﻿
+﻿#if UNITY_IPHONE
 using System.IO;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.iOS.Xcode;
 using UnityEditor.Callbacks;
 using System.Collections;
+using System.Runtime.InteropServices;
 
 public class XcodeSettingsPostProcesser
 {
@@ -65,4 +66,6 @@ public class XcodeSettingsPostProcesser
         // Apply editing settings to Info.plist
         plist.WriteToFile (plistPath);
     }
+
 }
+#endif
