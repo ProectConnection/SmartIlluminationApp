@@ -7,6 +7,8 @@ using UnityEngine;
 public class SpotClass : MonoBehaviour {
     Transform gameObjectTransform;
     Renderer thisRenderer;
+    GameObject ChildrenSpotRange;
+    MapSpotVisilizer mapSpotVisilizer;
     
     public Transform thisTransform
     {
@@ -61,7 +63,9 @@ public class SpotClass : MonoBehaviour {
     private void Start()
     {
         gameObjectTransform = gameObject.transform;
-        thisRenderer = GetComponent<Renderer>();   
+        thisRenderer = GetComponent<Renderer>();
+        ChildrenSpotRange = transform.GetChild(0).gameObject;
+        mapSpotVisilizer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<MapSpotVisilizer>();
     }
 
     public void SetWorldPosition(Vector3 newPosition)
@@ -99,5 +103,13 @@ public class SpotClass : MonoBehaviour {
 
         }
             
+    }
+
+    public void ChangeScaleSpotRange()
+    {
+        Vector3 newScale;
+        Transform childrenTransform = ChildrenSpotRange.transform;
+        newScale = new Vector3(2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.x), childrenTransform.localScale.y,   2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.y));
+        childrenTransform.localScale = newScale;
     }
 }

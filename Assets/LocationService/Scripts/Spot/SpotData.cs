@@ -33,7 +33,7 @@ public class SpotData : ScriptableObject{
         }
     }
     [SerializeField]
-    float SpotActivateDistance = 150.0f;
+    float SpotActivateDistance = 75.0f;
     public float spotActivateDistance
     {
         get

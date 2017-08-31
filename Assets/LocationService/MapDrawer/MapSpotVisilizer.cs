@@ -9,6 +9,13 @@ public class MapSpotVisilizer : MonoBehaviour {
     Locator ref_Locator;
     [SerializeField]
     Vector2 MapMeterPerOneUnit;
+    public Vector2 mapMeterPerOneUnit
+    {
+        get
+        {
+            return MapMeterPerOneUnit;
+        }
+    }
     // Use this for initialization
     void Start () {
         
@@ -56,6 +63,7 @@ public class MapSpotVisilizer : MonoBehaviour {
                                                (Diff.y / (MapMeterPerOneUnit.y / ref_GoogleMapDrawer.mapScale)) * ref_GoogleMapDrawer.transform.localScale.z
                                                );
             Debug.Log(spotClass.name + "Diffs" + Diff.x + "," + Diff.y);
+            spotClass.ChangeScaleSpotRange();
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();
         }
