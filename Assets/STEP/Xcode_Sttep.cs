@@ -1,4 +1,4 @@
-﻿#if UNITY_IPHONE
+﻿#if UNITY_IOS
 using System.IO;
 using UnityEngine;
 using UnityEditor;
