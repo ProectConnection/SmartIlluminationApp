@@ -109,7 +109,9 @@ public class SpotClass : MonoBehaviour {
     {
         Vector3 newScale;
         Transform childrenTransform = ChildrenSpotRange.transform;
-        newScale = new Vector3(2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.x), childrenTransform.localScale.y,   2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.y));
+        newScale = new Vector3(2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.x),
+                               childrenTransform.localScale.y,
+                               2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.y));
         childrenTransform.localScale = newScale;
     }
 }
