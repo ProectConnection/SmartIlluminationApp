@@ -22,7 +22,6 @@ public class SpotData : ScriptableObject{
         }
     }
 
-    
     [SerializeField]
     float Letitude;
     public float letitude
@@ -32,8 +31,36 @@ public class SpotData : ScriptableObject{
             return Letitude;
         }
     }
+
     [SerializeField]
     float SpotActivateDistance = 75.0f;
+    [SerializeField]
+    Texture2D[] PhotoFrame; //チェックポイントで写真撮影する際に映るフレーム類
+    public Texture2D[] photoFrames
+    {
+        get
+        {
+            return PhotoFrame;
+        }
+    }
+
+    public Texture2D GetPhotoFrame(int index)
+    {
+        return PhotoFrame[index];
+    }
+
+    [SerializeField]
+    StampID StampIDThisCheckPoint;
+    public StampID stampId
+    {
+        get
+        {
+            return StampIDThisCheckPoint;
+        }
+    }
+
+    
+
     public float spotActivateDistance
     {
         get
@@ -56,5 +83,16 @@ public class SpotData : ScriptableObject{
         Longitude = tLongitude;
         Letitude = tLetitude;
 
+    }
+    public void SetNewDatas(string tname, float tLongitude, float tLetitude,StampID tstampId)
+    {
+        SetNewDatas(tname, tLongitude, tLetitude);
+        StampIDThisCheckPoint = tstampId;
+    }
+
+    public void SetNewDatas(string tname, float tLongitude, float tLetitude, StampID tstampId,Texture2D[] tPhotoFrame)
+    {
+        SetNewDatas(tname, tLongitude, tLetitude,tstampId);
+        PhotoFrame = tPhotoFrame;
     }
 }
