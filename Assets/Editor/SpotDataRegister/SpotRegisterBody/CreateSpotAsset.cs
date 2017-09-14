@@ -6,7 +6,7 @@ using UnityEditor;
 public class CreateSpotAsset : MonoBehaviour
 {
 
-    public static void GenerateSpotData(string url, string spotName, string savePass)
+    public static void GenerateSpotData(string url, string spotName, string parentPass,string savePass,StampID stampId,Texture2D[] photoFrames)
     {
         bool isGoogleMapUrl = url.IndexOf("https://www.google.co.jp/maps/") >= 0;
         try
@@ -16,6 +16,7 @@ public class CreateSpotAsset : MonoBehaviour
             bool successful = false;
             float tLong;
             float tLet;
+
             //文字列から緯度経度の取り出し
             int coordinateIndex = url.IndexOf("/@");
             string substr = url.Substring(coordinateIndex + 2, url.Length - (coordinateIndex + 2));
@@ -26,13 +27,15 @@ public class CreateSpotAsset : MonoBehaviour
             if (!successful) throw new FailedConvateCoordination();
             //データの格納と作成
             SpotData newAsset = ScriptableObject.CreateInstance<SpotData>();
-            newAsset.SetNewDatas(spotName, tLong, tLet);
-            string pass = AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/" + savePass + "/" + spotName + ".asset");
+            newAsset.SetNewDatas(spotName, tLong, tLet,stampId,photoFrames);
+            AssetDatabase.CreateFolder(parentPass, savePass);
+
+            string pass = AssetDatabase.GenerateUniqueAssetPath(parentPass + savePass + "/" + spotName + ".asset");
+            
+            
             AssetDatabase.CreateAsset(newAsset, pass);
 
-
-
-            Debug.Log("Generate SpotData");
+            Debug.Log("Generate SpotData!\n" + "Saved To = " + pass);
         }
 
         catch (FailedConvateCoordination)
