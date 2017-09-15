@@ -23,11 +23,12 @@ public class screen : MonoBehaviour {
         byte[] bytes = screenShot.EncodeToPNG();
         UnityEngine.Object.Destroy(screenShot);
 
-        string fileName = "test_" + System.DateTime.Now.Hour.ToString()  +"時" + System.DateTime.Now.Minute.ToString() + "分" + System.DateTime.Now.Second.ToString() + "秒.png";
+        string fileName = "SmartIllumination_" + System.DateTime.Now.Hour.ToString()  +"" + System.DateTime.Now.Minute.ToString() + "" + System.DateTime.Now.Second.ToString() + ".png";
         // Application.CaptureScreenshot("../../../../DCIM/Camera/" + fileName);
         //Application.CaptureScreenshot("phone/DCIM/Camera/" + fileName);
-        File.WriteAllBytes(Application.persistentDataPath + "/" + fileName, bytes); 
-        //File.WriteAllBytes(Application.persistentDataPath + "../../../../DCIM/Camera/" + fileName, bytes);
+         File.WriteAllBytes(Application.temporaryCachePath + "/" + fileName, bytes);
+         Debug.Log(""+ Application.temporaryCachePath);
+        //Debug.Log("" + Application.platform);
     }
 
 	void Start () {

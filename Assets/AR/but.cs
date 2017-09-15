@@ -6,7 +6,7 @@ using UnityEngine;
 public class but : MonoBehaviour {
     public void load()
     {
-        Application.LoadLevel("rrr");
+        Application.LoadLevel("MapScene");
     }
     // Use this for initialization
     void Start () {
