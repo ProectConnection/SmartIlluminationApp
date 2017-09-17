@@ -105,4 +105,10 @@ public class SpotData : ScriptableObject{
         SetNewDatas(tname, tLongitude, tLetitude,tstampId);
         PhotoFrame = tPhotoFrame;
     }
+    public void SetNewDatas(SpotRegisterData srData, float tLongitude, float tLetitude)
+    {
+        SetNewDatas(srData.spotName, tLongitude, tLetitude, srData.newStampId,srData.NextAddPhotoFrame);
+        ThisSpotType = srData.spotType;
+        SpotActivateDistance = srData.spotRange;
+    }
 }
