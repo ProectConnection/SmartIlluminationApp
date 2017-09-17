@@ -59,6 +59,16 @@ public class SpotData : ScriptableObject{
         }
     }
 
+    [SerializeField]
+    SpotType ThisSpotType;
+    public SpotType spotType
+    {
+        get
+        {
+            return ThisSpotType;
+        }
+    }
+
     
 
     public float spotActivateDistance
