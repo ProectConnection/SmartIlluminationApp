@@ -23,6 +23,10 @@ public class SpotDataRegister : EditorWindow{
     }
     private void OnEnable()
     {
+        spotUrl = "";
+        spotName = "";
+        fileName = "";
+        savePass = "";
         newStampId = StampID.undefined;
         isAdvancedSetting = false;
         ParentSavePass = DefaultParentSavePass;
