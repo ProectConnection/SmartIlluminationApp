@@ -6,6 +6,7 @@ public class SpotRegisterData{
     public string spotName;
     public string ParentSavePass;
     public string savePass;
+    public string fileName;
     public SpotType spotType;
     public StampID newStampId;
     public Texture2D[] NextAddPhotoFrame;
@@ -15,6 +16,7 @@ public class SpotRegisterData{
     string tspotName,
     string tParentSavePass,
     string tsavePass,
+    string tfileName,
     SpotType tspotType,
     StampID tnewStampId,
     int tSpotRange,
@@ -24,6 +26,7 @@ public class SpotRegisterData{
         spotName = tspotName;
         ParentSavePass = tParentSavePass;
         savePass = tsavePass;
+        fileName = tfileName;
         spotType = tspotType;
         newStampId = tnewStampId;
         spotRange = tSpotRange;

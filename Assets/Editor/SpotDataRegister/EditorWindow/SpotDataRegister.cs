@@ -4,6 +4,7 @@ using UnityEditor;
 public class SpotDataRegister : EditorWindow{
     string spotUrl;
     string spotName;
+    string fileName;
     string savePass;
     StampID newStampId;
     SpotType newSpotType;
@@ -53,6 +54,11 @@ public class SpotDataRegister : EditorWindow{
         if (spotName.Length <= 0)
         {
             EditorGUILayout.HelpBox("スポット名を入力して下さい！", MessageType.Error);
+        }
+        fileName = EditorGUILayout.TextField("File Name", fileName);
+        if (fileName.Length <= 0)
+        {
+            EditorGUILayout.HelpBox("ファイル名を入力してください！", MessageType.Error);
         }
         savePass = EditorGUILayout.TextField("Save Pass", savePass);
         if (savePass.Length <= 0)
@@ -107,7 +113,7 @@ public class SpotDataRegister : EditorWindow{
 
         if (GUILayout.Button("Generate SpotData"))
         {
-            CreateSpotAsset.GenerateSpotData(new SpotRegisterData(spotUrl, spotName, ParentSavePass, savePass,newSpotType, newStampId,spotInteractRange ,NextAddPhotoFrame));
+            CreateSpotAsset.GenerateSpotData(new SpotRegisterData(spotUrl, spotName, ParentSavePass, savePass,fileName,newSpotType, newStampId,spotInteractRange ,NextAddPhotoFrame));
         }
     }
 

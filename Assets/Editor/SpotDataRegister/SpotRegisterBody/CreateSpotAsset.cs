@@ -95,7 +95,7 @@ public class CreateSpotAsset
             //データの格納と作成
             SpotData newAsset = ScriptableObject.CreateInstance<SpotData>();
             newAsset.SetNewDatas(registerDatas, tLong, tLet);
-            string pass = AssetDatabase.GenerateUniqueAssetPath(registerDatas.ParentSavePass + "/" + registerDatas.savePass + "/" + registerDatas.spotName + ".asset");
+            string pass = AssetDatabase.GenerateUniqueAssetPath(registerDatas.ParentSavePass + "/" + registerDatas.savePass+ "/" + registerDatas.fileName + ".asset");
             AssetDatabase.CreateAsset(newAsset, pass);
             Debug.Log("Generate SpotData!\n" + "Saved To = " + pass);
         }
