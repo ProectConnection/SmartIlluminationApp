@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e339e9a56b8fea648b7506f99117d614, type: 3}
+  m_Name: Nohon_odouri
+  m_EditorClassIdentifier: 
+  spotName: "\u65E5\u672C\u5927\u901A\u308A"
+  Longitude: 139.63898
+  Letitude: 35.444843
+  SpotActivateDistance: 75
+  PhotoFrame: []
+  StampIDThisCheckPoint: -1
+  ThisSpotType: 3

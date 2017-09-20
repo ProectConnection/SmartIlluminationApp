@@ -22,10 +22,6 @@ public class CompassRotator : MonoBehaviour {
 
         StartCoroutine(GetCompassTrueHeading());
     }
-	// Update is called once per frame
-	void Update () {
-        
-    }
 
    IEnumerator GetCompassTrueHeading()
     {
