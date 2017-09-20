@@ -52,5 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpotPrefab: {fileID: 1538312874681278, guid: 2bf63987cf2bd2d4191b0bca4bd2c3ed, type: 2}
-  SpotDataResourcePass: GroundFutamatagawa
+  SpotDataResourcePass: SmartIlluminationWalk
   ref_SpotClasses: []
+  NearestSpotData: {fileID: 0}

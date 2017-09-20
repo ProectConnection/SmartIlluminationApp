@@ -13,6 +13,13 @@ public class SpotManager : MonoBehaviour {
     public List<SpotClass> ref_SpotClasses;
     //SpotClass[] ref_SpotClasses;
     Transform AttacedTransform;
+    [SerializeField]
+    SpotData NearestSpotData;
+    public SpotData nearestSpotData
+    {
+        get { return NearestSpotData; }
+        set { NearestSpotData = value; }
+    }
     private void Start()
     {
         AttacedTransform = gameObject.transform;
