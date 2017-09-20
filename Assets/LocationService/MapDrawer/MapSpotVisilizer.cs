@@ -34,6 +34,7 @@ public class MapSpotVisilizer : MonoBehaviour {
 
     IEnumerator SpotLocationUpdate()
     {
+        bool IsAnyNearSpotExist = false;
         ref_SpotManager.ChangeSpotParentTransform(transform);
         long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
         foreach (SpotClass spotClass in ref_SpotManager.ref_SpotClasses)
@@ -41,8 +42,13 @@ public class MapSpotVisilizer : MonoBehaviour {
             //スポットと現在位置の距離を計測
             float distance = calcInstance.CalculateLetiAndLongDistanceOfAtoB(spotClass.ThisSpotData.GetSpotCoordInVec2,
                                                             ref_Locator.locationCoordination.GetLocationCoordInVec2);
-
+            //近接しているスポットの更新処理
             spotClass.isSpotNearPlayer = distance <= spotClass.ThisSpotData.spotActivateDistance;
+            if (spotClass.isSpotNearPlayer)
+            {
+                ref_SpotManager.nearestSpotData = spotClass.ThisSpotData;
+                IsAnyNearSpotExist = true;
+            }
             //現在位置が0,0で表示されている前提で移動する
             Vector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
                 spotClass.ThisSpotData.GetSpotCoordInVec2,
@@ -67,7 +73,10 @@ public class MapSpotVisilizer : MonoBehaviour {
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();
         }
-
+        if (!IsAnyNearSpotExist)
+        {
+            ref_SpotManager.nearestSpotData = null;
+        }
         yield return null;
 
     }
