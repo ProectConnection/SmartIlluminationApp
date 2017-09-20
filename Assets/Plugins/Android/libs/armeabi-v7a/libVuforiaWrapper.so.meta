@@ -13,13 +13,21 @@ PluginImporter:
       enabled: 1
       settings:
         CPU: ARMv7
+<<<<<<< HEAD
     Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
     data:
+=======
+    Any:
+>>>>>>> origin/TitleScene
       enabled: 0
       settings: {}
+    Editor:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
   userData: 
   assetBundleName: 
   assetBundleVariant: 
