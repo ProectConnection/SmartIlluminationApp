@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: f9dc1d22387e9c741910acebfb117873
-timeCreated: 1486470568
-licenseType: Pro
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -12,22 +10,13 @@ PluginImporter:
     Android:
       enabled: 1
       settings: {}
-<<<<<<< HEAD
-=======
     Any:
       enabled: 0
       settings: {}
->>>>>>> origin/TitleScene
     Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
-<<<<<<< HEAD
-    data:
-      enabled: 0
-      settings: {}
-=======
->>>>>>> origin/TitleScene
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -7,22 +7,13 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
-<<<<<<< HEAD
-=======
     Any:
       enabled: 0
       settings: {}
->>>>>>> origin/TitleScene
     Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
-<<<<<<< HEAD
-    data:
-      enabled: 0
-      settings: {}
-=======
->>>>>>> origin/TitleScene
     iOS:
       enabled: 1
       settings: {}

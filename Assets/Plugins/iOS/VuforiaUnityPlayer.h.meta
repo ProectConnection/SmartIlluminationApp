@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 7a866e51d2216b443a462ddf6d960e8e
-timeCreated: 1486470706
-licenseType: Pro
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -9,22 +7,13 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
-<<<<<<< HEAD
-=======
     Any:
       enabled: 0
       settings: {}
->>>>>>> origin/TitleScene
     Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
-<<<<<<< HEAD
-    data:
-      enabled: 0
-      settings: {}
-=======
->>>>>>> origin/TitleScene
     iOS:
       enabled: 1
       settings: {}
