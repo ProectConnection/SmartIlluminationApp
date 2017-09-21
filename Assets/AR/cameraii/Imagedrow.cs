@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Imagedrow : MonoBehaviour {
-    public Transform[] image1=new Transform[10];
+    public float PhotoFrame;
 	// Use this for initialization
 	void Start () {
-		
+        Texture2D fot = new Texture2D(128, 128);	
 	}
 	
 	// Update is called once per frame
