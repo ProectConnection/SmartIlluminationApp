@@ -56,7 +56,9 @@ public class SpotManager : MonoBehaviour {
     {
         GameObject instansiateGameObject = Instantiate(SpotPrefab);
         instansiateGameObject.name = "Spot(" + SpotID + ")";
-        ref_SpotClasses.Add(instansiateGameObject.GetComponent<SpotClass>());
+        SpotClass ref_InstansiatespotClass = instansiateGameObject.GetComponent<SpotClass>();
+        ref_SpotClasses.Add(ref_InstansiatespotClass);
+        ref_InstansiatespotClass.visible = false;
         ref_SpotClasses[ref_SpotClasses.Count - 1].SetThisSpotData(FindSpotData(SpotID));
     }
 
