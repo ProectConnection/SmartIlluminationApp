@@ -19,6 +19,7 @@ public class SpotClass : MonoBehaviour {
         }
     }
 
+    [SerializeField]
     SpotData thisSpotData;
     bool IsActivate = false;
     public bool isActivate

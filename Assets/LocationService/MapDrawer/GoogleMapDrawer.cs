@@ -8,7 +8,7 @@ public class GoogleMapDrawer : MonoBehaviour {
     float initLatitude = 40.713728f;
     float initLongitude = -73.998672f;
     public string key = null;
-    
+    [SerializeField]
     int MapSize = 17;
     public int mapSize
     {
@@ -33,6 +33,7 @@ public class GoogleMapDrawer : MonoBehaviour {
             }
         }
     }
+    [SerializeField]
     int MapScale = 2;
     public int mapScale
     {
@@ -59,7 +60,7 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     LocationCoordination calculator;
 
-    string Url = @"https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=terrain&center=40.714728,-73.998672&zoom=17&sensor=false";
+    string Url = @"https://maps.googleapis.com/maps/api/staticmap?size=100x100&maptype=terrain&center=40.714728,-73.998672&zoom=17&sensor=false";
 
 
     // Use this for initialization
@@ -103,7 +104,7 @@ public class GoogleMapDrawer : MonoBehaviour {
     {
         var www = new WWW(url);
         yield return www;
-
+        //取得ミスで稀に403エラーが発生、エラー処理が必要
         texture2d(www.texture);
     }
 
