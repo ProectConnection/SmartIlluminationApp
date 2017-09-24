@@ -9,9 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e339e9a56b8fea648b7506f99117d614, type: 3}
-  m_Name: Yokoari
+  m_Name: shinyokohamaCityHite
   m_EditorClassIdentifier: 
-  spotName: YokohamaArina
-  Longitude: 139.61954
-  Letitude: 35.51202
-  SpotActivateDistance: 150
+  spotName: "\u65B0\u6A2A\u6D5C\u30B7\u30C6\u30A3\u30CF\u30A4\u30C4\u58F1\u53F7\u9928"
+  Longitude: 139.6181752
+  Letitude: 35.5127706
+  SpotActivateDistance: 75
+  PhotoFrame: []
+  StampIDThisCheckPoint: -1
+  ThisSpotType: 3
