@@ -39,7 +39,7 @@ public class SpotManager : MonoBehaviour {
     {
         foreach(SpotClass ref_spotClass in ref_SpotClasses)
         {
-            Debug.Log(ref_spotClass.thisTransform);
+            if (ref_spotClass.thisTransform == null) continue;
             ref_spotClass.thisTransform.SetParent(NextParent);
         }
     }
