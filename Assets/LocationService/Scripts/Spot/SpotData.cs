@@ -87,25 +87,25 @@ public class SpotData : ScriptableObject{
         }
     }
 
-    public void SetNewDatas(string tname,float tLongitude,float tLetitude)
+    public void SetNewDatas(string tname,double tLongitude,double tLetitude)
     {
         spotName = tname;
         Longitude = tLongitude;
         Letitude = tLetitude;
 
     }
-    public void SetNewDatas(string tname, float tLongitude, float tLetitude,StampID tstampId)
+    public void SetNewDatas(string tname, double tLongitude, double tLetitude,StampID tstampId)
     {
         SetNewDatas(tname, tLongitude, tLetitude);
         StampIDThisCheckPoint = tstampId;
     }
 
-    public void SetNewDatas(string tname, float tLongitude, float tLetitude, StampID tstampId,Texture2D[] tPhotoFrame)
+    public void SetNewDatas(string tname, double tLongitude, double tLetitude, StampID tstampId,Texture2D[] tPhotoFrame)
     {
         SetNewDatas(tname, tLongitude, tLetitude,tstampId);
         PhotoFrame = tPhotoFrame;
     }
-    public void SetNewDatas(SpotRegisterData srData, float tLongitude, float tLetitude)
+    public void SetNewDatas(SpotRegisterData srData, double tLongitude, double tLetitude)
     {
         SetNewDatas(srData.spotName, tLongitude, tLetitude, srData.newStampId,srData.NextAddPhotoFrame);
         ThisSpotType = srData.spotType;

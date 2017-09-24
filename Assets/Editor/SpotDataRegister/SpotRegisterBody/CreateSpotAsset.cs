@@ -68,8 +68,8 @@ public class CreateSpotAsset
             if (!isGoogleMapUrl) throw new InVaildGoogleMapURL();
 
             bool successful = false;
-            float tLong;
-            float tLet;
+            double tLong;
+            double tLet;
 
             successful = GoogleMapUrlLibrary.ExtractRetAndLetByUrl(registerDatas.spotUrl,out tLong,out tLet);
 
