@@ -107,7 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab63c4bfa2c9b874686fd40caad950d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: AIzaSyAqBvuMfEMztHA0jHn1jvEuUHQRIdlxwb8
+  MapSize: 17
+  MapScale: 2
 --- !u!114 &114505194757960102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,4 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c8eb23d1f04bb4081305a9f31f095b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapZoomMagicNumber: {x: 2.5, y: 3}
   MapMeterPerOneUnit: {x: 95, y: 95}
+  EquatorArcLength: 0
+  RadiusArcLength: 0

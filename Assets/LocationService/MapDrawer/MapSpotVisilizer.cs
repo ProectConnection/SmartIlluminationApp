@@ -8,6 +8,8 @@ public class MapSpotVisilizer : MonoBehaviour {
     GoogleMapDrawer ref_GoogleMapDrawer;
     Locator ref_Locator;
     [SerializeField]
+    Vector2 MapZoomMagicNumber;
+    [SerializeField]
     Vector2 MapMeterPerOneUnit;
     public Vector2 mapMeterPerOneUnit
     {
@@ -16,6 +18,8 @@ public class MapSpotVisilizer : MonoBehaviour {
             return MapMeterPerOneUnit;
         }
     }
+    public double EquatorArcLength;
+    public double RadiusArcLength;
     // Use this for initialization
     void Start () {
         
@@ -24,9 +28,21 @@ public class MapSpotVisilizer : MonoBehaviour {
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         
         ref_Locator.OnLocationUpdate.AddListener(StartSpotLocationUpdate);
-        ref_SpotManager.ChangeSpotVisiblity(true);
-    }
+        //ref_SpotManager.ChangeSpotVisiblity(true);
 
+        EquatorArcLength = 2 * System.Math.PI * long_lati_calculator.Equator;
+        RadiusArcLength = 2 * System.Math.PI * long_lati_calculator.EarthRadius;
+        Debug.Log("start");
+        RefrashMapUnit();
+    }
+    public void RefrashMapUnit()
+    {
+
+        MapMeterPerOneUnit.x = (float)(EquatorArcLength / (System.Math.Pow(2, ((ref_GoogleMapDrawer.mapSize + 1) )) * transform.lossyScale.x * MapZoomMagicNumber.x));
+        MapMeterPerOneUnit.y = (float)(RadiusArcLength / (System.Math.Pow(2, ((ref_GoogleMapDrawer.mapSize + 1)  )) * transform.lossyScale.z * MapZoomMagicNumber.y));
+        //MapMeterPerOneUnit.x = (float)(EquatorArcLength /((ref_GoogleMapDrawer.mapSize + 1) * ref_GoogleMapDrawer.mapScale * transform.lossyScale.x));
+        //MapMeterPerOneUnit.y = (float)(RadiusArcLength / ((ref_GoogleMapDrawer.mapSize + 1) * ref_GoogleMapDrawer.mapScale * transform.lossyScale.z));
+    }
     public void StartSpotLocationUpdate()
     {
         StartCoroutine(SpotLocationUpdate());
@@ -37,6 +53,7 @@ public class MapSpotVisilizer : MonoBehaviour {
         bool IsAnyNearSpotExist = false;
         ref_SpotManager.ChangeSpotParentTransform(transform);
         long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
+        RefrashMapUnit();
         foreach (SpotClass spotClass in ref_SpotManager.ref_SpotClasses)
         {
             spotClass.visible = true;
