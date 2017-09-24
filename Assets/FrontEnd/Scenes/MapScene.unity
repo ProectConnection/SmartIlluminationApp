@@ -1024,12 +1024,12 @@ Prefab:
     - target: {fileID: 114505194757960102, guid: a5d705c5e63cf9149aa789b758ff88a2,
         type: 2}
       propertyPath: MapZoomMagicNumber.x
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 114505194757960102, guid: a5d705c5e63cf9149aa789b758ff88a2,
         type: 2}
       propertyPath: MapZoomMagicNumber.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
