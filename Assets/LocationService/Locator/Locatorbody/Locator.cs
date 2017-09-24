@@ -17,9 +17,9 @@ public class Locator : MonoBehaviour
     //GoogleMapDrawer googleMapDrawer;
     SpotManager spotManager;
     [SerializeField]
-    float initlat = 35.513f;
+    double initlat = 35.513f;
     [SerializeField]
-    float initlong = 139.619f;
+    double initlong = 139.619f;
     public UnityEvent OnLocationUpdate;
 
     // Use this for initialization
@@ -107,10 +107,10 @@ public class Locator : MonoBehaviour
         yield return null;
     }
 
-    float CalculateDistanceOfNowCoordinationToSpot(SpotData targetSpotData)
+    double CalculateDistanceOfNowCoordinationToSpot(SpotData targetSpotData)
     {
-        Vector2 a = new Vector2(locationCoordination.GetLongitude, locationCoordination.GetLatitude);
-        Vector2 b = new Vector2(targetSpotData.longitude, targetSpotData.letitude);
+        DVector2 a = new DVector2(locationCoordination.GetLongitude, locationCoordination.GetLatitude);
+        DVector2 b = new DVector2(targetSpotData.longitude, targetSpotData.letitude);
         return long_lati_calculator.GetInstance.CalculateLetiAndLongDistanceOfAtoB(a, b);
     }
 }

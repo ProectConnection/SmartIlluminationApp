@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class DistanceCalculator : MonoBehaviour {
 
-    Vector2 PrevPositionInMetrics;
-    float totalMoveDistance;
+    DVector2 PrevPositionInMetrics;
+    double totalMoveDistance;
     bool isFirstTime = true;
 
-    float SpeedPerHour;
+    double SpeedPerHour;
     [SerializeField, Range(0, 60)]
     float WalkingSpeedPerHour;
     [SerializeField,Range(0,60)]
     float RunningSpeedPerHour;
     [SerializeField]
     float waitsecond;
-    public float TotalMoveDistance
+    public double TotalMoveDistance
     {
         get
         {
@@ -35,17 +35,17 @@ public class DistanceCalculator : MonoBehaviour {
     {
         if (isFirstTime)
         {
-            PrevPositionInMetrics = new Vector2(ref_locationCoordination.GetLongitude, ref_locationCoordination.GetLatitude);
+            PrevPositionInMetrics = new DVector2(ref_locationCoordination.GetLongitude, ref_locationCoordination.GetLatitude);
             isFirstTime = false;
         }
         else
         {
-            Vector2 a = new Vector2(ref_locationCoordination.GetLongitude, ref_locationCoordination.GetLatitude);
-            Vector2 b = new Vector2(PrevPositionInMetrics.x, PrevPositionInMetrics.y);
-            float moveDistance = long_lati_calculator.GetInstance.CalculateLetiAndLongDistanceOfAtoB(a, b);
+            DVector2 a = new DVector2(ref_locationCoordination.GetLongitude, ref_locationCoordination.GetLatitude);
+            DVector2 b = new DVector2(PrevPositionInMetrics.x, PrevPositionInMetrics.y);
+            double moveDistance = long_lati_calculator.GetInstance.CalculateLetiAndLongDistanceOfAtoB(a, b);
             SpeedPerHour = moveDistance * (3600 / waitsecond);
             if (SpeedPerHour >= WalkingSpeedPerHour && SpeedPerHour < RunningSpeedPerHour) totalMoveDistance += moveDistance;
-            PrevPositionInMetrics = new Vector2(a.x, a.y);
+            PrevPositionInMetrics = new DVector2(a.x, a.y);
         }
     }
 

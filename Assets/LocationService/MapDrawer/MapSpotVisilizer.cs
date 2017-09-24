@@ -39,8 +39,9 @@ public class MapSpotVisilizer : MonoBehaviour {
         long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
         foreach (SpotClass spotClass in ref_SpotManager.ref_SpotClasses)
         {
+            spotClass.visible = true;
             //スポットと現在位置の距離を計測
-            float distance = calcInstance.CalculateLetiAndLongDistanceOfAtoB(spotClass.ThisSpotData.GetSpotCoordInVec2,
+            double distance = calcInstance.CalculateLetiAndLongDistanceOfAtoB(spotClass.ThisSpotData.GetSpotCoordInDVec2,
                                                             ref_Locator.locationCoordination.GetLocationCoordInVec2);
             //近接しているスポットの更新処理
             spotClass.isSpotNearPlayer = distance <= spotClass.ThisSpotData.spotActivateDistance;
@@ -49,9 +50,10 @@ public class MapSpotVisilizer : MonoBehaviour {
                 ref_SpotManager.nearestSpotData = spotClass.ThisSpotData;
                 IsAnyNearSpotExist = true;
             }
+            Debug.Log(spotClass.name + "Dist:" + distance);
             //現在位置が0,0で表示されている前提で移動する
-            Vector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
-                spotClass.ThisSpotData.GetSpotCoordInVec2,
+            DVector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
+                spotClass.ThisSpotData.GetSpotCoordInDVec2,
                 ref_Locator.locationCoordination.GetLocationCoordInVec2);
             /*
              * 変化するもの
@@ -64,9 +66,9 @@ public class MapSpotVisilizer : MonoBehaviour {
              */
 
             //Vector3 SpotPosition = new Vector3(Diff.x / ((float)(2.0 * Mathf.PI * instance.Equator ) / (zoomlevel * scale)), AttacedTransform.position.y, Diff.y / ((float)( (2.0 * Mathf.PI * instance.earthRadius )/ (zoomlevel * scale))));
-            Vector3 SpotPosition = new Vector3((Diff.x / (MapMeterPerOneUnit.x / ref_GoogleMapDrawer.mapScale)) * ref_GoogleMapDrawer.transform.localScale.x,
+            Vector3 SpotPosition = new Vector3((float)(-(Diff.x / (MapMeterPerOneUnit.x ) )),
                                                spotClass.thisTransform.position.y,
-                                               (Diff.y / (MapMeterPerOneUnit.y / ref_GoogleMapDrawer.mapScale)) * ref_GoogleMapDrawer.transform.localScale.z
+                                               (float)(-(Diff.y / (MapMeterPerOneUnit.y ) ))
                                                );
             Debug.Log(spotClass.name + "Diffs" + Diff.x + "," + Diff.y);
             spotClass.ChangeScaleSpotRange();

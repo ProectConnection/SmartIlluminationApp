@@ -13,8 +13,8 @@ public class SpotData : ScriptableObject{
     }
 
     [SerializeField]
-    float Longitude;
-    public float longitude
+    double Longitude;
+    public double longitude
     {
         get
         {
@@ -23,8 +23,8 @@ public class SpotData : ScriptableObject{
     }
 
     [SerializeField]
-    float Letitude;
-    public float letitude
+    double Letitude;
+    public double letitude
     {
         get
         {
@@ -79,11 +79,11 @@ public class SpotData : ScriptableObject{
         }
     }
 
-    public Vector2 GetSpotCoordInVec2
+    public DVector2 GetSpotCoordInDVec2
     {
         get
         {
-            return new Vector2(longitude, letitude);
+            return new DVector2(longitude, letitude);
         }
     }
 
