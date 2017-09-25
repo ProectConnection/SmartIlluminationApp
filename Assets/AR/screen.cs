@@ -26,7 +26,19 @@ public class screen : MonoBehaviour {
         string fileName = "SmartIllumination_" + System.DateTime.Now.Hour.ToString()  +"" + System.DateTime.Now.Minute.ToString() + "" + System.DateTime.Now.Second.ToString() + ".png";
         // Application.CaptureScreenshot("../../../../DCIM/Camera/" + fileName);
         //Application.CaptureScreenshot("phone/DCIM/Camera/" + fileName);
-         File.WriteAllBytes(Application.temporaryCachePath + "/" + fileName, bytes);
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            // File.WriteAllBytes(Environment.GetEnvironmentVariable("/"),bytes);
+            File.WriteAllBytes("../../../../DCIM/Camera/" + fileName, bytes);//写真が保存されない
+        }
+        else if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            //NO
+        }
+        else if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            File.WriteAllBytes(Application.temporaryCachePath + "/" + fileName, bytes);//写真は保存されるが意図した場所に保存されない
+        }
          Debug.Log(""+ Application.temporaryCachePath);
         //Debug.Log("" + Application.platform);
     }
