@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-[RequireComponent(typeof(Renderer))]
 public class SpotClass : MonoBehaviour {
     Transform gameObjectTransform;
-    Renderer thisRenderer;
+    public Renderer thisRenderer;
     GameObject ChildrenSpotRange;
     MapSpotVisilizer mapSpotVisilizer;
-    
+    TextMesh ThisSpotNameText;
+    Renderer ThisSpotNameTextRenderer;
     public Transform thisTransform
     {
         get
@@ -18,6 +18,7 @@ public class SpotClass : MonoBehaviour {
         }
     }
 
+    [SerializeField]
     SpotData thisSpotData;
     bool IsActivate = false;
     public bool isActivate
@@ -43,6 +44,7 @@ public class SpotClass : MonoBehaviour {
         set
         {
             thisRenderer.enabled = value;
+            ThisSpotNameTextRenderer.enabled = value;
             IsVisible = value;
         }
     }
@@ -59,12 +61,18 @@ public class SpotClass : MonoBehaviour {
             IsSpotNearPlayer = value;
         }
     }
-
-    private void Start()
+    private void Awake()
     {
         gameObjectTransform = gameObject.transform;
-        thisRenderer = GetComponent<Renderer>();
-        ChildrenSpotRange = transform.GetChild(0).gameObject;
+        thisRenderer = gameObjectTransform.GetChild(2).GetComponent<Renderer>();
+        ChildrenSpotRange = gameObjectTransform.GetChild(1).gameObject;
+        ThisSpotNameText = gameObjectTransform.GetChild(0).gameObject.GetComponent<TextMesh>();
+        ThisSpotNameTextRenderer = ThisSpotNameText.gameObject.GetComponent<Renderer>();
+        
+    }
+    private void Start()
+    {
+        ThisSpotNameText.text = ThisSpotData.SpotName;
         mapSpotVisilizer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<MapSpotVisilizer>();
     }
 

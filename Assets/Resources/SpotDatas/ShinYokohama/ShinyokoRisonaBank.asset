@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e339e9a56b8fea648b7506f99117d614, type: 3}
-  m_Name: YDA
+  m_Name: ShinyokoRisonaBank
   m_EditorClassIdentifier: 
-  spotName: "\u6A2A\u6D5C\u30C7\u30B8\u30BF\u30EB\u30A2\u30FC\u30C4\u5C02\u9580\u5B66\u6821"
-  Longitude: 139.6185929
-  Letitude: 35.5124972
+  spotName: "\u65B0\u6A2A\u6D5C\u308A\u305D\u306A\u9280\u884C"
+  Longitude: 139.6190308
+  Letitude: 35.5107669
   SpotActivateDistance: 75
   PhotoFrame: []
   StampIDThisCheckPoint: -1

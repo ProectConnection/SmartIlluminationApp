@@ -8,7 +8,7 @@ public abstract class MeterUITxt : MonoBehaviour {
     protected UnityEngine.UI.Text TextUI;
     [SerializeField]
     protected float UpdateSecond = 1.0f;
-    protected float Metrics;
+    protected double Metrics;
     protected IEnumerator Coroutine;
 
     // Use this for initialization

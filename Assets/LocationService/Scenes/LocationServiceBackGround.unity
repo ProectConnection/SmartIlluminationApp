@@ -133,130 +133,16 @@ Prefab:
     - target: {fileID: 114449211346802266, guid: 7cac2f3782683684d945a6d3caeadab5,
         type: 2}
       propertyPath: initlong
-      value: 139.5342
+      value: 139.6185929
       objectReference: {fileID: 0}
     - target: {fileID: 114449211346802266, guid: 7cac2f3782683684d945a6d3caeadab5,
         type: 2}
       propertyPath: initlat
-      value: 35.46525
+      value: 35.5124972
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cac2f3782683684d945a6d3caeadab5, type: 2}
-  m_RootGameObject: {fileID: 828523885}
   m_IsPrefabParent: 0
---- !u!1 &492198488
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1025877123063742, guid: 133e7318ca6063a4b81df0f8e8b4503e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1258567560}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 492198490}
-  - component: {fileID: 492198489}
-  m_Layer: 0
-  m_Name: SpotManager
-  m_TagString: SpotManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &492198489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1258567560}
-  m_GameObject: {fileID: 492198488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1638eeab1ca324643a380bc26905404d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpotPrefab: {fileID: 1538312874681278, guid: 2bf63987cf2bd2d4191b0bca4bd2c3ed, type: 2}
-  SpotDataResourcePass: GroundFutamatagawa
-  ref_SpotClasses: []
---- !u!4 &492198490
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4310948630615222, guid: 133e7318ca6063a4b81df0f8e8b4503e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1258567560}
-  m_GameObject: {fileID: 492198488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &828523885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1974160603415584, guid: 7cac2f3782683684d945a6d3caeadab5,
-    type: 2}
-  m_PrefabInternal: {fileID: 199906913}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 828523888}
-  - component: {fileID: 828523887}
-  - component: {fileID: 828523886}
-  m_Layer: 0
-  m_Name: Locator
-  m_TagString: Locator
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &828523886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114607903694943544, guid: 7cac2f3782683684d945a6d3caeadab5,
-    type: 2}
-  m_PrefabInternal: {fileID: 199906913}
-  m_GameObject: {fileID: 828523885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25befa8f20cc1784397eddf1ede61977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WalkingSpeedPerHour: 1.2
-  RunningSpeedPerHour: 20
-  waitsecond: 6
---- !u!114 &828523887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114449211346802266, guid: 7cac2f3782683684d945a6d3caeadab5,
-    type: 2}
-  m_PrefabInternal: {fileID: 199906913}
-  m_GameObject: {fileID: 828523885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8500a7fe3dc5f044194efc5732f201f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locationAnalyzeTime: 6
-  initlat: 35.46525
-  initlong: 139.5342
-  OnLocationUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!4 &828523888
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4139619817455328, guid: 7cac2f3782683684d945a6d3caeadab5,
-    type: 2}
-  m_PrefabInternal: {fileID: 199906913}
-  m_GameObject: {fileID: 828523885}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1258567560
 Prefab:
   m_ObjectHideFlags: 0
@@ -306,7 +192,11 @@ Prefab:
       propertyPath: LetiDegPerWorldSpace
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+        type: 2}
+      propertyPath: SpotDataResourcePass
+      value: ShinYokohama
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}
-  m_RootGameObject: {fileID: 492198488}
   m_IsPrefabParent: 0
