@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-[RequireComponent(typeof(Renderer))]
 public class SpotClass : MonoBehaviour {
     Transform gameObjectTransform;
-    Renderer thisRenderer;
+    public Renderer thisRenderer;
     GameObject ChildrenSpotRange;
     MapSpotVisilizer mapSpotVisilizer;
     TextMesh ThisSpotNameText;
@@ -65,7 +64,7 @@ public class SpotClass : MonoBehaviour {
     private void Awake()
     {
         gameObjectTransform = gameObject.transform;
-        thisRenderer = GetComponent<Renderer>();
+        thisRenderer = gameObjectTransform.GetChild(2).GetComponent<Renderer>();
         ChildrenSpotRange = gameObjectTransform.GetChild(1).gameObject;
         ThisSpotNameText = gameObjectTransform.GetChild(0).gameObject.GetComponent<TextMesh>();
         ThisSpotNameTextRenderer = ThisSpotNameText.gameObject.GetComponent<Renderer>();

@@ -15,6 +15,8 @@ public class SpotManager : MonoBehaviour {
     Transform AttacedTransform;
     [SerializeField]
     SpotData NearestSpotData;
+    [SerializeField]
+    Texture[] SpotMarkTextures;
     public SpotData nearestSpotData
     {
         get { return NearestSpotData; }
@@ -56,10 +58,26 @@ public class SpotManager : MonoBehaviour {
     {
         GameObject instansiateGameObject = Instantiate(SpotPrefab);
         instansiateGameObject.name = "Spot(" + SpotID + ")";
+        
         SpotClass ref_InstansiatespotClass = instansiateGameObject.GetComponent<SpotClass>();
         ref_SpotClasses.Add(ref_InstansiatespotClass);
         ref_InstansiatespotClass.visible = false;
         ref_SpotClasses[ref_SpotClasses.Count - 1].SetThisSpotData(FindSpotData(SpotID));
+        Texture spotTypetexture;
+        switch (ref_InstansiatespotClass.ThisSpotData.spotType)
+        {
+            case SpotType.CheckPoint:
+            case SpotType.PhotoCheck:
+                spotTypetexture = SpotMarkTextures[0];
+                break;
+            case SpotType.Photo:
+                spotTypetexture = SpotMarkTextures[1];
+                break;
+            default:
+                spotTypetexture = null;
+                break;
+        }
+        ref_InstansiatespotClass.thisRenderer.material.SetTexture("_MainTex", spotTypetexture);
     }
 
     SpotClass FindDeactivatedSpotClasses()

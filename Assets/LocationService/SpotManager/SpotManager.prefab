@@ -55,3 +55,6 @@ MonoBehaviour:
   SpotDataResourcePass: SmartIlluminationWalk
   ref_SpotClasses: []
   NearestSpotData: {fileID: 0}
+  SpotMarkTextures:
+  - {fileID: 2800000, guid: 0e89360d54de1e240b624ffafd630ccf, type: 3}
+  - {fileID: 2800000, guid: cd0246ff307600f49a2b6576ebee5a7c, type: 3}
