@@ -11,7 +11,7 @@ public class CompassRotator : MonoBehaviour {
     float rotationSplitDegrees;
 
     [SerializeField]
-    float rotationUpdateSecond = 1.0f;
+    float rotationUpdateSecond = 0.2f;
     bool conpassActive = true;
 
     // Use this for initialization
@@ -35,7 +35,8 @@ public class CompassRotator : MonoBehaviour {
 
     void UpdateRotationYaw()
     {
-        rotation_Yaw = Input.compass.trueHeading;        
+        rotation_Yaw = Input.compass.trueHeading;
+        Debug.Log("rotation_Yaw = " + rotation_Yaw);
     }
 
     void UpdateRotationYawToRotationObject()
