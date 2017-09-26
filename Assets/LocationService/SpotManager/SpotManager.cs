@@ -6,9 +6,9 @@ public class SpotManager : MonoBehaviour {
     
     [SerializeField]
     GameObject SpotPrefab;
-    SpotData[] RegistrationSpot;
+    List<SpotData> RegistrationSpot;
     [SerializeField]
-    string SpotDataResourcePass;
+    string[] SpotDataResourcePasses;
     Locator ref_Locator;
     public List<SpotClass> ref_SpotClasses;
     //SpotClass[] ref_SpotClasses;
@@ -26,9 +26,14 @@ public class SpotManager : MonoBehaviour {
     {
         AttacedTransform = gameObject.transform;
         ref_SpotClasses = new List<SpotClass>();
+        RegistrationSpot = new List<SpotData>();
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
+        foreach(string SpotDataResourcePass in SpotDataResourcePasses)
+        {
+            RegistrationSpot.AddRange(Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass)));
+            //RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
+        }
         
-        RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
         foreach (var ref_spotData in RegistrationSpot)
         {
             CreateSpotClass(ref_spotData.SpotName);
