@@ -192,11 +192,6 @@ Prefab:
       propertyPath: LetiDegPerWorldSpace
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
-        type: 2}
-      propertyPath: SpotDataResourcePass
-      value: ShinYokohama
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}
   m_IsPrefabParent: 0
