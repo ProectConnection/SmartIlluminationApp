@@ -27,11 +27,16 @@ public class SpotManager : MonoBehaviour {
         AttacedTransform = gameObject.transform;
         ref_SpotClasses = new List<SpotClass>();
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
-        
-        RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
-        foreach (var ref_spotData in RegistrationSpot)
+        if (SpotDataResourcePass != "")
         {
-            CreateSpotClass(ref_spotData.SpotName);
+            RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
+        }
+        if (RegistrationSpot != null)
+        {
+            foreach (var ref_spotData in RegistrationSpot)
+            {
+                CreateSpotClass(ref_spotData.SpotName);
+            }
         }
         
         
