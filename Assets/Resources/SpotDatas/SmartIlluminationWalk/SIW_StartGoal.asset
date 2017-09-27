@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotName: "\u30B9\u30DE\u30FC\u30C8\u30A4\u30EB\u30DF\u30CD\u30FC\u30B7\u30E7\u30F3\u30A6\u30A9\u30FC\u30AF
     \u30B9\u30BF\u30FC\u30C8\u30FB\u30B4\u30FC\u30EB\u5730\u70B9"
-  Longitude: 139.64178
-  Letitude: 35.448166
+  Longitude: 139.64397
+  Letitude: 35.44816
   SpotActivateDistance: 75
   PhotoFrame: []
   StampIDThisCheckPoint: -1

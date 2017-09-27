@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ZounoHanaBouhatei
   m_EditorClassIdentifier: 
   spotName: "\u8C61\u306E\u9F3B\u9632\u6CE2\u5824"
-  Longitude: 139.64291
-  Letitude: 35.449776
+  Longitude: 139.64518
+  Letitude: 35.44977
   SpotActivateDistance: 75
   PhotoFrame: []
   StampIDThisCheckPoint: -1
