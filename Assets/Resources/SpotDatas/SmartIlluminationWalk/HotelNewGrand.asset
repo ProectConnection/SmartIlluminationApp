@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: HotelNewGrand
   m_EditorClassIdentifier: 
   spotName: "\u30DB\u30C6\u30EB\u30CB\u30E5\u30FC\u30B0\u30E9\u30F3\u30C9\u4E2D\u5EAD"
-  Longitude: 139.64745
-  Letitude: 35.444733
+  Longitude: 139.64964
+  Letitude: 35.44473
   SpotActivateDistance: 75
   PhotoFrame: []
   StampIDThisCheckPoint: -1

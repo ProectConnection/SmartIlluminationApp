@@ -28,8 +28,6 @@ public class Test : MonoBehaviour {
 
 
 
-
-
     // Use this for initialization
     void Start () {
 
@@ -46,6 +44,7 @@ public class Test : MonoBehaviour {
         trigger.triggers.Add(entry);
 
         
+
         f.SetActive(false);
         s.SetActive(false);
         t.SetActive(false);
@@ -53,7 +52,7 @@ public class Test : MonoBehaviour {
         fi.SetActive(false);
         si.SetActive(false);
 
-        OK.SetActive(true);
+        OK.SetActive(false);
 
 
 
@@ -64,14 +63,15 @@ public class Test : MonoBehaviour {
     void Update () {
 
 
-
-        /*if (Input.GetKeyDown(KeyCode.A))
+        //スタンプ表示確認用
+        /* if (Input.GetKeyDown(KeyCode.A))
         {
 
             OK.SetActive(true);
-
-        }
-        */
+            IventCount += 1;
+            Debug.Log(IventCount);
+        }*/
+        
 
     }
 
@@ -82,16 +82,24 @@ public class Test : MonoBehaviour {
     void SpotAreaIN()
     {
 
-       
+       OK.SetActive(true);
+       IventCount += 1;
+
+
+
+
+
+
+
+
 
     }
 
     void SpotAreaOUT()
     {
 
-       
-            OK.SetActive(false);
-
+ 
+      OK.SetActive(false);
         
 
     }
@@ -103,8 +111,8 @@ public class Test : MonoBehaviour {
 
     public void Clicked(BaseEventData eventData)
     {
-        Debug.Log(IventCount);
-        IventCount++;
+        //Debug.Log(IventCount);
+        //IventCount++;
 
 
         if (IventCount == 1)
@@ -139,7 +147,7 @@ public class Test : MonoBehaviour {
         }
 
 
-        PlayerPrefs.Save();
+        
 
 
 
