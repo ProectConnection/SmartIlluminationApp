@@ -18,11 +18,12 @@ public class screen : MonoBehaviour {
 
     void Start()
     {
-    #if !UNITY_EDITOR && UNITY_ANDROID
+#if !UNITY_EDITOR && UNITY_ANDROID
         env = new AndroidJavaClass("android.os.Environment");
         AndroidJavaObject storageDir = env.CallStatic<AndroidJavaObject>("getExternalStorageDirectory");
         _storageDir = storageDir.Call<string>("getCanonicalPath");
-    #endif
+        Debug.Log("_storageDir" + _storageDir);
+#endif
     }
 
     public void CaptchaScreen()
@@ -44,24 +45,19 @@ public class screen : MonoBehaviour {
         string fileName = "SmartIllumination_" + System.DateTime.Now.Hour.ToString()  +"" + System.DateTime.Now.Minute.ToString() + "" + System.DateTime.Now.Second.ToString() + ".png";
         // Application.CaptureScreenshot("../../../../DCIM/Camera/" + fileName);
         //Application.CaptureScreenshot("phone/DCIM/Camera/" + fileName);
-        if (Application.platform == RuntimePlatform.Android)
-        {
+        switch (Application.platform) {
+            case (RuntimePlatform.Android)://内部ストレージへの保存完了（他機種でのテスト必須）
             DirectoryPass = _storageDir + "/DCIM/SmartIlluminationWalk";
-            // File.WriteAllBytes(Environment.GetEnvironmentVariable("/"),bytes);
-            //File.WriteAllBytes("../../../../DCIM/Camera/" + fileName, bytes);//写真が保存されない
-
-            if (!Directory.Exists(DirectoryPass)) Directory.CreateDirectory(fileName);
+            if (!Directory.Exists(DirectoryPass)) Directory.CreateDirectory(DirectoryPass);
             File.WriteAllBytes(DirectoryPass + "/" +fileName, bytes);//写真が保存されない
-        }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            //NO
-        }
-        else if (Application.platform == RuntimePlatform.WindowsPlayer)
-        {
+                break;
+            case (RuntimePlatform.IPhonePlayer):
+                //NO
+                break;
+            case (RuntimePlatform.WindowsPlayer):
             File.WriteAllBytes(Application.temporaryCachePath + "/" + fileName, bytes);//写真は保存されるが意図した場所に保存されない
+                break;
         }
-         Debug.Log(""+ Application.temporaryCachePath);
         //Debug.Log("" + Application.platform);
     }
 
