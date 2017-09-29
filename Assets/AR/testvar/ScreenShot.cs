@@ -7,7 +7,7 @@ public class ScreenShot : MonoBehaviour {
     {
         string format = "yyyy-MM-dd-HH-mm-ss";
         string fileName = System.DateTime.Now.ToString(format) + ".png";
-        Application.CaptureScreenshot(fileName);
+        ScreenCapture.CaptureScreenshot(fileName);
         string filePath = "";
 
         switch (Application.platform)

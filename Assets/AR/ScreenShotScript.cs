@@ -77,7 +77,7 @@ public class ScreenShotScript : MonoBehaviour {
         filename += "/PC/ダウンロード/scs/.png";
         
         //スクリーンショットのキャプチャ
-        Application.CaptureScreenshot(Path.Combine(currentScreenShotDirectory,filename),ResolutionRate);
+        ScreenCapture.CaptureScreenshot(Path.Combine(currentScreenShotDirectory,filename),ResolutionRate);
         //スクリーンショット撮影が終了するまで、
         //コルーチン自体が終了するのを抑制する
         while (!(File.Exists(filename)))
