@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Nohon_odouri
   m_EditorClassIdentifier: 
   spotName: "\u65E5\u672C\u5927\u901A\u308A"
-  Longitude: 139.63898
-  Letitude: 35.444843
+  Longitude: 139.64116
+  Letitude: 35.44484
   SpotActivateDistance: 75
   PhotoFrame: []
   StampIDThisCheckPoint: -1

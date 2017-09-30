@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ZounoHanaPark
   m_EditorClassIdentifier: 
   spotName: "\u8C61\u306E\u9F3B\u30D1\u30FC\u30AF"
-  Longitude: 139.641
-  Letitude: 35.450024
+  Longitude: 139.64322
+  Letitude: 35.45002
   SpotActivateDistance: 75
   PhotoFrame: []
   StampIDThisCheckPoint: -1

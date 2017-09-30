@@ -33,11 +33,11 @@ public class SpotManager : MonoBehaviour {
             RegistrationSpot.AddRange(Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass)));
             //RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
         }
+            foreach (var ref_spotData in RegistrationSpot)
+            {
+                CreateSpotClass(ref_spotData.SpotName);
+            }
         
-        foreach (var ref_spotData in RegistrationSpot)
-        {
-            CreateSpotClass(ref_spotData.SpotName);
-        }
         
         
     }

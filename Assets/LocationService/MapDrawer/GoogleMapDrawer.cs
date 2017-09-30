@@ -9,6 +9,7 @@ public class GoogleMapDrawer : MonoBehaviour {
     float initLongitude = -73.998672f;
     public string key = null;
     [SerializeField]
+    string signeture = null;
     int MapSize = 17;
     public int mapSize
     {
@@ -95,6 +96,10 @@ public class GoogleMapDrawer : MonoBehaviour {
         if(key != null && key.Length != 0)
         {
             Url += "&key=" + key;
+        }
+        if(signeture != null && signeture.Length != 0)
+        {
+            Url += "&signature=" + signeture;
         }
         Url = System.Uri.EscapeUriString(Url);
         StartCoroutine(DownloadFromUrl(this.Url, texture2d => UpdateSprite(texture2d)));

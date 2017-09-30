@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: AIzaSyAqBvuMfEMztHA0jHn1jvEuUHQRIdlxwb8
+  signeture: 
   MapSize: 17
   MapScale: 2
 --- !u!114 &114505194757960102
