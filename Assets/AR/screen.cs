@@ -42,9 +42,11 @@ public class screen : MonoBehaviour {
         byte[] bytes = screenShot.EncodeToPNG();
         UnityEngine.Object.Destroy(screenShot);
         string DirectoryPass;
-        string fileName = "SmartIllumination_" + System.DateTime.Now.Hour.ToString()  +"" + System.DateTime.Now.Minute.ToString() + "" + System.DateTime.Now.Second.ToString() + ".png";
         // Application.CaptureScreenshot("../../../../DCIM/Camera/" + fileName);
         //Application.CaptureScreenshot("phone/DCIM/Camera/" + fileName);
+        DateTime nowtime = DateTime.Now;
+        string fileName = "SmartIllumination_" +(nowtime.Year % 100).ToString("00") + nowtime.Month.ToString("00") + nowtime.Day.ToString("00")
+            + nowtime.Hour.ToString("00")  + nowtime.Minute.ToString("00") +  nowtime.Second.ToString("00") + ".png";
         switch (Application.platform) {
             case (RuntimePlatform.Android)://内部ストレージへの保存完了（他機種でのテスト必須）
             DirectoryPass = _storageDir + "/DCIM/SmartIlluminationWalk";
