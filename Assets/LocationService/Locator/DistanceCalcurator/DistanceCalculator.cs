@@ -16,10 +16,7 @@ public class DistanceCalculator : MonoBehaviour {
     float waitsecond;
     public double TotalMoveDistance
     {
-        get
-        {
-            return totalMoveDistance;
-        }
+        get { return totalMoveDistance; }
     }
 
     LocationCoordination ref_locationCoordination;

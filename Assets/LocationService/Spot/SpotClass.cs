@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
 public class SpotClass : MonoBehaviour {
@@ -12,21 +10,19 @@ public class SpotClass : MonoBehaviour {
     Renderer ThisSpotNameTextRenderer;
     public Transform thisTransform
     {
-        get
-        {
-            return gameObjectTransform;
-        }
+        get { return gameObjectTransform; }
     }
 
     [SerializeField]
     SpotData thisSpotData;
+    public SpotData ThisSpotData
+    {
+        get { return thisSpotData; }
+    }
     bool IsActivate = false;
     public bool isActivate
     {
-        get
-        {
-            return IsActivate;
-        }
+        get { return IsActivate; }
 
         set
         {
@@ -37,10 +33,7 @@ public class SpotClass : MonoBehaviour {
     bool IsVisible = true;
     public bool visible
     {
-        get
-        {
-            return IsVisible;
-        }
+        get { return IsVisible; }
         set
         {
             thisRenderer.enabled = value;
@@ -52,14 +45,8 @@ public class SpotClass : MonoBehaviour {
     bool IsSpotNearPlayer = false;
     public bool isSpotNearPlayer
     {
-        get
-        {
-            return IsSpotNearPlayer;
-        }
-        set
-        {
-            IsSpotNearPlayer = value;
-        }
+        get { return IsSpotNearPlayer; }
+        set { IsSpotNearPlayer = value; }
     }
     private void Awake()
     {
@@ -86,13 +73,7 @@ public class SpotClass : MonoBehaviour {
         thisSpotData = NextSpotData;
     }
 
-    public SpotData ThisSpotData
-    {
-        get
-        {
-            return thisSpotData;
-        }
-    }
+    
 
     public Vector3 GetWorldPosition()
     {
@@ -115,9 +96,8 @@ public class SpotClass : MonoBehaviour {
 
     public void ChangeScaleSpotRange()
     {
-        Vector3 newScale;
         Transform childrenTransform = ChildrenSpotRange.transform;
-        newScale = new Vector3(2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.x),
+        Vector3 newScale = new Vector3(2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.x),
                                childrenTransform.localScale.y,
                                2 * (thisSpotData.spotActivateDistance / mapSpotVisilizer.mapMeterPerOneUnit.y));
         childrenTransform.localScale = newScale;
