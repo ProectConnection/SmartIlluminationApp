@@ -6,30 +6,21 @@ public class SpotData : ScriptableObject{
     string spotName;
     public string SpotName
     {
-        get
-        {
-            return spotName;
-        }
+        get{ return spotName; }
     }
 
     [SerializeField]
     double Longitude;
     public double longitude
     {
-        get
-        {
-            return Longitude;
-        }
+        get { return Longitude; }
     }
 
     [SerializeField]
     double Letitude;
     public double letitude
     {
-        get
-        {
-            return Letitude;
-        }
+        get { return Letitude; }
     }
 
     [SerializeField]
@@ -38,10 +29,7 @@ public class SpotData : ScriptableObject{
     Texture2D[] PhotoFrame; //チェックポイントで写真撮影する際に映るフレーム類
     public Texture2D[] photoFrames
     {
-        get
-        {
-            return PhotoFrame;
-        }
+        get { return PhotoFrame; }
     }
 
     public Texture2D GetPhotoFrame(int index)
@@ -53,38 +41,24 @@ public class SpotData : ScriptableObject{
     StampID StampIDThisCheckPoint;
     public StampID stampId
     {
-        get
-        {
-            return StampIDThisCheckPoint;
-        }
+        get { return StampIDThisCheckPoint; }
     }
 
     [SerializeField]
     SpotType ThisSpotType;
     public SpotType spotType
     {
-        get
-        {
-            return ThisSpotType;
-        }
+        get { return ThisSpotType; }
     }
-
-    
 
     public float spotActivateDistance
     {
-        get
-        {
-            return SpotActivateDistance;
-        }
+        get { return SpotActivateDistance; }
     }
 
     public DVector2 GetSpotCoordInDVec2
     {
-        get
-        {
-            return new DVector2(longitude, letitude);
-        }
+        get { return new DVector2(longitude, letitude); }
     }
 
     public void SetNewDatas(string tname,double tLongitude,double tLetitude)

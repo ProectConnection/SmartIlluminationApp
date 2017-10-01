@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CompassRotator : MonoBehaviour {
@@ -12,7 +11,6 @@ public class CompassRotator : MonoBehaviour {
 
     [SerializeField]
     float rotationUpdateSecond = 0.2f;
-    bool conpassActive = true;
 
     // Use this for initialization
     void Start () {

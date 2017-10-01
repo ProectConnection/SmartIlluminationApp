@@ -7,15 +7,12 @@ public class Locator : MonoBehaviour
     LocationService locationService;
     [System.NonSerialized]
     public LocationCoordination locationCoordination;
-    //public MetricsCoordination metricsCoordination;
     DistanceCalculator distanceCalculator;
     float locationAnalyzeCounter;
     [SerializeField]
     float locationAnalyzeTime;
     bool isMobilePlatform;
     bool isLocationUpdating;
-    //GoogleMapDrawer googleMapDrawer;
-    SpotManager spotManager;
     [SerializeField]
     double initlat = 35.513f;
     [SerializeField]
@@ -30,7 +27,6 @@ public class Locator : MonoBehaviour
         locationCoordination = ScriptableObject.CreateInstance<LocationCoordination>();
         distanceCalculator = gameObject.GetComponent<DistanceCalculator>();
         //googleMapDrawer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<GoogleMapDrawer>();
-        spotManager = GameObject.FindGameObjectWithTag("SpotManager").GetComponent<SpotManager>();
         //googleMapDrawer.Calculator = locationCoordination;
         //ロケーションサービスが無効、かつユーザーが許可しているなら
         //ロケーションサービスを有効化
@@ -62,18 +58,14 @@ public class Locator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (/*isMobilePlatform*/true)
-        {
             locationAnalyzeCounter += Time.deltaTime;
             if (!(isLocationUpdating) && locationAnalyzeCounter >= locationAnalyzeTime)
             {
                 StartCoroutine(LocationUpdate());
                 OnLocationUpdate.Invoke();
-                //googleMapDrawer.BuildMap();
                 
                 locationAnalyzeCounter = 0.0f;
             }
-        }
     }
 
     IEnumerator LocationUpdate()

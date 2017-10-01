@@ -21,9 +21,6 @@
 
     public DVector2 GetLocationCoordInVec2
     {
-        get
-        {
-            return new DVector2(longitude, latitude);
-        }
+        get { return new DVector2(longitude, latitude); }
     }
 }

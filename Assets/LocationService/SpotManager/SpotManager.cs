@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class SpotManager : MonoBehaviour {
@@ -9,10 +8,7 @@ public class SpotManager : MonoBehaviour {
     List<SpotData> RegistrationSpot;
     [SerializeField]
     string[] SpotDataResourcePasses;
-    Locator ref_Locator;
     public List<SpotClass> ref_SpotClasses;
-    //SpotClass[] ref_SpotClasses;
-    Transform AttacedTransform;
     [SerializeField]
     SpotData NearestSpotData;
     [SerializeField]
@@ -24,14 +20,12 @@ public class SpotManager : MonoBehaviour {
     }
     private void Start()
     {
-        AttacedTransform = gameObject.transform;
         ref_SpotClasses = new List<SpotClass>();
         RegistrationSpot = new List<SpotData>();
-        ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         foreach(string SpotDataResourcePass in SpotDataResourcePasses)
         {
             RegistrationSpot.AddRange(Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass)));
-            //RegistrationSpot = Resources.LoadAll<SpotData>(("SpotDatas/" + SpotDataResourcePass));
+
         }
             foreach (var ref_spotData in RegistrationSpot)
             {
