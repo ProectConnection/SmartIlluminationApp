@@ -41,8 +41,6 @@ public class screen : MonoBehaviour {
 
         byte[] bytes = screenShot.EncodeToPNG();
         UnityEngine.Object.Destroy(screenShot);
-        // Application.CaptureScreenshot("../../../../DCIM/Camera/" + fileName);
-        //Application.CaptureScreenshot("phone/DCIM/Camera/" + fileName);
         string DirectoryPass = "";
         DateTime nowtime = DateTime.Now;
         string fileName = "SmartIllumination_" +(nowtime.Year % 100).ToString("00") + nowtime.Month.ToString("00") + nowtime.Day.ToString("00")
