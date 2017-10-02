@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GoogleMapDrawer))]
@@ -28,11 +27,9 @@ public class MapSpotVisilizer : MonoBehaviour {
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         
         ref_Locator.OnLocationUpdate.AddListener(StartSpotLocationUpdate);
-        //ref_SpotManager.ChangeSpotVisiblity(true);
 
         EquatorArcLength = 2 * System.Math.PI * long_lati_calculator.Equator;
         RadiusArcLength = 2 * System.Math.PI * long_lati_calculator.EarthRadius;
-        Debug.Log("start");
         RefrashMapUnit();
     }
     public void RefrashMapUnit()
