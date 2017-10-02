@@ -26,13 +26,13 @@ public class SpotData : ScriptableObject{
     [SerializeField]
     float SpotActivateDistance = 75.0f;
     [SerializeField]
-    Texture2D[] PhotoFrame; //チェックポイントで写真撮影する際に映るフレーム類
-    public Texture2D[] photoFrames
+    Sprite[] PhotoFrame; //チェックポイントで写真撮影する際に映るフレーム類
+    public Sprite[] photoFrames
     {
         get { return PhotoFrame; }
     }
 
-    public Texture2D GetPhotoFrame(int index)
+    public Sprite GetPhotoFrame(int index)
     {
         return PhotoFrame[index];
     }
@@ -74,7 +74,7 @@ public class SpotData : ScriptableObject{
         StampIDThisCheckPoint = tstampId;
     }
 
-    public void SetNewDatas(string tname, double tLongitude, double tLetitude, StampID tstampId,Texture2D[] tPhotoFrame)
+    public void SetNewDatas(string tname, double tLongitude, double tLetitude, StampID tstampId,Sprite[] tPhotoFrame)
     {
         SetNewDatas(tname, tLongitude, tLetitude,tstampId);
         PhotoFrame = tPhotoFrame;

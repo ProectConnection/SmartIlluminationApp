@@ -9,7 +9,7 @@ public class SpotDataRegister : EditorWindow{
     StampID newStampId;
     SpotType newSpotType;
     int spotInteractRange;
-    Texture2D[] NextAddPhotoFrame;
+    Sprite[] NextAddPhotoFrame;
     bool isAdvancedSetting;
     int photoLength;
     int prevPhotoLength;
@@ -133,11 +133,11 @@ public class SpotDataRegister : EditorWindow{
         photoLength = EditorGUILayout.IntField("Length", photoLength);
         if (photoLength != prevPhotoLength)
         {
-            NextAddPhotoFrame = new Texture2D[photoLength];
+            NextAddPhotoFrame = new Sprite[photoLength];
         }
         for (int i = 0; i < NextAddPhotoFrame.Length; i++)
         {
-            NextAddPhotoFrame[i] = (Texture2D)EditorGUILayout.ObjectField("PhotoFrame[" + i + "]", NextAddPhotoFrame[i], typeof(Texture2D), false);
+            NextAddPhotoFrame[i] = (Sprite)EditorGUILayout.ObjectField("PhotoFrame[" + i + "]", NextAddPhotoFrame[i], typeof(Texture2D), false);
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEditor;
 public class CreateSpotAsset
 {
 
-    public static void GenerateSpotData(string url, string spotName, string parentPass,string savePass,StampID stampId,Texture2D[] photoFrames)
+    public static void GenerateSpotData(string url, string spotName, string parentPass,string savePass,StampID stampId,Sprite[] photoFrames)
     {
         bool isGoogleMapUrl = url.IndexOf("https://www.google.co.jp/maps/") >= 0;
         try

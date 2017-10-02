@@ -9,7 +9,7 @@ public class SpotRegisterData{
     public string fileName;
     public SpotType spotType;
     public StampID newStampId;
-    public Texture2D[] NextAddPhotoFrame;
+    public Sprite[] NextAddPhotoFrame;
     public int spotRange;
 
     public SpotRegisterData(string tspotUrl,
@@ -20,7 +20,7 @@ public class SpotRegisterData{
     SpotType tspotType,
     StampID tnewStampId,
     int tSpotRange,
-    Texture2D[] tNextAddPhotoFrame)
+    Sprite[] tNextAddPhotoFrame)
     {
         spotUrl = tspotUrl;
         spotName = tspotName;
@@ -38,7 +38,7 @@ public class SpotRegisterData{
     string tParentSavePass,
     string tsavePass,
     StampID tnewStampId,
-    Texture2D[] tNextAddPhotoFrame)
+    Sprite[] tNextAddPhotoFrame)
     {
         spotUrl = tspotUrl;
         spotName = tspotName;
