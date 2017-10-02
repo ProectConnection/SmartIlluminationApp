@@ -15,7 +15,7 @@ public class Cam : MonoBehaviour {
 		}
 
 		//デバイス名,映し出す幅,映し出す高さ,FPS値
-		WebCamTexture webcamTexture = new WebCamTexture(devices[1].name, Width, Height, FPS);
+		WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);
 
 		//オブジェクトのマテリアルを貼り付け
 		GetComponent<Renderer> ().material.mainTexture = webcamTexture;
