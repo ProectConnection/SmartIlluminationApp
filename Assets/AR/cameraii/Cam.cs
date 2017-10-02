@@ -23,4 +23,5 @@ public class Cam : MonoBehaviour {
 		//実行
 		webcamTexture.Play();
 	}
+    
 }
