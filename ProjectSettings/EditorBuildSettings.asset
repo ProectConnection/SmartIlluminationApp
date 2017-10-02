@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/FrontEnd/Scenes/StampCard.unity
   - enabled: 1
     path: Assets/FrontEnd/Scenes/MapScene.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/FrontEnd/Scenes/ARCamera.unity
   - enabled: 1
     path: Assets/AR/marker/ma.unity
