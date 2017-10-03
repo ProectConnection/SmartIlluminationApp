@@ -16,6 +16,7 @@ MonoBehaviour:
   Longitude: 139.64397
   Letitude: 35.44816
   SpotActivateDistance: 75
-  PhotoFrame: []
+  PhotoFrame:
+  - {fileID: 21300000, guid: 64f6d39cf9cb1864c9b0ea1f61a90501, type: 3}
   StampIDThisCheckPoint: -1
   ThisSpotType: 3
