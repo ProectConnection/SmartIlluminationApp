@@ -10,16 +10,18 @@ public class Test : MonoBehaviour {
     Image ClickImage;
 
 
-    public GameObject[] Stamp = new GameObject[6];
+    //public GameObject[] Stamp = new GameObject[6];
 
-    /*
+    
     public GameObject f;
     public GameObject s;
     public GameObject t;
     public GameObject fo;
     public GameObject fi;
     public GameObject si;
-    */
+
+
+    GameObject SpotStamp;
 
     private int IventCount = 0;
 
@@ -44,20 +46,21 @@ public class Test : MonoBehaviour {
         trigger.triggers.Add(entry);
 
         
-        /*
+        
         f.SetActive(false);
         s.SetActive(false);
         t.SetActive(false);
         fo.SetActive(false);
         fi.SetActive(false);
         si.SetActive(false);
-        */
+        
 
 
         OK.SetActive(false);
 
 
-
+        SpotStamp = GameObject.FindGameObjectWithTag("SpotManager");
+        Debug.Log(SpotStamp);
 
     }
 
@@ -65,14 +68,15 @@ public class Test : MonoBehaviour {
     void Update () {
 
 
-        //スタンプ表示確認用
-        /* if (Input.GetKeyDown(KeyCode.A))
+
+
+
+        if(SpotStamp != null)
         {
 
-            OK.SetActive(true);
-            IventCount += 1;
-            Debug.Log(IventCount);
-        }*/
+            SpotAreaIN();
+
+        }
         
 
     }
@@ -85,8 +89,7 @@ public class Test : MonoBehaviour {
     {
 
        OK.SetActive(true);
-       IventCount += 1;
-    
+      
     }
 
     void SpotAreaOUT()
@@ -108,38 +111,11 @@ public class Test : MonoBehaviour {
         //Debug.Log(IventCount);
         //IventCount++;
 
-        /*
-        if (IventCount == 1)
-        {
+     
             f.SetActive(true);
             SpotAreaOUT();
-        }
-        if (IventCount == 2)
-        {
-            s.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 3)
-        {
-            t.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 4)
-        {
-            fo.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 5)
-        {
-            fi.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 6)
-        {
-            si.SetActive(true);
-            SpotAreaOUT();
-        }
-        */
+        
+        
 
         
 
