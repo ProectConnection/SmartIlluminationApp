@@ -11,7 +11,6 @@ public class Imagedraw : MonoBehaviour {
     public GameObject img;
     List<GameObject> imgInstanceObject;
    
-
     
     //public GameObject SpotManagerGObject;
     // Use this for initialization
