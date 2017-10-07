@@ -110,8 +110,13 @@ public class GoogleMapDrawer : MonoBehaviour {
         var www = new WWW(url);
         yield return www;
         //取得ミスで稀に403エラーが発生、エラー処理が必要
-        texture2d(www.texture);
-    }
+        if (!string.IsNullOrEmpty(www.error))
+        {
+            Debug.LogError(www.error);
+        }
+        else {
+            www.LoadImageIntoTexture(texture2d);
+        }
 
     public void UpdateSprite(Texture2D tex)
     {
