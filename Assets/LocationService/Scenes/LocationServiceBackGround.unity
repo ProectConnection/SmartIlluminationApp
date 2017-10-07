@@ -218,8 +218,7 @@ Prefab:
         type: 2}
       propertyPath: NearestSpotData
       value: 
-      objectReference: {fileID: 11400000, guid: 31bedaf42bb173843890ec820442b026,
-        type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}
   m_IsPrefabParent: 0
