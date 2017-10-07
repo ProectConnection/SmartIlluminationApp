@@ -11,6 +11,8 @@ public class GoogleMapDrawer : MonoBehaviour {
     [SerializeField]
     string signeture = null;
     int MapSize = 17;
+    [SerializeField]
+    GameObject ref_LoadingText;
     public int mapSize
     {
         get
@@ -116,6 +118,7 @@ public class GoogleMapDrawer : MonoBehaviour {
         }
         else {
             www.LoadImageIntoTexture(texture2d);
+            if (ref_LoadingText) ref_LoadingText.SetActive(false);
         }
 
     public void UpdateSprite(Texture2D tex)
