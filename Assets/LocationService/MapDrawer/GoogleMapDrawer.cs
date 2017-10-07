@@ -6,7 +6,8 @@ using UnityEngine;
 public class GoogleMapDrawer : MonoBehaviour {
     float initLatitude = 40.713728f;
     float initLongitude = -73.998672f;
-    public string key = null;
+    [SerializeField]
+    string key = null;
     [SerializeField]
     string signeture = null;
     int MapSize = 17;
