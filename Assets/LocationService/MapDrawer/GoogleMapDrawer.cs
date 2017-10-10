@@ -14,8 +14,10 @@ public class GoogleMapDrawer : MonoBehaviour {
     [SerializeField]
     GameObject ref_LoadingText;
     bool IsGetMapError = true;
-    Texture2D prevTex;
-    Material thisRenderer;
+    Texture2D ScriptableTexture;
+    [SerializeField]
+    Texture2D FirstTexture;
+    Material thisMaterial;
     public int mapSize
     {
         get
@@ -77,7 +79,9 @@ public class GoogleMapDrawer : MonoBehaviour {
             //渡す
             calculator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().locationCoordination;
             GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().OnLocationUpdate.AddListener(BuildMap);
-             thisRenderer = GetComponent<Renderer>().material;
+             thisMaterial = GetComponent<Renderer>().material;
+            ScriptableTexture = Instantiate(FirstTexture);
+            thisMaterial.mainTexture = ScriptableTexture;
         }
 	}
 	
@@ -107,7 +111,7 @@ public class GoogleMapDrawer : MonoBehaviour {
             Url += "&signature=" + signeture;
         }
         Url = System.Uri.EscapeUriString(Url);
-        StartCoroutine(DownloadFromUrl(this.Url, (Texture2D)thisRenderer.mainTexture));
+        StartCoroutine(DownloadFromUrl(this.Url, (Texture2D)thisMaterial.mainTexture));
     }
 
     IEnumerator DownloadFromUrl(string url,Texture2D texture2d)
@@ -120,9 +124,15 @@ public class GoogleMapDrawer : MonoBehaviour {
             Debug.LogError(www.error);
         }
         else {
-            www.LoadImageIntoTexture(texture2d);
+            
+            www.LoadImageIntoTexture(ScriptableTexture);
             if (ref_LoadingText) ref_LoadingText.SetActive(false);
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        DestroyImmediate(ScriptableTexture);
     }
 }
