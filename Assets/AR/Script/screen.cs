@@ -12,7 +12,7 @@ public class screen : MonoBehaviour {
 #endif
 
 
-    public Camera ArCam;
+    Camera ArCam;
     string _storageDir;
     // Use this for initialization
 
@@ -24,6 +24,7 @@ public class screen : MonoBehaviour {
         _storageDir = storageDir.Call<string>("getCanonicalPath");
         Debug.Log("_storageDir" + _storageDir);
 #endif
+        ArCam = Camera.main;
     }
 
     public void CaptchaScreen()
