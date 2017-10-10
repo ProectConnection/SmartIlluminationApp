@@ -26,6 +26,10 @@ public class Test : MonoBehaviour {
     private int IventCount = 0;
 
 
+    bool Stamp1 = false;
+    bool Stamp2 = false;
+
+
     public GameObject OK;
 
 
@@ -60,7 +64,24 @@ public class Test : MonoBehaviour {
 
 
         SpotStamp = GameObject.FindGameObjectWithTag("SpotManager");
-        Debug.Log(SpotStamp);
+        SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
+
+
+
+        if(neareSpotData.stampId == StampID.YDAStamp1)
+        {
+
+            Stamp1 = true;
+
+        }
+        if (neareSpotData.stampId == StampID.YDAStamp2)
+        {
+
+            Stamp2 = true;
+
+        }
+
+
 
     }
 
@@ -111,13 +132,19 @@ public class Test : MonoBehaviour {
         //Debug.Log(IventCount);
         //IventCount++;
 
-     
+        if (Stamp1 == true)
+        {
             f.SetActive(true);
-            SpotAreaOUT();
-        
-        
+            
+        }
+        if (Stamp2 == true)
+        {
+            s.SetActive(true);
 
-        
+        }
+
+
+
 
 
 
