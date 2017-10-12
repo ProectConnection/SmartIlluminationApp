@@ -9,6 +9,8 @@ TagManager:
   - Locator
   - SpotManager
   - Spot
+  - SaysStamp
+  - StampData
   layers:
   - Default
   - TransparentFX

@@ -9,26 +9,14 @@ public class Test : MonoBehaviour {
     [SerializeField]
     Image ClickImage;
 
-
-    //public GameObject[] Stamp = new GameObject[6];
-
-    
-    public GameObject f;
-    public GameObject s;
-    public GameObject t;
-    public GameObject fo;
-    public GameObject fi;
-    public GameObject si;
-
+    [SerializeField]
+    GameObject[] StampGameObject;
 
     GameObject SpotStamp;
 
     private int IventCount = 0;
 
-
-    bool Stamp1 = false;
-    bool Stamp2 = false;
-
+    StampData Ref_stampData;
 
     public GameObject OK;
 
@@ -51,47 +39,51 @@ public class Test : MonoBehaviour {
 
         
         
-        f.SetActive(false);
-        s.SetActive(false);
-        t.SetActive(false);
-        fo.SetActive(false);
-        fi.SetActive(false);
-        si.SetActive(false);
-        
 
 
         OK.SetActive(false);
 
-
+        Ref_stampData = StampData.GetStampData;
+        Debug.Log(Ref_stampData);
         SpotStamp = GameObject.FindGameObjectWithTag("SpotManager");
         SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
 
+        UpdateStampCardView();
+    }
 
-
-        if(neareSpotData.stampId == StampID.YDAStamp1)
+    public void UpdateStampCardView()
+    {
         {
-
-            Stamp1 = true;
-
+            int i = 0;
+            for (int j = 0; j < StampGameObject.Length; j++)
+            {
+                if(i < Ref_stampData.pressedStamp.Count)
+                {
+                    StampGameObject[j].SetActive(true);
+                    i++;
+                }
+                else StampGameObject[j].SetActive(false);
+            }
         }
-        if (neareSpotData.stampId == StampID.YDAStamp2)
-        {
-
-            Stamp2 = true;
-
-        }
-
-
 
     }
 
+    //public void StampPress()
+    //{
+    //    SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
+
+
+    //    if (!IsPressedStampById(neareSpotData.stampId))
+    //    {
+    //        Debug.Log("pressedStamp.Count" + pressedStamp.Count);
+    //        pressedStamp.Add(neareSpotData.stampId);
+    //    }
+
+    //    UpdateStampCardView();
+    //}
+
     // Update is called once per frame
     void Update () {
-
-
-
-
-
         if(SpotStamp != null)
         {
 
@@ -122,38 +114,10 @@ public class Test : MonoBehaviour {
 
     }
 
-
-
-
-
-
     public void Clicked(BaseEventData eventData)
     {
-        //Debug.Log(IventCount);
-        //IventCount++;
-
-        if (Stamp1 == true)
-        {
-            f.SetActive(true);
-            
-        }
-        if (Stamp2 == true)
-        {
-            s.SetActive(true);
-
-        }
-
-
-
-
-
-
+        Debug.Log("Clicked");
+        Ref_stampData.StampPress();
+        UpdateStampCardView();
     }
-
-
-    
-    
-
-
-
 }
