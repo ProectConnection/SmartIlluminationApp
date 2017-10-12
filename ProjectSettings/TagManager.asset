@@ -11,6 +11,7 @@ TagManager:
   - Spot
   - SaysStamp
   - StampData
+  - DataSaver
   layers:
   - Default
   - TransparentFX
