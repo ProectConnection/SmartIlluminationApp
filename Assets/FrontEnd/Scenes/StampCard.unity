@@ -1175,10 +1175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClickImage: {fileID: 1580601716}
-  f: {fileID: 293478822}
-  s: {fileID: 533293153}
-  t: {fileID: 390268842}
-  fo: {fileID: 339784367}
-  fi: {fileID: 309852145}
-  si: {fileID: 1539904983}
+  StampGameObject:
+  - {fileID: 293478822}
+  - {fileID: 533293153}
+  - {fileID: 390268842}
+  - {fileID: 339784367}
+  - {fileID: 309852145}
+  - {fileID: 1539904983}
   OK: {fileID: 1580601714}

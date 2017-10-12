@@ -15,3 +15,6 @@ MonoBehaviour:
   Longitude: 139.53798
   Letitude: 35.46525
   SpotActivateDistance: 150
+  PhotoFrame: []
+  StampIDThisCheckPoint: 1
+  ThisSpotType: 0
