@@ -53,8 +53,12 @@ public class screen : MonoBehaviour {
             if (!Directory.Exists(DirectoryPass)) Directory.CreateDirectory(DirectoryPass);
             
                 break;
-            case (RuntimePlatform.IPhonePlayer):
+		case (RuntimePlatform.IPhonePlayer):
                 //NO
+			DirectoryPass = Application.persistentDataPath + "/SmartIlluminationWalk";
+			if (!Directory.Exists (DirectoryPass))
+				Directory.CreateDirectory (DirectoryPass);
+			UnityEngine.iOS.Device.SetNoBackupFlag (DirectoryPass);
                 break;
             case (RuntimePlatform.WindowsPlayer):
             case (RuntimePlatform.WindowsEditor)://データパスへの保存(C:/user/ユーザー名/appdata/LocalLow)
