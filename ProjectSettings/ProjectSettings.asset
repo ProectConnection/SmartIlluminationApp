@@ -141,7 +141,7 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
-    Android: com.ngo.SmartIlluminationAppT
+    Android: com.YDAGame.SmartIlluminationApp
     Standalone: unity.ngo.SmartIlluminationAppT
     Tizen: com.ngo.SmartIlluminationAppT
     iOS: com.YDAGame.SmartIlluminationApp
