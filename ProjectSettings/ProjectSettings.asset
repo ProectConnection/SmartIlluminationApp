@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.1
+  bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -144,7 +144,7 @@ PlayerSettings:
     Android: com.ngo.SmartIlluminationAppT
     Standalone: unity.ngo.SmartIlluminationAppT
     Tizen: com.ngo.SmartIlluminationAppT
-    iOS: com.ngo.SmartIlluminationAppT
+    iOS: com.YDAGame.SmartIlluminationApp
     tvOS: com.ngo.SmartIlluminationAppT
   buildNumber:
     iOS: 0
@@ -218,7 +218,7 @@ PlayerSettings:
   appleDeveloperTeamID: "\u5E78\u96C4 \u5BAE\u672C(Personal Team)"
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
-  appleEnableAutomaticSigning: 0
+  appleEnableAutomaticSigning: 2
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -235,6 +235,12 @@ PlayerSettings:
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: Android
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: ff171422a73336f498b93a4273a5871c, type: 3}
+      m_Width: 128
+      m_Height: 128
+  - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: ff171422a73336f498b93a4273a5871c, type: 3}
