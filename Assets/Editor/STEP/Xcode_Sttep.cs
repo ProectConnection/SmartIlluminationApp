@@ -54,8 +54,8 @@ public class XcodeSettingsPostProcesser
         plist.ReadFromFile (plistPath);
 
         // Add string setting
-        plist.root.SetString ("hogehogeId", "dummyid");
-
+        //plist.root.SetString ("hogehogeId", "dummyid");
+        plist.root.SetString ("Privacy - Motion Usage Description","Motion access required for use pedorometer");
         // Add URL Scheme
         var array = plist.root.CreateArray ("CFBundleURLTypes");
         var urlDict = array.AddDict ();
