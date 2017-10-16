@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 
 public class screen : MonoBehaviour {
@@ -17,8 +18,15 @@ public class screen : MonoBehaviour {
 
     Camera ArCam;
     string _storageDir;
+	string fileName;
     // Use this for initialization
+	#if !UNITY_EDITOR && UNITY_IOS
+	[DllImport("__Internal")]
+	private static extern void _PlaySystemShutterSound();
+	[DllImport("__Internal")]
+	private static extern void _WriteImageToAlbum(string path,string CalledGameObjectName,string CalledMethodName);
 
+	#endif
     void Start()
     {
 #if !UNITY_EDITOR && UNITY_ANDROID
@@ -29,6 +37,28 @@ public class screen : MonoBehaviour {
 #endif
         ArCam = Camera.main;
     }
+
+	IEnumerator WaitUntilFinishedWriting(Action callback){
+		while (!File.Exists (TemporaryScreenShotPath())) {
+			yield return null;
+		}
+		callback ();
+		yield break;
+	}
+
+	string TemporaryScreenShotPath(){
+		return Application.persistentDataPath + "/" + fileName;
+	}
+
+	public void DidImageWriteToAlbum(string errorDescription){
+		if (string.IsNullOrEmpty (errorDescription)) {
+			Debug.Log (">>>>> Image have been Written To Album Successfully.");
+			Debug.Log (">>>>> Delete Temporary Screenshot.");
+			File.Delete (TemporaryScreenShotPath ());
+		} else {
+			Debug.Log (">>>>> An Error Occured. Error Description is..." + errorDescription);
+		}
+	}
 
     public void CaptchaScreen()
     {
@@ -47,29 +77,34 @@ public class screen : MonoBehaviour {
         UnityEngine.Object.Destroy(screenShot);
         string DirectoryPass = "";
         DateTime nowtime = DateTime.Now;
-        string fileName = "SmartIllumination_" +(nowtime.Year % 100).ToString("00") + nowtime.Month.ToString("00") + nowtime.Day.ToString("00")
+        fileName = "SmartIllumination_" +(nowtime.Year % 100).ToString("00") + nowtime.Month.ToString("00") + nowtime.Day.ToString("00")
             + nowtime.Hour.ToString("00")  + nowtime.Minute.ToString("00") +  nowtime.Second.ToString("00") + ".png";
-        //directorypassの成型
+		
+		//directorypassの成型
         switch (Application.platform) {
 
             case (RuntimePlatform.Android)://内部ストレージへの保存完了（他機種でのテスト必須）
             DirectoryPass = _storageDir + "/DCIM/SmartIlluminationWalk";
             if (!Directory.Exists(DirectoryPass)) Directory.CreateDirectory(DirectoryPass);
-            
                 break;
 		case (RuntimePlatform.IPhonePlayer):
-                //NO
-			DirectoryPass = Application.persistentDataPath + "/Documents/SmartIlluminationWalk";
-			if (!Directory.Exists (DirectoryPass))
-				Directory.CreateDirectory (DirectoryPass);
-			UnityEngine.iOS.Device.SetNoBackupFlag (DirectoryPass);
-                break;
+			DirectoryPass = Application.persistentDataPath;
+			break;
+
             case (RuntimePlatform.WindowsPlayer):
             case (RuntimePlatform.WindowsEditor)://データパスへの保存(C:/user/ユーザー名/appdata/LocalLow)
                 DirectoryPass = Application.persistentDataPath;
                 break;
         }
         File.WriteAllBytes(DirectoryPass + "/" + fileName, bytes);
+		//iOSの時のみ撮影処理が特殊なので例外的な処理を行う
+
+		#if !UNITY_EDITOR && UNITY_IOS
+			_PlaySystemShutterSound ();
+			StartCoroutine (WaitUntilFinishedWriting (() => {
+				_WriteImageToAlbum (TemporaryScreenShotPath (),gameObject.name,((Action<string>)DidImageWriteToAlbum).Method.Name);
+			}));
+		#endif
     }
 
 
