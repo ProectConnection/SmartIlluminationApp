@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 
 public class screen : MonoBehaviour {
+	public UnityEventQueueSystem OnCompleteCapture;
+	public UnityEventQueueSystem OnFailCapture;
+
 #if !UNITY_EDITOR && UNITY_ANDROID
     AndroidJavaClass env;
 #endif
@@ -48,6 +51,7 @@ public class screen : MonoBehaviour {
             + nowtime.Hour.ToString("00")  + nowtime.Minute.ToString("00") +  nowtime.Second.ToString("00") + ".png";
         //directorypassの成型
         switch (Application.platform) {
+
             case (RuntimePlatform.Android)://内部ストレージへの保存完了（他機種でのテスト必須）
             DirectoryPass = _storageDir + "/DCIM/SmartIlluminationWalk";
             if (!Directory.Exists(DirectoryPass)) Directory.CreateDirectory(DirectoryPass);
@@ -55,7 +59,7 @@ public class screen : MonoBehaviour {
                 break;
 		case (RuntimePlatform.IPhonePlayer):
                 //NO
-			DirectoryPass = Application.persistentDataPath + "/SmartIlluminationWalk";
+			DirectoryPass = Application.persistentDataPath + "/Documents/SmartIlluminationWalk";
 			if (!Directory.Exists (DirectoryPass))
 				Directory.CreateDirectory (DirectoryPass);
 			UnityEngine.iOS.Device.SetNoBackupFlag (DirectoryPass);
