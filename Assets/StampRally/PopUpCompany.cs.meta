@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c514864be489bac4e973b16097f6b4c6
 timeCreated: 1507875797
+=======
+guid: bc05aae71d697964fae3c5c2c3eaeeaf
+timeCreated: 1508133251
+>>>>>>> origin/StampRally
 licenseType: Free
 MonoImporter:
   serializedVersion: 2

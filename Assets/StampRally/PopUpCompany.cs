@@ -6,67 +6,115 @@ using UnityEngine.EventSystems;
 
 public class PopUpCompany : MonoBehaviour
 {
-
-    [SerializeField]
-    GameObject[] PopUp;
-
     /*
-    public GameObject Pop1;
-    public GameObject Pop2;
-    public GameObject Pop3;
+    [SerializeField]
+    GameObject[] PopUpList;
     */
 
+    public GameObject PopUp;
 
-    int j;
-
-
+    bool DisplayCompany;
 
     // Use this for initialization
     void Start()
     {
-
-
+        PopUp.SetActive(false);
+        DisplayCompany = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         /*
-        Pop1.SetActive(false);
-        Pop2.SetActive(false);
-        Pop3.SetActive(false);
+        for (int i = 0; i < PopUpList.Length; i++)
+        {
+            
+            PopUpList[i].SetActive(false);
+            
+        }
         */
+    }
 
-
-        CompanydisplayON();
-
-
-
-
+    public void ONPopUpDisplay()
+    {
+        if (DisplayCompany == false)
+        {
+            PopUp.SetActive(true);
+            DisplayCompany = true;
+        }
+        else if (DisplayCompany == true)
+        {
+            PopUp.SetActive(false);
+            DisplayCompany = false;
+        }
     }
 
 
-    public void CompanydisplayON()
+    /*
+    public void PopUpON()
     {
 
-        for (j = 0; j < PopUp.Length; j++)
+        switch (transform.name)
         {
-            PopUp[j].SetActive(false);
+            case "1":
+                PopUpList[0].SetActive(true);
+                DisplayCompany = true;
+                if(DisplayCompany == true)
+                {
+                    PopUpList[0].SetActive(false);
+                }
+                Debug.Log("1");
+                break;
+            case "2":
+                PopUpList[1].SetActive(true);
+                DisplayCompany = true;
+                if (DisplayCompany == true)
+                {
+                    PopUpList[1].SetActive(false);
+                }
+                Debug.Log("2");
+                break;
+            case "3":
+                PopUpList[2].SetActive(true);
+                DisplayCompany = true;
+                if (DisplayCompany == true)
+                {
+                    PopUpList[2].SetActive(false);
+                }
+                Debug.Log("3");
+                break;
+            case "4":
+                PopUpList[3].SetActive(true);
+                DisplayCompany = true;
+                if (DisplayCompany == true)
+                {
+                    PopUpList[3].SetActive(false);
+                }
+                Debug.Log("4");
+                break;
+            case "5":
+                PopUpList[4].SetActive(true);
+                DisplayCompany = true;
+                if (DisplayCompany == true)
+                {
+                    PopUpList[4].SetActive(false);
+                }
+                Debug.Log("5");
+                break;
+            case "6":
+                PopUpList[5].SetActive(true);
+                DisplayCompany = true;
+                if (DisplayCompany == true)
+                {
+                    PopUpList[5].SetActive(false);
+                }
+                Debug.Log("6");
+                break;
+            default:
+                break;
         }
 
-
-
     }
-
-    public void OnDisplayCompany()
-    {
-
-        for (j = 0; j < PopUp.Length; j++)
-        {
-            PopUp[1].SetActive(false);
-        }
-
-    }
+    */
 
 }
