@@ -15,6 +15,9 @@ public class screen : MonoBehaviour {
     AndroidJavaClass env;
 #endif
 
+    [SerializeField]
+    AudioClip ShutterSound;
+    AudioSource ShutterSEObject;
 
     Camera ArCam;
     string _storageDir;
@@ -35,6 +38,9 @@ public class screen : MonoBehaviour {
         _storageDir = storageDir.Call<string>("getCanonicalPath");
         Debug.Log("_storageDir" + _storageDir);
 #endif
+
+        ShutterSEObject = new GameObject("ShutterSEObject").AddComponent<AudioSource>();
+        ShutterSEObject.clip = ShutterSound;
         ArCam = Camera.main;
     }
 
@@ -62,6 +68,12 @@ public class screen : MonoBehaviour {
 
     public void CaptchaScreen()
     {
+#if !UNITY_EDITOR && UNITY_IOS
+        _PlaySystemShutterSound ();
+#else
+        ShutterSEObject.Play();
+#endif
+
         Texture2D screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         RenderTexture rt = new RenderTexture(screenShot.width, screenShot.height, 24);
         RenderTexture prev = ArCam.targetTexture;
@@ -99,12 +111,12 @@ public class screen : MonoBehaviour {
         File.WriteAllBytes(DirectoryPass + "/" + fileName, bytes);
 		//iOSの時のみ撮影処理が特殊なので例外的な処理を行う
 
-		#if !UNITY_EDITOR && UNITY_IOS
-			_PlaySystemShutterSound ();
+#if !UNITY_EDITOR && UNITY_IOS
+			
 			StartCoroutine (WaitUntilFinishedWriting (() => {
 				_WriteImageToAlbum (TemporaryScreenShotPath (),gameObject.name,((Action<string>)DidImageWriteToAlbum).Method.Name);
 			}));
-		#endif
+#endif
     }
 
 

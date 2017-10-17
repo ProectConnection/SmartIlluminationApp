@@ -8,11 +8,11 @@ public class Cam : MonoBehaviour {
 	public int Height = 1080;
 	public int FPS = 30;
 	RawImage Raw;
-
+    Vector3 WhenStartTransformScale;
     //public Text  text;
     //WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ
     void Start() {
-		
+        WhenStartTransformScale = transform.localScale;
         // display all cameras
         //WebCamTexture webcamTexture= new WebCamTexture(devices[0].name, Width, Height, FPS); ;
         //カメラ検索
@@ -21,7 +21,7 @@ public class Cam : MonoBehaviour {
         }*/
             OCamFlg();
 
-			transform.localScale = new Vector2 (-transform.localScale.x, transform.localScale.y);
+			transform.localScale = new Vector2 (WhenStartTransformScale.x, WhenStartTransformScale.y);
 
         //text = this.GetComponent<Text>();
     }
@@ -36,7 +36,7 @@ public class Cam : MonoBehaviour {
 		switch(Application.platform){
 
 		case (RuntimePlatform.IPhonePlayer):
-			this.transform.localScale = new Vector3 (-transform.localScale.x, -transform.localScale.y, -transform.localScale.z); 
+			this.transform.localScale = new Vector3 (WhenStartTransformScale.x, -WhenStartTransformScale.y, -WhenStartTransformScale.z); 
 			break;
 		}
 		if (incamera.incamflg == true)
