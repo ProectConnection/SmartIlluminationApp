@@ -58,6 +58,7 @@ public class XcodeSettingsPostProcesser
         //plist.root.SetString ("Privacy - Motion Usage Description","Motion access required for use pedorometer");
 		plist.root.SetString ("NSMotionUsageDescription","歩数計機能を使用するためには加速度センサーへのアクセスが必要です。");
 		plist.root.SetString ("NSPhotoLibraryAddUsageDescription","写真を保存するためにはフォトライブラリへのアクセスが必要です。");
+        plist.root.SetString ("NSPhotoLibraryUsageDescription","写真を保存するためにはフォトライブラリへのアクセスが必要です。");
         // Add URL Scheme
         var array = plist.root.CreateArray ("CFBundleURLTypes");
         var urlDict = array.AddDict ();
