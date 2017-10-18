@@ -332,7 +332,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 293478822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc05aae71d697964fae3c5c2c3eaeeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: c514864be489bac4e973b16097f6b4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 1456826278}
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 309852145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc05aae71d697964fae3c5c2c3eaeeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: c514864be489bac4e973b16097f6b4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 1649033771}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 339784367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc05aae71d697964fae3c5c2c3eaeeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: c514864be489bac4e973b16097f6b4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 1754242430}
@@ -618,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &389965026
 RectTransform:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 390268842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc05aae71d697964fae3c5c2c3eaeeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: c514864be489bac4e973b16097f6b4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 1277730610}
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 533293153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc05aae71d697964fae3c5c2c3eaeeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: c514864be489bac4e973b16097f6b4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 1715354192}
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1539904983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc05aae71d697964fae3c5c2c3eaeeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: c514864be489bac4e973b16097f6b4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 2012981495}
