@@ -49,7 +49,7 @@ public class Test : MonoBehaviour {
         SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
         if (neareSpotData != null)
         {
-            if (Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+            if (neareSpotData.spotType <= SpotType.Photo || Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
         }
         else { SpotAreaOUT(); }
 
