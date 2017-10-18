@@ -75,6 +75,7 @@ public class DataSaver : MonoBehaviour {
     public int SetDataPressedStamp(List<StampID> newPressedStamp)
     {
         pressedStamp = newPressedStamp;
+        DataSave();
         
         return 0;
     }
@@ -84,11 +85,6 @@ public class DataSaver : MonoBehaviour {
         DataPath = Application.persistentDataPath;
         DataLoad();
         StartCoroutine(AutoSave());
-    }
-
-    private void OnApplicationQuit()
-    {
-        DataSave();
     }
 
     IEnumerator AutoSave(float autoSaveTiming = 60)
