@@ -36,7 +36,7 @@ public class Cam : MonoBehaviour {
 		switch(Application.platform){
 
 		case (RuntimePlatform.IPhonePlayer):
-			this.transform.localScale = new Vector3 (WhenStartTransformScale.x, -WhenStartTransformScale.y, -WhenStartTransformScale.z); 
+			this.transform.localScale = new Vector3 (-WhenStartTransformScale.x, -WhenStartTransformScale.y, -WhenStartTransformScale.z); 
 			break;
 		}
 		if (incamera.incamflg == true)
