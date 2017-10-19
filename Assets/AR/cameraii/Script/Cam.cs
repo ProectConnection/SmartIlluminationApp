@@ -19,9 +19,11 @@ public class Cam : MonoBehaviour {
        /* for (var i = 0; i < devices.Length; i++) {
             Debug.Log(devices[i].name);
         }*/
-            OCamFlg();
-
-			transform.localScale = new Vector2 (WhenStartTransformScale.x, WhenStartTransformScale.y);
+		transform.localScale = new Vector3 (WhenStartTransformScale.x, WhenStartTransformScale.y,WhenStartTransformScale.z);
+           
+		OCamFlg();
+	
+			
 
         //text = this.GetComponent<Text>();
     }
@@ -36,7 +38,7 @@ public class Cam : MonoBehaviour {
 		switch(Application.platform){
 
 		case (RuntimePlatform.IPhonePlayer):
-			this.transform.localScale = new Vector3 (-WhenStartTransformScale.x, -WhenStartTransformScale.y, -WhenStartTransformScale.z); 
+			transform.localScale = new Vector3 (WhenStartTransformScale.x, -WhenStartTransformScale.y, WhenStartTransformScale.z); 
 			break;
 		}
 		if (incamera.incamflg == true)
