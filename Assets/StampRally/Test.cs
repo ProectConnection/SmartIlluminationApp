@@ -41,12 +41,17 @@ public class Test : MonoBehaviour {
         
 
 
-        OK.SetActive(false);
+        //OK.SetActive(false);
 
         Ref_stampData = StampData.GetStampData;
         Debug.Log(Ref_stampData);
         SpotStamp = GameObject.FindGameObjectWithTag("SpotManager");
         SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
+        if (neareSpotData != null)
+        {
+            if (neareSpotData.spotType <= SpotType.Photo || Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+        }
+        else { SpotAreaOUT(); }
 
         UpdateStampCardView();
     }
@@ -84,12 +89,12 @@ public class Test : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if(SpotStamp != null)
-        {
+        //if(SpotStamp != null)
+        //{
 
-            SpotAreaIN();
+        //    SpotAreaIN();
 
-        }
+        //}
         
 
     }
@@ -119,5 +124,6 @@ public class Test : MonoBehaviour {
         Debug.Log("Clicked");
         Ref_stampData.StampPress();
         UpdateStampCardView();
+        SpotAreaOUT();
     }
 }
