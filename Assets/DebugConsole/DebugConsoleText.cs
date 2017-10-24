@@ -28,7 +28,7 @@ namespace DebugConsole
             {
                 return;
             }
-            textComp.text += "Debug.Log(" + logString + ")" + "\n";
+            textComp.text += logString + "\n";
 
         }
 
