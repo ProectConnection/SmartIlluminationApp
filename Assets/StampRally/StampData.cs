@@ -58,4 +58,15 @@ public class StampData : MonoBehaviour {
         }
         
     }
+
+    public void StampPress(StampID pressStamp)
+    {
+        if (pressStamp <= StampID.undefined) return;
+        if (!IsPressedStampById(pressStamp))
+        {
+            Debug.Log("pressedStamp.Count" + pressedStamp.Count);
+            pressedStamp.Add(pressStamp);
+            StartCoroutine(SaveToDataSaver());
+        }
+    }
 }
