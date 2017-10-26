@@ -108,6 +108,12 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &92551902 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114700823698235818, guid: abf244b9a0951d14f84a5bcfbddecfa5,
+    type: 2}
+  m_PrefabInternal: {fileID: 708962131}
+  m_Script: {fileID: 11500000, guid: a582163cfa74a7c4a9483d34ec3438b9, type: 3}
 --- !u!1 &189790643
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +623,7 @@ Prefab:
     - target: {fileID: 224156084433138934, guid: abf244b9a0951d14f84a5bcfbddecfa5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -11
+      value: -431
       objectReference: {fileID: 0}
     - target: {fileID: 224156084433138934, guid: abf244b9a0951d14f84a5bcfbddecfa5,
         type: 2}
@@ -672,11 +678,21 @@ Prefab:
     - target: {fileID: 114700823698235818, guid: abf244b9a0951d14f84a5bcfbddecfa5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1521577171536624, guid: abf244b9a0951d14f84a5bcfbddecfa5, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114270953375666798, guid: abf244b9a0951d14f84a5bcfbddecfa5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 92551902}
+    - target: {fileID: 114270953375666798, guid: abf244b9a0951d14f84a5bcfbddecfa5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abf244b9a0951d14f84a5bcfbddecfa5, type: 2}
@@ -1734,7 +1750,7 @@ GameObject:
   - component: {fileID: 1579212373}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: maincam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
