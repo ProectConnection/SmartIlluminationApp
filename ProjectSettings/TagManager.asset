@@ -12,6 +12,7 @@ TagManager:
   - SaysStamp
   - StampData
   - DataSaver
+  - maincam
   layers:
   - Default
   - TransparentFX
