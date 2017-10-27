@@ -7,17 +7,28 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/FrontEnd/Scenes/InitializeScene.unity
+    guid: 91cd20d9bed80b84a9da71299a23eebd
   - enabled: 1
     path: Assets/LocationService/Scenes/LocationServiceBackGround.unity
+    guid: 45689987b1998434d996b4a09f1b844e
   - enabled: 1
     path: Assets/FrontEnd/Scenes/Title.unity
+    guid: 6bf8fa084a6b92e48b57ee73937506b4
   - enabled: 1
     path: Assets/FrontEnd/Scenes/StampCard.unity
+    guid: 3788abfa4f54998408b2cbb64e2d9d16
   - enabled: 1
     path: Assets/FrontEnd/Scenes/MapScene.unity
+    guid: 6abfd60528068f14c9529b5351247ea7
   - enabled: 0
     path: Assets/FrontEnd/Scenes/ARCamera.unity
-  - enabled: 1
+    guid: 29f1ceb92d9bec843bb212d824af3bd3
+  - enabled: 0
     path: Assets/AR/marker/ma.unity
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/AR/cameraii/Scene/ma.unity
+    guid: 259d357726599084b8aef774a3d398f1
   - enabled: 1
     path: Assets/FrontEnd/Scenes/WalkMeter.unity
+    guid: 500479a23e524124ba0bc74ce4fb5b90

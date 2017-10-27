@@ -9,20 +9,14 @@ public class Test : MonoBehaviour {
     [SerializeField]
     Image ClickImage;
 
+    [SerializeField]
+    GameObject[] StampGameObject;
 
-    public GameObject[] Stamp = new GameObject[6];
-
-    /*
-    public GameObject f;
-    public GameObject s;
-    public GameObject t;
-    public GameObject fo;
-    public GameObject fi;
-    public GameObject si;
-    */
+    GameObject SpotStamp;
 
     private int IventCount = 0;
 
+    StampData Ref_stampData;
 
     public GameObject OK;
 
@@ -44,35 +38,63 @@ public class Test : MonoBehaviour {
         trigger.triggers.Add(entry);
 
         
-        /*
-        f.SetActive(false);
-        s.SetActive(false);
-        t.SetActive(false);
-        fo.SetActive(false);
-        fi.SetActive(false);
-        si.SetActive(false);
-        */
+        
 
 
-        OK.SetActive(false);
+        //OK.SetActive(false);
 
+        Ref_stampData = StampData.GetStampData;
+        Debug.Log(Ref_stampData);
+        SpotStamp = GameObject.FindGameObjectWithTag("SpotManager");
+        SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
+        if (neareSpotData != null)
+        {
+            if (neareSpotData.spotType <= SpotType.Photo || Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+        }
+        else { SpotAreaOUT(); }
 
+        UpdateStampCardView();
+    }
 
+    public void UpdateStampCardView()
+    {
+        {
+            int i = 0;
+            for (int j = 0; j < StampGameObject.Length; j++)
+            {
+                if(i < Ref_stampData.pressedStamp.Count)
+                {
+                    StampGameObject[j].SetActive(true);
+                    i++;
+                }
+                else StampGameObject[j].SetActive(false);
+            }
+        }
 
     }
 
+    //public void StampPress()
+    //{
+    //    SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
+
+
+    //    if (!IsPressedStampById(neareSpotData.stampId))
+    //    {
+    //        Debug.Log("pressedStamp.Count" + pressedStamp.Count);
+    //        pressedStamp.Add(neareSpotData.stampId);
+    //    }
+
+    //    UpdateStampCardView();
+    //}
+
     // Update is called once per frame
     void Update () {
+        //if(SpotStamp != null)
+        //{
 
+        //    SpotAreaIN();
 
-        //スタンプ表示確認用
-        /* if (Input.GetKeyDown(KeyCode.A))
-        {
-
-            OK.SetActive(true);
-            IventCount += 1;
-            Debug.Log(IventCount);
-        }*/
+        //}
         
 
     }
@@ -85,8 +107,7 @@ public class Test : MonoBehaviour {
     {
 
        OK.SetActive(true);
-       IventCount += 1;
-    
+      
     }
 
     void SpotAreaOUT()
@@ -98,59 +119,11 @@ public class Test : MonoBehaviour {
 
     }
 
-
-
-
-
-
     public void Clicked(BaseEventData eventData)
     {
-        //Debug.Log(IventCount);
-        //IventCount++;
-
-        /*
-        if (IventCount == 1)
-        {
-            f.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 2)
-        {
-            s.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 3)
-        {
-            t.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 4)
-        {
-            fo.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 5)
-        {
-            fi.SetActive(true);
-            SpotAreaOUT();
-        }
-        if (IventCount == 6)
-        {
-            si.SetActive(true);
-            SpotAreaOUT();
-        }
-        */
-
-        
-
-
-
+        Debug.Log("Clicked");
+        Ref_stampData.StampPress();
+        UpdateStampCardView();
+        SpotAreaOUT();
     }
-
-
-    
-    
-
-
-
 }

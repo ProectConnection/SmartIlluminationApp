@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: YokohamaChukagai
   m_EditorClassIdentifier: 
   spotName: "\u6A2A\u6D5C\u4E2D\u83EF\u8857"
-  Longitude: 139.64636
-  Letitude: 35.44231
-  SpotActivateDistance: 75
+  Longitude: 139.6452601
+  Letitude: 35.442282
+  SpotActivateDistance: 10
   PhotoFrame:
   - {fileID: 21300000, guid: 92c8b5defed9c0345ae08700370506bd, type: 3}
-  StampIDThisCheckPoint: -1
+  StampIDThisCheckPoint: 5
   ThisSpotType: 3

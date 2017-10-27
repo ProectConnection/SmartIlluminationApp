@@ -6,10 +6,18 @@ using UnityEngine;
 public class GoogleMapDrawer : MonoBehaviour {
     float initLatitude = 40.713728f;
     float initLongitude = -73.998672f;
-    public string key = null;
+    [SerializeField]
+    string key = null;
     [SerializeField]
     string signeture = null;
     int MapSize = 17;
+    [SerializeField]
+    GameObject ref_LoadingText;
+    bool IsGetMapError = true;
+    Texture2D ScriptableTexture;
+    [SerializeField]
+    Texture2D FirstTexture;
+    Material thisMaterial;
     public int mapSize
     {
         get
@@ -71,7 +79,9 @@ public class GoogleMapDrawer : MonoBehaviour {
             //渡す
             calculator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().locationCoordination;
             GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().OnLocationUpdate.AddListener(BuildMap);
-            BuildMap();
+             thisMaterial = GetComponent<Renderer>().material;
+            ScriptableTexture = Instantiate(FirstTexture);
+            thisMaterial.mainTexture = ScriptableTexture;
         }
 	}
 	
@@ -101,19 +111,28 @@ public class GoogleMapDrawer : MonoBehaviour {
             Url += "&signature=" + signeture;
         }
         Url = System.Uri.EscapeUriString(Url);
-        StartCoroutine(DownloadFromUrl(this.Url, texture2d => UpdateSprite(texture2d)));
+        StartCoroutine(DownloadFromUrl(this.Url, (Texture2D)thisMaterial.mainTexture));
     }
 
-    IEnumerator DownloadFromUrl(string url,Action<Texture2D> texture2d)
+    IEnumerator DownloadFromUrl(string url,Texture2D texture2d)
     {
         var www = new WWW(url);
         yield return www;
         //取得ミスで稀に403エラーが発生、エラー処理が必要
-        texture2d(www.texture);
+        if (!string.IsNullOrEmpty(www.error))
+        {
+            Debug.LogError(www.error);
+        }
+        else {
+            
+            www.LoadImageIntoTexture(ScriptableTexture);
+            if (ref_LoadingText) ref_LoadingText.SetActive(false);
+        }
+
     }
 
-    public void UpdateSprite(Texture2D tex)
+    private void OnDestroy()
     {
-        GetComponent<Renderer>().material.mainTexture = tex;
+        DestroyImmediate(ScriptableTexture);
     }
 }
