@@ -17,4 +17,4 @@ MonoBehaviour:
   SpotActivateDistance: 150
   PhotoFrame: []
   StampIDThisCheckPoint: 1
-  ThisSpotType: 0
+  ThisSpotType: 3

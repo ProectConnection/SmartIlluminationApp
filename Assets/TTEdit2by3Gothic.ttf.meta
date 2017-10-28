@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 021da6bd24ceb04478c1980b5d0e2891
+timeCreated: 1509106501
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: TTEdit2/3Gothic
+  fontNames:
+  - TTEdit2/3Gothic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

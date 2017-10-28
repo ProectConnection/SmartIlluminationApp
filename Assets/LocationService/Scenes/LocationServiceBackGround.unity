@@ -150,12 +150,12 @@ Prefab:
     - target: {fileID: 114449211346802266, guid: 7cac2f3782683684d945a6d3caeadab5,
         type: 2}
       propertyPath: initlong
-      value: 139.6185929
+      value: 139.6161112
       objectReference: {fileID: 0}
     - target: {fileID: 114449211346802266, guid: 7cac2f3782683684d945a6d3caeadab5,
         type: 2}
       propertyPath: initlat
-      value: 35.5124972
+      value: 35.5089831
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cac2f3782683684d945a6d3caeadab5, type: 2}
@@ -217,6 +217,16 @@ Prefab:
     - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
         type: 2}
       propertyPath: NearestSpotData
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+        type: 2}
+      propertyPath: SpotDataResourcePasses.Array.data[0]
+      value: SmartIlluminationWalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+        type: 2}
+      propertyPath: SpotDataResourcePasses.Array.data[2]
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,11 +10,13 @@ public class Cam : MonoBehaviour {
 	RawImage Raw;
     Vector3 WhenStartTransformScale;
     public static bool CameraFlg;
+    Renderer thisRenderer;
 
     bool flgs;
     //public Text  text;
     //WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ
     void Start() {
+        thisRenderer = GetComponent<Renderer>();
         WhenStartTransformScale = transform.localScale;
        // WebCamDevice[] devices = WebCamTexture.devices;
         // display all cameras
@@ -63,7 +65,7 @@ public class Cam : MonoBehaviour {
         if (CameraFlg == false)
         {
             WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
-            GetComponent<Renderer>().material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
+            thisRenderer.material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
                                                                              //実行
             webcamTexture.Play();
         }
@@ -73,7 +75,7 @@ public class Cam : MonoBehaviour {
             //for (i = 0; i < devices.Length; i++)
             //{
             WebCamTexture webcamTexture = new WebCamTexture(devices[1].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
-            GetComponent<Renderer>().material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
+            thisRenderer.material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
                                                                              //実行
             webcamTexture.Play();
             //}

@@ -13,6 +13,8 @@ TagManager:
   - StampData
   - DataSaver
   - maincam
+  - Pedometer
+  - SpotRange
   layers:
   - Default
   - TransparentFX
