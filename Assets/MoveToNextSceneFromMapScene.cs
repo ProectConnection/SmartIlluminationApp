@@ -7,9 +7,14 @@ public class MoveToNextSceneFromMapScene: MonoBehaviour
 {
     [SerializeField]
     string sceneName;
+    bool m_isProcessing = false;
     public void OnPress()
     {
-        SceneManager.UnloadSceneAsync("MapScene");
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        if (!m_isProcessing)
+        {
+            m_isProcessing = true;
+            SceneManager.UnloadSceneAsync("MapScene");
+            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        }
     }
 }
