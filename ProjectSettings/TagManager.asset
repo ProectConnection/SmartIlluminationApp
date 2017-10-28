@@ -15,6 +15,7 @@ TagManager:
   - maincam
   - Pedometer
   - SpotRange
+  - CentMapDrawer
   layers:
   - Default
   - TransparentFX

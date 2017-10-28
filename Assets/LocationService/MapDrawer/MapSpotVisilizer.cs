@@ -23,7 +23,7 @@ public class MapSpotVisilizer : MonoBehaviour {
     void Start () {
         
         ref_SpotManager = GameObject.FindGameObjectWithTag("SpotManager").GetComponent<SpotManager>();
-        ref_GoogleMapDrawer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<GoogleMapDrawer>();
+        ref_GoogleMapDrawer = GameObject.FindGameObjectWithTag("CentMapDrawer").GetComponent<GoogleMapDrawer>();
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         
         ref_Locator.OnLocationUpdate.AddListener(StartSpotLocationUpdate);
