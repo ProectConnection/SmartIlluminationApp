@@ -10,6 +10,12 @@ public class DataSaver : MonoBehaviour {
     int pedocount = 0;
     static string filename = "SIWSaveData";
     const string FileType = ".sav";
+    bool IsAlreadyLoadMap = false;
+    public bool isAlreadyLoadMap
+    {
+        get { return IsAlreadyLoadMap; }
+        set { IsAlreadyLoadMap = value; }
+    }
     System.Text.Encoding encodeType = System.Text.Encoding.UTF8;
     
     public static DataSaver GetDataSaver()
@@ -95,6 +101,8 @@ public class DataSaver : MonoBehaviour {
             DataSave();
         }
     }
+
+    
 }
 
 public class JsonDataSaveClass{
