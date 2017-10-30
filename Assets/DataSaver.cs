@@ -8,6 +8,10 @@ public class DataSaver : MonoBehaviour {
     string DataPath;
     List<StampID> pressedStamp = new List<StampID>();
     int pedocount = 0;
+    public int Pedocount
+    {
+        get { return pedocount; }
+    }
     int initialPedoCount = 0;
     static string filename = "SIWSaveData";
     const string FileType = ".sav";
