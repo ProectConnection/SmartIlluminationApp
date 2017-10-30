@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
+using TouchScript.Gestures.Base;
+using TouchScript.Layers;
+using TouchScript.Utils;
 
 [RequireComponent(typeof(Renderer))]
 public class GoogleMapDrawer : MonoBehaviour {
     float initLatitude = 40.713728f;
     float initLongitude = -73.998672f;
     [SerializeField]
-    string key = null;
+    bool isTrackUser;
+    public string key = null;
     [SerializeField]
     string signeture = null;
-    int MapSize = 17;
+    //int MapSize = 17;
     [SerializeField]
     GameObject ref_LoadingText;
     bool IsGetMapError = true;
@@ -18,7 +22,30 @@ public class GoogleMapDrawer : MonoBehaviour {
     [SerializeField]
     Texture2D FirstTexture;
     Material thisMaterial;
-    public int mapSize
+    //public int mapSize
+
+    /* public static UnityEngine.Vector2  oldScreenPos1;
+     public static UnityEngine.Vector2 oldScreenPos2;
+     public static UnityEngine.Vector2 newScreenPos1;
+     public static UnityEngine.Vector2 newScreenPos2;
+
+     //public static float projectionParams;
+     public static TouchScript.Layers.ProjectionParams projectionParams;*/
+     [SerializeField]
+    float MapSize=17; /*= TransformGestureBase.doScaling(oldScreenPos1, oldScreenPos2, newScreenPos1,
+                                            newScreenPos2,projectionParams);*/
+    public Plane TransformPlane;
+   /* protected override float doRotation(Vector2 oldScreenPos1, Vector2 oldScreenPos2, Vector2 newScreenPos1,
+                                            Vector2 newScreenPos2, ProjectionParams projectionParams)
+    {
+        var newVector = projectionParams.ProjectTo(newScreenPos2, TransformPlane) -
+                        projectionParams.ProjectTo(newScreenPos1, TransformPlane);
+        var oldVector = projectionParams.ProjectTo(oldScreenPos2, TransformPlane) -
+                        projectionParams.ProjectTo(oldScreenPos1, TransformPlane);
+        return newVector.magnitude / oldVector.magnitude;
+
+    }*/
+    public float mapSize
     {
         get
         {
@@ -82,6 +109,7 @@ public class GoogleMapDrawer : MonoBehaviour {
              thisMaterial = GetComponent<Renderer>().material;
             ScriptableTexture = Instantiate(FirstTexture);
             thisMaterial.mainTexture = ScriptableTexture;
+            BuildMap();
         }
 	}
 	
@@ -101,7 +129,7 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     public void BuildMap()
     {
-        Url = string.Format(@"https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=terrain&center={0},{1}&zoom={2}&scale={3}language=jp&style=element:labels|visibility:off&sensor=false", calculator.GetLatitude, calculator.GetLongitude,mapSize,mapScale);
+        Url = string.Format(@"https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=terrain&center={0},{1}&zoom={2}&scale={3}language=jp&style=element", calculator.GetLatitude, calculator.GetLongitude,mapSize,mapScale);
         if(key != null && key.Length != 0)
         {
             Url += "&key=" + key;
@@ -131,8 +159,10 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     }
 
-    private void OnDestroy()
+    //private void OnDestroy()
+    public void UpdateSprite(Texture2D tex)
     {
         DestroyImmediate(ScriptableTexture);
+        GetComponent<Renderer>().material.mainTexture = tex;
     }
 }

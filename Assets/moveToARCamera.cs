@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class moveToARCamera : MonoBehaviour {
-
+    bool processing = false;
 	void OnPress()
     {
-        SceneManager.LoadSceneAsync("ARCamera",LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("MapScene");
+        if (!processing)
+        {
+            processing = true;
+            SceneManager.LoadSceneAsync("ARCamera", LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync("MapScene");
+        }
     }
 }
