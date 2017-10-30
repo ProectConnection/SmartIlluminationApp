@@ -167,11 +167,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
-        type: 2}
-      propertyPath: SpotDataResourcePasses.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4310948630615222, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -218,11 +213,6 @@ Prefab:
         type: 2}
       propertyPath: SpotDataResourcePass
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
-        type: 2}
-      propertyPath: SpotDataResourcePasses.Array.data[1]
-      value: ShinYokohama
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}

@@ -57,5 +57,5 @@ MonoBehaviour:
   ref_SpotClasses: []
   NearestSpotData: {fileID: 0}
   SpotMarkTextures:
-  - {fileID: 2800000, guid: 0e89360d54de1e240b624ffafd630ccf, type: 3}
-  - {fileID: 2800000, guid: cd0246ff307600f49a2b6576ebee5a7c, type: 3}
+  - {fileID: 2800000, guid: 34b62800ed7ce1c448d6103c12701ebd, type: 3}
+  - {fileID: 2800000, guid: 50bfc4b726bb4dc4b87de161c13c67c3, type: 3}
