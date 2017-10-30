@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class PedometerSprite : MonoBehaviour {
 
@@ -17,14 +18,14 @@ public class PedometerSprite : MonoBehaviour {
     //************
 
 #if UNITY_IOS && !UNITY_EDITOR
-    [DllImport("__Internal")]
-    private static extern void _ex_callSwiftMethod(string message);
+	[DllImport("__Internal")]
+	private static extern void _ex_callSwiftMethod(string CMPedmeter);
 #endif
 
-    public static void CallSwiftMethod(string message)
+    public static void _ex_CallSwiftMethod(string CMPedmeter)
     {
 #if UNITY_IOS && !UNITY_EDITOR
-        _ex_callSwiftMethod(message);
+        _ex_callSwiftMethod(CMPedmeter);
 #endif
     }
 
