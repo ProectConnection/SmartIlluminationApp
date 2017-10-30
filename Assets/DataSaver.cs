@@ -16,8 +16,21 @@ public class DataSaver : MonoBehaviour {
         get { return IsAlreadyLoadMap; }
         set { IsAlreadyLoadMap = value; }
     }
+    bool IsUnlocked;
+    public bool isUnlocked
+    {
+        get { return IsUnlocked; }
+    }
+
     System.Text.Encoding encodeType = System.Text.Encoding.UTF8;
     
+    public bool UnlockApp()
+    {
+        IsUnlocked = true;
+        DataSave();
+        return true;
+    }
+
     public static DataSaver GetDataSaver()
     {
         return GameObject.FindGameObjectWithTag("DataSaver").GetComponent<DataSaver>();
@@ -42,7 +55,7 @@ public class DataSaver : MonoBehaviour {
             jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("PressedStamp", (int)t)));
         }
         jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("pedoCount", pedocount)));
-
+        jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("IsUnlocked", IsUnlocked)));
         Debug.Log("call DataSave");
         File.WriteAllLines(DataPath + "/" + filename + FileType, jsonstring.ToArray(),encodeType);
         return 0;
@@ -70,6 +83,9 @@ public class DataSaver : MonoBehaviour {
                     break;
                 case "pedoCount":
                     pedocount = int.Parse(tjdsc.saveObject);
+                    break;
+                case "IsUnlocked":
+                    IsUnlocked = bool.Parse(tjdsc.saveObject);
                     break;
             }
         }
