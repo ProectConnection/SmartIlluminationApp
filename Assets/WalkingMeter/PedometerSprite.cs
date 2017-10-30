@@ -10,6 +10,7 @@ public class PedometerSprite : MonoBehaviour {
     public Sprite ChangeSprite;
 
     //達成歩数設定（Step～Step_Achievement）
+    DataSaver ref_DataSaver;
     public int Step;
     public int Step_Achievement;
 
@@ -34,11 +35,10 @@ public class PedometerSprite : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-       
 
+        ref_DataSaver = DataSaver.GetDataSaver();
         image = GetComponent<Image>();
-
-
+        Check();
     }
 	
 	// Update is called once per frame
@@ -59,7 +59,7 @@ public class PedometerSprite : MonoBehaviour {
     public void Check()
     {
 
-        if (Step >= Step_Achievement)
+        if (ref_DataSaver.Pedocount >= Step_Achievement)
         {
            
             image.sprite = ChangeSprite;
