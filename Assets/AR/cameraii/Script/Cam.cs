@@ -11,7 +11,7 @@ public class Cam : MonoBehaviour {
     Vector3 WhenStartTransformScale;
     public static bool CameraFlg;
     Renderer thisRenderer;
-
+    WebCamTexture webcamTexture;
     bool flgs;
     //public Text  text;
     //WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ
@@ -64,7 +64,7 @@ public class Cam : MonoBehaviour {
 		}
         if (CameraFlg == false)
         {
-            WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
+            webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
             thisRenderer.material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
                                                                              //実行
             webcamTexture.Play();
@@ -74,7 +74,7 @@ public class Cam : MonoBehaviour {
 
             //for (i = 0; i < devices.Length; i++)
             //{
-            WebCamTexture webcamTexture = new WebCamTexture(devices[1].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
+            webcamTexture = new WebCamTexture(devices[1].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
             thisRenderer.material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
                                                                              //実行
             webcamTexture.Play();
@@ -88,5 +88,9 @@ public class Cam : MonoBehaviour {
                                                                          //実行
         webcamTexture.Play();
 */        
+    }
+    private void OnDestroy()
+    {
+        webcamTexture.Stop();
     }
 }
