@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UnitySwift-Bridging-Header.h"
+//#import "UnitySwift-Bridging-Header.h"
+#import "SmartIlluminationApp-Swift.h"
 
 extern "C"{
     void _ex_callSwiftMethod(const char *CMPedmeter){
-        [Example swiftMethod:[NSString stringWithUTF8String:CMPedmeter]];
+//        [Example swiftMethod:[NSString stringWithUTF8String:CMPedmeter]];
+        [Example swiftMethodWith_CMPedometer:[NSString stringWithUTF8String:CMPedmeter]];
     }
 }
