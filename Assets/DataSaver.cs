@@ -47,7 +47,7 @@ public class DataSaver : MonoBehaviour {
         switch (pedocountsetmode)
         {
             case PEDOCOUNTSETMODE.ADDCITIVE:
-                int t_pedocount;
+                int t_pedocount = 0;
                 int.TryParse(newPedocount, out t_pedocount);
                 pedocount = initialPedoCount + t_pedocount;
                 break;
