@@ -11,12 +11,12 @@ public class AndPed : MonoBehaviour {
     public void callStaticFunction()
     {
         // static methodを呼び出す
-        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        // using (AndroidJavaClass javaClass = new AndroidJavaClass("com.example.plugin.AndPlugin");
+        //AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        using (AndroidJavaClass javaClass = new AndroidJavaClass("com.example.plugin.AndPlugin")) ;
         
         // non-static methodを呼び出す
-        AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin");
-        //AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin.AndPlugin");
+        //AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin");
+        AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin.AndPlugin");
         
         // Android側の関数"staticFunction"の呼び出し
         plugin.CallStatic("staticFunction");
