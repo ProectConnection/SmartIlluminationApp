@@ -11,7 +11,6 @@ public class TitleImageHit : MonoBehaviour{
         SceneManager.UnloadSceneAsync("Title");
         SceneManager.LoadScene("LocationServiceBackGround", LoadSceneMode.Additive);
         SceneManager.LoadScene("MapScene",LoadSceneMode.Additive);
-
     }
 
     

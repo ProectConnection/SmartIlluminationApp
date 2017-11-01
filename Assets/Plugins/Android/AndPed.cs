@@ -15,11 +15,12 @@ public class AndPed : MonoBehaviour {
         // using (AndroidJavaClass javaClass = new AndroidJavaClass("com.example.plugin.AndPlugin");
         
         // non-static methodを呼び出す
-        AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin");
+        AndroidJavaObject plugin = new AndroidJavaObject("xyz.saeco.pedometer");
         //AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin.AndPlugin");
         
         // Android側の関数"staticFunction"の呼び出し
         plugin.CallStatic("staticFunction");
+        Debug.Log("( *´艸｀)");
         
     }
 
@@ -40,28 +41,7 @@ public class AndPed : MonoBehaviour {
 
     }
 
-    //  UnityPlayer.UnitySendMessage("Text", "onCallBackShowResult", "steps");
+    //  UnityPlayer.UnitySendMessage("UnlockButton", "onCallBackShowResult", "steps");
 
-
-
-
-    /*
-        public class HogeClass {
-            private static string JAVA_CLASS_NAME = "com.hoge.JHogeClass";
-
-            public void Hoge() {
-                using (AndroidJavaClass plugin = new AndroidJavaClass(JAVA_CLASS_NAME)) {
-                    plugin.CallStatic("hogeNative");
-                }
-            }
-        }
-
-        //package com.hoge;
-
-        public class JHogeClass {
-            public static void hogeNative() {
-            }
-        }
-        */
 }
 
