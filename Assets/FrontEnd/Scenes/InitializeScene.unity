@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 725266241}
   - component: {fileID: 725266243}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Andped
   m_TagString: Pedometer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a2ae5a1b7219b4d9f02c7e5ee3afc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 725266241}
+  thisText: {fileID: 725266241}
 --- !u!1 &1046485523
 GameObject:
   m_ObjectHideFlags: 0

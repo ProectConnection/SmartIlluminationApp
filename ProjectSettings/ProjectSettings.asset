@@ -148,7 +148,7 @@ PlayerSettings:
     tvOS: com.ngo.SmartIlluminationAppT
   buildNumber:
     iOS: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 25
   AndroidPreferredInstallLocation: 1

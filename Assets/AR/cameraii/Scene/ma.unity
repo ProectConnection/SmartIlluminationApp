@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ref_ImageDraw: {fileID: 2035888189}
   FrameSprites:
-  - {fileID: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 70b533e0dc6693f4399d374c82d9fa24, type: 3}
   - {fileID: 21300000, guid: 1b1babd8df1f5c84c97369b67e01a9cb, type: 3}
   - {fileID: 21300000, guid: 6db625dfe4a3d8640ab33f4032577c94, type: 3}
