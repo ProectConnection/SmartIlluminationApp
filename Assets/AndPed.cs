@@ -12,71 +12,51 @@ public class AndPed : MonoBehaviour {
     bool init = true;
     string initalSteps;
 #if UNITY_ANDROID && !UNITY_EDITOR
-    AndroidJavaObject javaObject;
+    AndroidJavaObject androidPedometer; //歩数計管理クラス
+    AndroidJavaClass serviceLauncher;   //歩数計サービスの起動クラス
 #endif
     private void Start()
     {
         ref_dataSaver = DataSaver.GetDataSaver();
+        //歩数計管理クラスをネイティブプラグイン側で起動する処理
 #if UNITY_ANDROID && !UNITY_EDITOR
-        //javaObject = new AndroidJavaObject("com.example.androidpedometer.AndroidPedometer");
-        
-        //    Debug.Log(javaObject);
-        //    Debug.Log(activity.ToString());
-        //    object[] args = { gameObject.name, ((Action<string>)OnStartedPedometer).Method.Name, activity};
-        //    javaObject.Call("StartPedometer",args);
+        serviceLauncher = new AndroidJavaClass("com.example.androidpedometer.ServiceLauncher");
+        serviceLauncher.CallStatic("StartService");
         
 #endif
         StartCoroutine(PedoUpdate());
     }
 
-    public void callStaticFunction()
+    public void GetStepsFromStepsensor()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        // static methodを呼び出す
-        //AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        //using (AndroidJavaClass javaClass = new AndroidJavaClass("com.example.plugin.AndPlugin"))
-        //{
-        //    Debug.Log(javaClass);
-        //    javaClass.CallStatic("staticFunction");
-        //}
-        //javaObject = new AndroidJavaObject("com.example.androidpedometer.AndroidPedometer");
-        //    Debug.Log(javaObject);
             string[] args = { gameObject.name, ((Action<string>)onCallBackShowResult).Method.Name};
-            javaObject.Call("GetSteps",args);
-        
-        //// non-static methodを呼び出す
-        ////AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin");
-        //AndroidJavaObject plugin = new AndroidJavaObject("com.example.plugin.AndPlugin");
-        
-        //// Android側の関数"staticFunction"の呼び出し
-        //plugin.CallStatic("staticFunction");
+            androidPedometer.Call("GetSteps",args);
 #endif
     }
 
+    /*歩数計からの歩数取得コルーチン*/
     IEnumerator PedoUpdate()
     {
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-        
-        javaObject = new AndroidJavaObject("com.example.androidpedometer.AndroidPedometer");
-        AndroidJavaClass ActivaterActivity = new AndroidJavaClass("com.example.androidpedometer.ActivityLauncher");
-        object[] aaArgs = { "com.example.androidpedometer.AndroidPedometer"};
-        ActivaterActivity.CallStatic("launchActivity", aaArgs);
-            //object[] args = { gameObject.name, ((Action<string>)OnStartedPedometer).Method.Name, activity};
-            //javaObject.Call("StartPedometer",args);
+        androidPedometer = new AndroidJavaObject("com.example.androidpedometer.AndroidPedometer");
+        androidPedometer.Call("StartPedometer");
 #endif
         yield return new WaitForSeconds(2f);
         while (true)
         {
-            callStaticFunction();
+            GetStepsFromStepsensor();
             yield return new WaitForSeconds(0.08f);
         }
     }
 
-    // uGUIの"Call static Function"というボタンを押す
-    // Android側の"staticFunction"というメソッドが呼ばれる
-    // "staticFunction"から、Unityの"onCallBackShowResult"メソッドに対して文字列を返す
-    // "onCallBackShowResult"メソッドがuGUIのTextに"step"を表示する
+    /*
+    歩数計プラグインからの歩数受け取りコールバック関数
+    
+    string steps 歩数計プラグインからのメッセージ（歩数を文字列化したもの）
+    メッセージは文字列のみでしか送れないため文字列で受け取る
+    */
     public void onCallBackShowResult(string steps)
     {
         if (init)
@@ -85,7 +65,6 @@ public class AndPed : MonoBehaviour {
             initalSteps = steps;
 
         }
-        Debug.Log("(*‘ω‘ *)");
         thisText.text = steps;
 
        float ts =  float.Parse(steps) - float.Parse(initalSteps);
@@ -93,39 +72,6 @@ public class AndPed : MonoBehaviour {
         ref_dataSaver.SetNewPedocount(ts.ToString(), PEDOCOUNTSETMODE.ADDCITIVE);
     }
 
-    public void OnStartedPedometer(string message)
-    {
-
-    }
-
-    public void hoge()
-    {
-
-    }
-
-    //  UnityPlayer.UnitySendMessage("Text", "onCallBackShowResult", "steps");
-
-
-
-
-    /*
-        public class HogeClass {
-            private static string JAVA_CLASS_NAME = "com.hoge.JHogeClass";
-
-            public void Hoge() {
-                using (AndroidJavaClass plugin = new AndroidJavaClass(JAVA_CLASS_NAME)) {
-                    plugin.CallStatic("hogeNative");
-                }
-            }
-        }
-
-        //package com.hoge;
-
-        public class JHogeClass {
-            public static void hogeNative() {
-            }
-        }
-        */
-
-    }
+    
+}
 
