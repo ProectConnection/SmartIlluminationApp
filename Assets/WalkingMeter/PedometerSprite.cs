@@ -34,6 +34,20 @@ public class PedometerSprite : MonoBehaviour {
 
 
 
+    //************
+
+    public static void CallstaticFunction(string steps)
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (m_plugin != null){
+            m_plugin.Call("staticFunction", steps);
+        }
+#endif
+    }
+
+
+    //************
+
     // Use this for initialization
     void Start () {
 
