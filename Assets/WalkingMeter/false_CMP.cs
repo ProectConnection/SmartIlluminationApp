@@ -51,8 +51,8 @@ void Start()
                 }
                // ngotext += "\n";
              if(countDeck != null){
-                 for(int acceleration =0; acceleration > 0.1000 ; acceleration++){
-                    counttext += countDeck;
+                 for(int acceleration =0; acceleration < 0.0010 ; acceleration++){
+                    counttext += 1;
                     
                     }           
                 }

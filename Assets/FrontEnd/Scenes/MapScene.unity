@@ -1744,6 +1744,7 @@ GameObject:
   - component: {fileID: 980098518}
   - component: {fileID: 980098517}
   - component: {fileID: 980098519}
+  - component: {fileID: 980098520}
   m_Layer: 5
   m_Name: CMPedmetar
   m_TagString: Untagged
@@ -1821,6 +1822,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ca7228ebe38d94d8c7d600af356ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &980098520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980098515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72665ed424cfe499195a56adb0ddc5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!1 &982594102
 GameObject:
   m_ObjectHideFlags: 0
