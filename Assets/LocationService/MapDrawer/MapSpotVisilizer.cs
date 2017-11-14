@@ -48,6 +48,7 @@ public class MapSpotVisilizer : MonoBehaviour {
     IEnumerator SpotLocationUpdate()
     {
         bool IsAnyNearSpotExist = false;
+        double nearestDistance = -1f;
         ref_SpotManager.ChangeSpotParentTransform(transform);
         long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
         RefrashMapUnit();
@@ -61,8 +62,13 @@ public class MapSpotVisilizer : MonoBehaviour {
             spotClass.isSpotNearPlayer = distance <= spotClass.ThisSpotData.spotActivateDistance;
             if (spotClass.isSpotNearPlayer)
             {
-                ref_SpotManager.nearestSpotData = spotClass.ThisSpotData;
                 IsAnyNearSpotExist = true;
+                bool isNearestSpot = (nearestDistance < 0.0f) || (nearestDistance > distance);
+                if (isNearestSpot)
+                {
+                    ref_SpotManager.nearestSpotData = spotClass.ThisSpotData;
+                    nearestDistance = distance;
+                }
             }
             Debug.Log(spotClass.name + "Dist:" + distance);
             //現在位置が0,0で表示されている前提で移動する
