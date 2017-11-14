@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.1.1
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -144,11 +144,11 @@ PlayerSettings:
     Android: com.YDAGame.SmartIlluminationApp
     Standalone: unity.ngo.SmartIlluminationAppT
     Tizen: com.ngo.SmartIlluminationAppT
-    iOS: com.YDAGame.SmartIlluminationApp
+    iOS: YDAGame.SmartIlluminationApp
     tvOS: com.ngo.SmartIlluminationAppT
   buildNumber:
     iOS: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 25
   AndroidPreferredInstallLocation: 1
@@ -166,7 +166,7 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 7.0
+  iOSTargetOSVersionString: 8.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
@@ -522,7 +522,7 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
     4: VUFORIA_IOS_SETTINGS
-    7: VUFORIA_ANDROID_SETTINGS
+    7: 
     14: VUFORIA_WSA_SETTINGS
   platformArchitecture: {}
   scriptingBackend: {}

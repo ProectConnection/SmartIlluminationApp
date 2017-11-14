@@ -19,8 +19,8 @@ public class Test : MonoBehaviour {
     StampData Ref_stampData;
 
     public GameObject OK;
-
-
+    [SerializeField]
+    Image GoalImage;
 
     // Use this for initialization
     void Start () {
@@ -49,7 +49,7 @@ public class Test : MonoBehaviour {
         SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
         if (neareSpotData != null)
         {
-            if (Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+            if (neareSpotData.spotType <= SpotType.Photo || Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
         }
         else { SpotAreaOUT(); }
 
@@ -115,7 +115,7 @@ public class Test : MonoBehaviour {
 
  
       OK.SetActive(false);
-        
+      
 
     }
 
@@ -123,7 +123,31 @@ public class Test : MonoBehaviour {
     {
         Debug.Log("Clicked");
         Ref_stampData.StampPress();
+        if (Ref_stampData.pressedStamp.Count >= StampGameObject.Length)
+        {
+            ShowGoalImage();
+        }
         UpdateStampCardView();
         SpotAreaOUT();
+    }
+
+    void ShowGoalImage()
+    {
+        GoalImage.enabled = true;
+        StartCoroutine(GoalImageFadeIn());
+    }
+
+    IEnumerator GoalImageFadeIn()
+    {
+        Color newColor = Color.HSVToRGB(0, 0, 255);
+        newColor.a = 0;
+        
+        while (newColor.a < 1)
+        {
+            newColor.a += (Time.deltaTime / 3.0f);
+            GoalImage.color = newColor;
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
     }
 }

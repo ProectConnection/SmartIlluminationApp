@@ -8,18 +8,54 @@ public class DataSaver : MonoBehaviour {
     string DataPath;
     List<StampID> pressedStamp = new List<StampID>();
     int pedocount = 0;
+    public int Pedocount
+    {
+        get { return pedocount; }
+    }
+    int initialPedoCount = 0;
     static string filename = "SIWSaveData";
     const string FileType = ".sav";
+    bool IsAlreadyLoadMap = false;
+    public bool isAlreadyLoadMap
+    {
+        get { return IsAlreadyLoadMap; }
+        set { IsAlreadyLoadMap = value; }
+    }
+    bool IsUnlocked;
+    public bool isUnlocked
+    {
+        get { return IsUnlocked; }
+    }
+
     System.Text.Encoding encodeType = System.Text.Encoding.UTF8;
     
+    public bool UnlockApp()
+    {
+        IsUnlocked = true;
+        DataSave();
+        return true;
+    }
+
     public static DataSaver GetDataSaver()
     {
         return GameObject.FindGameObjectWithTag("DataSaver").GetComponent<DataSaver>();
     }
 
-    public int SetNewPedocount(int newPedocount)
+
+    public int SetNewPedocount(string newPedocount,PEDOCOUNTSETMODE pedocountsetmode)
     {
-        pedocount = newPedocount;
+        switch (pedocountsetmode)
+        {
+            case PEDOCOUNTSETMODE.ADDCITIVE:
+                float t_pedocount = 0;
+                float.TryParse(newPedocount, out t_pedocount);
+                pedocount = initialPedoCount + (int)t_pedocount;
+                break;
+            case PEDOCOUNTSETMODE.OVERWRITE:
+                int.TryParse(newPedocount, out pedocount);
+                break;
+        }
+        
         return 0;
     }
 
@@ -36,7 +72,7 @@ public class DataSaver : MonoBehaviour {
             jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("PressedStamp", (int)t)));
         }
         jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("pedoCount", pedocount)));
-
+        jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("IsUnlocked", IsUnlocked)));
         Debug.Log("call DataSave");
         File.WriteAllLines(DataPath + "/" + filename + FileType, jsonstring.ToArray(),encodeType);
         return 0;
@@ -64,6 +100,10 @@ public class DataSaver : MonoBehaviour {
                     break;
                 case "pedoCount":
                     pedocount = int.Parse(tjdsc.saveObject);
+                    initialPedoCount = pedocount;
+                    break;
+                case "IsUnlocked":
+                    IsUnlocked = bool.Parse(tjdsc.saveObject);
                     break;
             }
         }
@@ -75,6 +115,7 @@ public class DataSaver : MonoBehaviour {
     public int SetDataPressedStamp(List<StampID> newPressedStamp)
     {
         pressedStamp = newPressedStamp;
+        DataSave();
         
         return 0;
     }
@@ -86,12 +127,7 @@ public class DataSaver : MonoBehaviour {
         StartCoroutine(AutoSave());
     }
 
-    private void OnApplicationQuit()
-    {
-        DataSave();
-    }
-
-    IEnumerator AutoSave(float autoSaveTiming = 60)
+    IEnumerator AutoSave(float autoSaveTiming = 30)
     {
         while (true)
         {
@@ -99,6 +135,8 @@ public class DataSaver : MonoBehaviour {
             DataSave();
         }
     }
+
+    
 }
 
 public class JsonDataSaveClass{
@@ -113,3 +151,8 @@ public class JsonDataSaveClass{
         type = tobject.GetType().ToString();
     }
 }
+
+public enum PEDOCOUNTSETMODE {
+    ADDCITIVE,  //加算モード
+    OVERWRITE   //上書きモード
+};

@@ -60,7 +60,7 @@ public class SpotClass : MonoBehaviour {
     private void Start()
     {
         ThisSpotNameText.text = ThisSpotData.SpotName;
-        mapSpotVisilizer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<MapSpotVisilizer>();
+        mapSpotVisilizer = GameObject.FindGameObjectWithTag("CentMapDrawer").GetComponent<MapSpotVisilizer>();
     }
 
     public void SetWorldPosition(Vector3 newPosition)
