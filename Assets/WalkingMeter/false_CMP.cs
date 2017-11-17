@@ -13,6 +13,7 @@ public class false_CMP : MonoBehaviour
     
     private int  counttext = 0;
     private int countDeck = 0;
+    public float speed =10.0F;
 
 /// <summary>
 /// Start is called on the frame when a script is enabled just before
@@ -25,6 +26,7 @@ void Start()
 }
     // Update is called once per frame
      void Update(){
+         //transform.Translate(Input.acceleration.x, 0, -Input.acceleration.z);
         if (acceleration != null)
         {
             float x = Screen.width / 10;
@@ -38,7 +40,7 @@ void Start()
                 y = Screen.height / 10 + h * i;
                
 
-               /* switch (i)
+                /*switch (i)
                 {
                    // case 0://X
                   //      countDeck += string.Format("accel-X:{0}", System.Math.Round(this.acceleration.x, 3));
@@ -56,12 +58,18 @@ void Start()
                 countDeck.x = -Input.acceleration.y;
                 countDeck.z = Input.acceleration.x;
 
+               /* if(countDeck.sqrMagnitude > 1)
+                countDeck.Normalize();
+
+                countDeck *= Time.deltaTime;
+                transform.Translate(countDeck * speed);
+*/
+
                // ngotext += "\n";
             // if(countDeck != null){
-                 for( countDeck.x = 0; countDeck.x < 0.1000 ; countDeck.x++){
+                 if(countDeck.x < -0.0010 ){
                      counttext += 1;
-                    
-                    }           
+                    }
             text.text = counttext.ToString();
             }
         }
