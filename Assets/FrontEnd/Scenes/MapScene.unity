@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 85049664}
   - component: {fileID: 85049663}
   - component: {fileID: 85049662}
+  - component: {fileID: 85049666}
   m_Layer: 5
   m_Name: MapButton
   m_TagString: Untagged
@@ -250,7 +251,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -318,6 +319,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 85049660}
+--- !u!95 &85049666
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 85049660}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c39f526e29ad214387c7742ba9a1ae5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &93742994
 Prefab:
   m_ObjectHideFlags: 0
@@ -458,6 +476,11 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414030816687876, guid: 209a274800dcd06489fa73525f121c95,
+        type: 2}
+      propertyPath: m_Transition
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 209a274800dcd06489fa73525f121c95, type: 2}
@@ -747,6 +770,11 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414030816687876, guid: 209a274800dcd06489fa73525f121c95,
+        type: 2}
+      propertyPath: m_Transition
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 209a274800dcd06489fa73525f121c95, type: 2}
@@ -1050,6 +1078,7 @@ GameObject:
   - component: {fileID: 571333952}
   - component: {fileID: 571333951}
   - component: {fileID: 571333954}
+  - component: {fileID: 571333955}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1093,7 +1122,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1184,6 +1213,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp: {fileID: 0}
+--- !u!95 &571333955
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 571333949}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c39f526e29ad214387c7742ba9a1ae5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &589222931
 Prefab:
   m_ObjectHideFlags: 0
@@ -2347,6 +2393,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114414030816687876, guid: 209a274800dcd06489fa73525f121c95,
+        type: 2}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 209a274800dcd06489fa73525f121c95, type: 2}
   m_IsPrefabParent: 0
@@ -2564,6 +2615,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1329976070}
+--- !u!1 &1340574174 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1761828960651316, guid: 209a274800dcd06489fa73525f121c95,
+    type: 2}
+  m_PrefabInternal: {fileID: 376476200}
+--- !u!95 &1340574175
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340574174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c39f526e29ad214387c7742ba9a1ae5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1449404667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,6 +3312,28 @@ MonoBehaviour:
   - {fileID: 502556964}
   - {fileID: 1841532522}
   reletiveStampIdValues: 010000000200000003000000040000000500000006000000
+--- !u!1 &1748601119 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1761828960651316, guid: 209a274800dcd06489fa73525f121c95,
+    type: 2}
+  m_PrefabInternal: {fileID: 93742994}
+--- !u!95 &1748601120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1748601119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c39f526e29ad214387c7742ba9a1ae5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1777445141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,6 +3668,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1962439057}
+--- !u!1 &1984231197 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1761828960651316, guid: 209a274800dcd06489fa73525f121c95,
+    type: 2}
+  m_PrefabInternal: {fileID: 1164079421}
+--- !u!95 &1984231198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984231197}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c39f526e29ad214387c7742ba9a1ae5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1998806317
 GameObject:
   m_ObjectHideFlags: 0
