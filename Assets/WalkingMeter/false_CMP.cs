@@ -67,7 +67,7 @@ void Start()
 
                // ngotext += "\n";
             // if(countDeck != null){
-                 if(countDeck.x < -0.0010 ){
+                 if(countDeck.x < -1.0000 ){
                      counttext += 1;
                     }
             text.text = counttext.ToString();
