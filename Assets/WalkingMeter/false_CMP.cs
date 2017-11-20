@@ -52,9 +52,12 @@ void Start()
 */
                // ngotext += "\n";
             // if(countDeck != null){
-                 if(countDeck.x < -0.93732 ){
+                 if(countDeck.x < -1.03732 ){
                      counttext += 1;
                     
+                    }
+                    else if(countDeck.x > -0.75000){
+                        break;
                     }
             //text.text = counttext.ToString();
             }
