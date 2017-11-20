@@ -241,17 +241,17 @@ Prefab:
     - target: {fileID: 224232589335162338, guid: 36660e706703b0740b0be271a0ccf59b,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -276.2
+      value: -285
       objectReference: {fileID: 0}
     - target: {fileID: 224232589335162338, guid: 36660e706703b0740b0be271a0ccf59b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 599
+      value: 605
       objectReference: {fileID: 0}
     - target: {fileID: 224232589335162338, guid: 36660e706703b0740b0be271a0ccf59b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 174.4
+      value: 566
       objectReference: {fileID: 0}
     - target: {fileID: 224232589335162338, guid: 36660e706703b0740b0be271a0ccf59b,
         type: 2}
@@ -312,7 +312,12 @@ Prefab:
     - target: {fileID: 114703074684224212, guid: 36660e706703b0740b0be271a0ccf59b,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114704305911908708, guid: 36660e706703b0740b0be271a0ccf59b,
+        type: 2}
+      propertyPath: m_Transition
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36660e706703b0740b0be271a0ccf59b, type: 2}
@@ -322,6 +327,28 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224232589335162338, guid: 36660e706703b0740b0be271a0ccf59b,
     type: 2}
   m_PrefabInternal: {fileID: 726325965}
+--- !u!1 &726325967 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1395396112129214, guid: 36660e706703b0740b0be271a0ccf59b,
+    type: 2}
+  m_PrefabInternal: {fileID: 726325965}
+--- !u!95 &726325968
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 726325967}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c39f526e29ad214387c7742ba9a1ae5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &967621193
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1662780015
 RectTransform:
   m_ObjectHideFlags: 0
