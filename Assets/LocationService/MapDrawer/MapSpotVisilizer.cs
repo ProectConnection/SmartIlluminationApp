@@ -70,7 +70,6 @@ public class MapSpotVisilizer : MonoBehaviour {
                     nearestDistance = distance;
                 }
             }
-            Debug.Log(spotClass.name + "Dist:" + distance);
             //現在位置が0,0で表示されている前提で移動する
             DVector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
                 spotClass.ThisSpotData.GetSpotCoordInDVec2,
@@ -90,7 +89,6 @@ public class MapSpotVisilizer : MonoBehaviour {
                                                spotClass.thisTransform.position.y,
                                                (float)(-(Diff.y / (MapMeterPerOneUnit.y ) ))
                                                );
-            Debug.Log(spotClass.name + "Diffs" + Diff.x + "," + Diff.y);
             spotClass.ChangeScaleSpotRange();
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();
