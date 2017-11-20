@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpotManager : MonoBehaviour {
@@ -6,16 +7,32 @@ public class SpotManager : MonoBehaviour {
     [SerializeField]
     GameObject SpotPrefab;
     List<SpotData> RegistrationSpot;
+    public List<SpotData> registrationSpots
+    {
+        get { return RegistrationSpot; }
+    }
     [SerializeField]
     string[] SpotDataResourcePasses;
     public List<SpotClass> ref_SpotClasses;
     [SerializeField]
     SpotData NearestSpotData;
+    SpotData CheatedSpotData;
+    public SpotData cheatedSpotData
+    {
+        get { return CheatedSpotData; }
+    }
+
     [SerializeField]
     Texture[] SpotMarkTextures;
+
+    Coroutine ref_Deactivator;
+
     public SpotData nearestSpotData
     {
-        get { return NearestSpotData; }
+        get {
+            if(cheatedSpotData == null) return NearestSpotData;
+            else return cheatedSpotData;
+        }
         set { NearestSpotData = value; }
     }
     private void Start()
@@ -107,5 +124,20 @@ public class SpotManager : MonoBehaviour {
         
     }
 
-    
+    public void ActivateCheatSpotData(SpotData NewCheatSpot,float ActivateTimeInSecond = 300.0f)
+    {
+        CheatedSpotData = NewCheatSpot;
+        if(ref_Deactivator != null)
+        {
+            StopCoroutine(ref_Deactivator);
+        }
+        ref_Deactivator = StartCoroutine(CheatSpotDeactivator(ActivateTimeInSecond));
+    }
+
+    IEnumerator CheatSpotDeactivator(float ActivateTimeInSecond)
+    {
+        yield return new WaitForSecondsRealtime(ActivateTimeInSecond);
+        CheatedSpotData = null;
+        yield return null;
+    }
 }
