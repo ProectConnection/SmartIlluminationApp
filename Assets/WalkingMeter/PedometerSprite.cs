@@ -52,9 +52,9 @@ public class PedometerSprite : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        m_plugin = new AndroidJavaClass("xyz.saeco.pedometer.MainActivity");
-#endif
+//#if UNITY_ANDROID && !UNITY_EDITOR
+//        m_plugin = new AndroidJavaClass("xyz.saeco.pedometer.MainActivity");
+//#endif
         ref_DataSaver = DataSaver.GetDataSaver();
         image = GetComponent<Image>();
         Check();
