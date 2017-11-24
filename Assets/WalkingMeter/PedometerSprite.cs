@@ -60,17 +60,18 @@ public class PedometerSprite : MonoBehaviour {
 	void Update () {
 
 
-        //テスト用カウント
+   /*     //テスト用カウント
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Step += 1000;
+            Debug.Log(Step);
             Check();
         }
-
+        */
 
 
     }
-
+        
     public void Check()
     {
 
@@ -78,6 +79,7 @@ public class PedometerSprite : MonoBehaviour {
         {
            
             image.sprite = ChangeSprite;
+            
 
         }
        
