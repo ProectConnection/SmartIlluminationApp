@@ -595,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4791459379410994, guid: f7aef0ca996d7b943969c041e630cd0c, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114156225435056894, guid: f7aef0ca996d7b943969c041e630cd0c,
         type: 2}
@@ -618,6 +618,27 @@ Prefab:
     - target: {fileID: 1513693827797590, guid: f7aef0ca996d7b943969c041e630cd0c, type: 2}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114156225435056894, guid: f7aef0ca996d7b943969c041e630cd0c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114156225435056894, guid: f7aef0ca996d7b943969c041e630cd0c,
+        type: 2}
+      propertyPath: childPrefab
+      value: 
+      objectReference: {fileID: 1214159047918432, guid: d533a81e240d86f42bae585e66906e59,
+        type: 2}
+    - target: {fileID: 114156225435056894, guid: f7aef0ca996d7b943969c041e630cd0c,
+        type: 2}
+      propertyPath: tapEffect
+      value: 
+      objectReference: {fileID: 1214159047918432, guid: d533a81e240d86f42bae585e66906e59,
+        type: 2}
+    - target: {fileID: 1513693827797590, guid: f7aef0ca996d7b943969c041e630cd0c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7aef0ca996d7b943969c041e630cd0c, type: 2}
@@ -1473,7 +1494,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353318470595334, guid: 60d6bc6aabbfdcd488f442f0b58c4d87, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4410824870699942, guid: 60d6bc6aabbfdcd488f442f0b58c4d87, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2690,7 +2711,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4756732353480234, guid: f00f91cee30ec654e840c5ffb04415f1, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114036185341631124, guid: f00f91cee30ec654e840c5ffb04415f1,
         type: 2}
@@ -2818,7 +2839,7 @@ RectTransform:
   - {fileID: 1491662294}
   - {fileID: 911428599}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3588,7 +3609,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1520692684
 GameObject:
@@ -3698,7 +3719,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3767,7 +3788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651113818
 GameObject:
@@ -3850,6 +3871,7 @@ GameObject:
   - component: {fileID: 1707934344}
   - component: {fileID: 1707934343}
   - component: {fileID: 1707934348}
+  - component: {fileID: 1707934350}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3944,6 +3966,18 @@ MonoBehaviour:
   lrLimit:
   - -2.4
   - 2.4
+--- !u!114 &1707934350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1707934342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff6feafc6ca0b54dbb071e4b4af05d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 1214159047918432, guid: f88ea637d6f8cf14fa493cce891ac1f0, type: 2}
 --- !u!1 &1739808094
 GameObject:
   m_ObjectHideFlags: 0
