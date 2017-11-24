@@ -19,6 +19,7 @@ public class DebugLocationCheat : DebugDropDownButtonBase{
             {
                 optionals.Add(new UnityEngine.UI.Dropdown.OptionData(tsd.SpotName));
             }
+            optionals.Insert(0, new UnityEngine.UI.Dropdown.OptionData("通常状態へ戻す"));
             AttachedDropDownList.options = optionals;
         }
     }
@@ -30,6 +31,7 @@ public class DebugLocationCheat : DebugDropDownButtonBase{
 
     public override void OnClick()
     {
-        ref_SpotManager.ActivateCheatSpotData(ref_SpotManager.registrationSpots[AttachedDropDownList.value]);
+        if(AttachedDropDownList.value == 0) { ref_SpotManager.CheatSpotDeactivateImmidiate(); }
+        else ref_SpotManager.ActivateCheatSpotData(ref_SpotManager.registrationSpots[AttachedDropDownList.value - 1]);
     }
 }

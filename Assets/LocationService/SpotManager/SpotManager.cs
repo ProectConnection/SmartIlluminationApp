@@ -140,4 +140,10 @@ public class SpotManager : MonoBehaviour {
         CheatedSpotData = null;
         yield return null;
     }
+
+    public void CheatSpotDeactivateImmidiate()
+    {
+        CheatedSpotData = null;
+        if (ref_Deactivator != null) StopCoroutine(ref_Deactivator);
+    }
 }
