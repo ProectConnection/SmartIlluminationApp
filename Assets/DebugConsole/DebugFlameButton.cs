@@ -24,8 +24,7 @@ namespace DebugConsole
         {
             reversePedcount = FlamePresser.gocountList;
             ref_DataSaver.AddInitialPedocount(reversePedcount);
-            Debug.Log("オティムポ" + reversePedcount);
-            Debug.Log("");
+            Debug.Log("ボタンで呼び出した数値" + reversePedcount);
         }
     }
 }

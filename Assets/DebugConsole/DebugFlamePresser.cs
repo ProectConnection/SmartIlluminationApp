@@ -19,9 +19,9 @@ namespace DebugConsole
         {
             //int.tryParse←Parseの使い方、詳しくはWEBで
             countList = dropdownList.options[value].text; //Labelからテキストを取得し格納
-            Debug.Log("オチンポロン = " + countList);//出力
+            Debug.Log("ラベルから摘出した歩数→" + countList);//出力
             bool result = int.TryParse(countList, out gocountList);//数値変換
-            Debug.Log("もちろん俺らは抵抗するで？" + gocountList + "歳！！");//数値変換後の値を出力
+            Debug.Log("摘出した内容を数値に変換したもの→" + gocountList);//数値変換後の値を出力
 
         }
     }
