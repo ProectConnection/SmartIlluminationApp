@@ -34,7 +34,7 @@ public class CompassRotator : MonoBehaviour {
     void UpdateRotationYaw()
     {
         rotation_Yaw = Input.compass.trueHeading;
-        Debug.Log("rotation_Yaw = " + rotation_Yaw);
+        //Debug.Log("rotation_Yaw = " + rotation_Yaw);
     }
 
     void UpdateRotationYawToRotationObject()

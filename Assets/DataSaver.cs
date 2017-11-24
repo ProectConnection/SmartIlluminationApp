@@ -59,6 +59,11 @@ public class DataSaver : MonoBehaviour {
         return 0;
     }
 
+    public void AddInitialPedocount(int addInitPedocount)
+    {
+        initialPedoCount += addInitPedocount;
+    }
+
     public List<StampID> PressedStamp
     {
         get { return pressedStamp; }
@@ -135,8 +140,6 @@ public class DataSaver : MonoBehaviour {
             DataSave();
         }
     }
-
-    
 }
 
 public class JsonDataSaveClass{
@@ -154,5 +157,5 @@ public class JsonDataSaveClass{
 
 public enum PEDOCOUNTSETMODE {
     ADDCITIVE,  //加算モード
-    OVERWRITE   //上書きモード
+    OVERWRITE,   //上書きモード
 };
