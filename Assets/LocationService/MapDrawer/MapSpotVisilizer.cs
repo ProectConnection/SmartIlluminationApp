@@ -23,7 +23,7 @@ public class MapSpotVisilizer : MonoBehaviour {
     void Start () {
         
         ref_SpotManager = GameObject.FindGameObjectWithTag("SpotManager").GetComponent<SpotManager>();
-        ref_GoogleMapDrawer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<GoogleMapDrawer>();
+        ref_GoogleMapDrawer = GameObject.FindGameObjectWithTag("CentMapDrawer").GetComponent<GoogleMapDrawer>();
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         
         ref_Locator.OnLocationUpdate.AddListener(StartSpotLocationUpdate);
@@ -48,6 +48,7 @@ public class MapSpotVisilizer : MonoBehaviour {
     IEnumerator SpotLocationUpdate()
     {
         bool IsAnyNearSpotExist = false;
+        double nearestDistance = -1f;
         ref_SpotManager.ChangeSpotParentTransform(transform);
         long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
         RefrashMapUnit();
@@ -61,10 +62,14 @@ public class MapSpotVisilizer : MonoBehaviour {
             spotClass.isSpotNearPlayer = distance <= spotClass.ThisSpotData.spotActivateDistance;
             if (spotClass.isSpotNearPlayer)
             {
-                ref_SpotManager.nearestSpotData = spotClass.ThisSpotData;
                 IsAnyNearSpotExist = true;
+                bool isNearestSpot = (nearestDistance < 0.0f) || (nearestDistance > distance);
+                if (isNearestSpot)
+                {
+                    ref_SpotManager.nearestSpotData = spotClass.ThisSpotData;
+                    nearestDistance = distance;
+                }
             }
-            Debug.Log(spotClass.name + "Dist:" + distance);
             //現在位置が0,0で表示されている前提で移動する
             DVector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
                 spotClass.ThisSpotData.GetSpotCoordInDVec2,
@@ -84,7 +89,6 @@ public class MapSpotVisilizer : MonoBehaviour {
                                                spotClass.thisTransform.position.y,
                                                (float)(-(Diff.y / (MapMeterPerOneUnit.y ) ))
                                                );
-            Debug.Log(spotClass.name + "Diffs" + Diff.x + "," + Diff.y);
             spotClass.ChangeScaleSpotRange();
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();

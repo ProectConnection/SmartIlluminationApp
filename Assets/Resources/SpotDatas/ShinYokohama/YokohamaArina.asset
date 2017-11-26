@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Name: YokohamaArina
   m_EditorClassIdentifier: 
   spotName: "\u6A2A\u6D5C\u30A2\u30EA\u30FC\u30CA"
-  Longitude: 139.6202318
-  Letitude: 35.5122543
+  Longitude: 139.6194859
+  Letitude: 35.5118365
   SpotActivateDistance: 75
-  PhotoFrame: []
-  StampIDThisCheckPoint: -1
+  PhotoFrame:
+  - {fileID: 21300000, guid: 092a460cc21b38441abb37edb8052517, type: 3}
+  StampIDThisCheckPoint: 3
   ThisSpotType: 3

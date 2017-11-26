@@ -12,6 +12,10 @@ TagManager:
   - SaysStamp
   - StampData
   - DataSaver
+  - maincam
+  - Pedometer
+  - SpotRange
+  - CentMapDrawer
   layers:
   - Default
   - TransparentFX
@@ -22,7 +26,7 @@ TagManager:
   - 
   - 
   - Spot
-  - 
+  - TouchEffect
   - 
   - 
   - 

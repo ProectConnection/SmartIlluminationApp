@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class PopUpCompany : MonoBehaviour
 {
 
+
     public GameObject PopUp;
 
     bool DisplayCompany;
@@ -18,6 +19,9 @@ public class PopUpCompany : MonoBehaviour
         PopUp.SetActive(false);
         DisplayCompany = false;
         DoubleFlg = false;
+
+
+  
     }
 
     // Update is called once per frame
@@ -26,25 +30,21 @@ public class PopUpCompany : MonoBehaviour
         
     }
 
+
+    //広告表示切り替え
     public void ONPopUpDisplay()
     {
-        if (DisplayCompany == false)
-        {
+        
             PopUp.SetActive(true);
-            DisplayCompany = true;
             
-            //Debug.Log("開いた");
-        }
-        else if (DisplayCompany == true)
-        {
-            PopUp.SetActive(false);
-            DisplayCompany = false;
-            
-            //Debug.Log("閉じた");
-        }
     }
+    public void OFFPopUpDisplay()
+    {
 
+        PopUp.SetActive(false);
 
-   
+    }
+    //
+
 
 }

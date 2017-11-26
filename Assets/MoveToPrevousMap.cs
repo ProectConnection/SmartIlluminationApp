@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class MoveToPrevousMap : MonoBehaviour {
     [SerializeField]
     string usedScene;
+    bool isProcessing = false;
 	public void OnPress()
     {
-        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.UnloadSceneAsync(usedScene);
-        SceneManager.LoadSceneAsync("MapScene",LoadSceneMode.Additive);
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.UnloadSceneAsync(usedScene);
+            SceneManager.LoadSceneAsync("MapScene", LoadSceneMode.Additive);
+        }
     }
 }

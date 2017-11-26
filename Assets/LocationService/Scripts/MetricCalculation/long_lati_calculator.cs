@@ -68,8 +68,6 @@ public sealed class long_lati_calculator {
         //return new Vector2((GetInstance.longitudeMetricsPerDegree * (a.x - b.x)),
         //                   (GetInstance.CalculateLatitudeMetricParDegree((a.y + b.y ) / 2) * (a.y - b.y))
         //                   );
-        Debug.Log("a = " + a);
-        Debug.Log("b = " + b);   
         double rax = DegToRad(a.x);
         double ray = DegToRad(a.y);
         double rbx = DegToRad(b.x);
