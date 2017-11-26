@@ -4,31 +4,55 @@ using UnityEngine;
 
 public class TapEffect : MonoBehaviour {
     [SerializeField]
-    GameObject tapEffect=null;
+    GameObject tapEffect;
     [SerializeField]
     Camera _camera;
-    private GameObject _parent;
-	// Use this for initialization
-	void Start () {
-        _parent = GameObject.FindWithTag("MainCamera");
+    private Vector3 ClickCecker;
+
+
+
+    //*******************
+    //[SerializeField]
+    //GameObject childPrefab;
+
+    //*******************
+
+
+    // Use this for initialization
+    void Start () {
+  
+
+        
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-           // Vector3 pos = Input.mousePosition;
-            Vector3 pos = _camera.ScreenToWorldPoint(Input.mousePosition+_camera.transform.forward*5);//(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
-            Ray touchRay = _camera.ScreenPointToRay(Input.mousePosition);
-            Debug.Log(pos);
-            Debug.DrawRay(touchRay.origin,touchRay.direction,Color.red,3.0f);
+            ClickCecker = Input.mousePosition;
+            ClickCecker.z = 5.0f;
+            GameObject EffectFrow = (GameObject)Instantiate(tapEffect, _camera.ScreenToWorldPoint(ClickCecker), _camera.transform.rotation);
+            Destroy(EffectFrow, 0.4f);
+            // Vector3 pos = _camera.ScreenToWorldPoint(Input.mousePosition+_camera.transform.forward*5);//(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+            // pos.z = 5;
+            //Debug.Log(pos);
             //Debug.Log(Input.mousePosition.y);
-            //GameObject player = (GameObject)Instantiate(tapEffect, pos,Camera.main.transform.rotation);
-            //GameObject player = (GameObject)Instantiate(tapEffect, pos, Quaternion.identity);
-            GameObject player = (GameObject)Instantiate(tapEffect, pos, _parent.transform.rotation);
-            Destroy(player, 0.4f);
+            //GameObject EffectFrow = (GameObject)Instantiate(tapEffect, pos,Camera.main.transform.rotation);
+            //GameObject EffectFrow = (GameObject)Instantiate(tapEffect, pos, Quaternion.identity);
+          
+            /*
+            //********************
+            var parent = this.transform;
+             Instantiate(childPrefab, Vector3.zero, Quaternion.identity, parent);
+            Instantiate(tapEffect, Vector3.zero, Quaternion.identity, parent);
+            //********************
+            Destroy(childPrefab, 0.4f);
+            Destroy(tapEffect, 0.4f);
             //   tapEffect.transform.position = pos;
             //tapEffect.Emit(1);
+            */
+
         }
-	}
+    }
 }
