@@ -8,6 +8,7 @@ public class TapEffect : MonoBehaviour {
     [SerializeField]
     Camera _camera;
     private Vector3 ClickCecker;
+   // public GameObject canvasObject;
 
 
 
@@ -33,6 +34,7 @@ public class TapEffect : MonoBehaviour {
             ClickCecker = Input.mousePosition;
             ClickCecker.z = 5.0f;
             GameObject EffectFrow = (GameObject)Instantiate(tapEffect, _camera.ScreenToWorldPoint(ClickCecker), _camera.transform.rotation);
+           // EffectFrow.transform.SetParent(canvasObject.transform, false);
             Destroy(EffectFrow, 0.4f);
             // Vector3 pos = _camera.ScreenToWorldPoint(Input.mousePosition+_camera.transform.forward*5);//(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
             // pos.z = 5;
