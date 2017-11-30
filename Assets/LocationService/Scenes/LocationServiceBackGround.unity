@@ -167,6 +167,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+        type: 2}
+      propertyPath: SpotDataResourcePasses.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4310948630615222, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -214,6 +219,36 @@ Prefab:
       propertyPath: SpotDataResourcePass
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+        type: 2}
+      propertyPath: SpotDataResourcePasses.Array.data[1]
+      value: ShinYokohama
+      objectReference: {fileID: 0}
+    - target: {fileID: 114457761523703352, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+        type: 2}
+      propertyPath: SpotDataResourcePasses.Array.data[2]
+      value: GroundFutamatagawa
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133e7318ca6063a4b81df0f8e8b4503e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1258567561 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1025877123063742, guid: 133e7318ca6063a4b81df0f8e8b4503e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1258567560}
+--- !u!114 &1258567562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258567561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d566c410f65e97d4680a13372c5585c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pre_Notice: {fileID: 1108960572015208, guid: 2a96824a87ca2e947964500d29a1e976, type: 2}
+  CanvasTransform: {fileID: 0}
+  deb_constructSprite: {fileID: 21300000, guid: 3a98eb946a9f40e418a4a0774498e520,
+    type: 3}

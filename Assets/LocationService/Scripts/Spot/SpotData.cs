@@ -85,4 +85,8 @@ public class SpotData : ScriptableObject{
         ThisSpotType = srData.spotType;
         SpotActivateDistance = srData.spotRange;
     }
+    public override string ToString()
+    {
+        return "SpotData(" + spotName + ")";
+    }
 }

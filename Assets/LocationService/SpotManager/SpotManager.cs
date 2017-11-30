@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpotManager : MonoBehaviour {
     
@@ -33,7 +34,10 @@ public class SpotManager : MonoBehaviour {
             if(cheatedSpotData == null) return NearestSpotData;
             else return cheatedSpotData;
         }
-        set { NearestSpotData = value; }
+        set {
+            NearestSpotData = value;
+            OnChangedNearestSpot.Invoke();
+        }
     }
     private void Start()
     {
@@ -146,4 +150,6 @@ public class SpotManager : MonoBehaviour {
         CheatedSpotData = null;
         if (ref_Deactivator != null) StopCoroutine(ref_Deactivator);
     }
+
+    public UnityEvent OnChangedNearestSpot;
 }
