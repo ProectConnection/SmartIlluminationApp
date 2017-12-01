@@ -14,6 +14,10 @@ public class MapDisplay : MonoBehaviour {
 	void Start () {
 
 
+        gameObject.SetActive(false);
+
+
+
         MapSwitch = false;
 
         Map.SetActive(false);
@@ -32,6 +36,13 @@ public class MapDisplay : MonoBehaviour {
 		
 	}
 
+
+    public void MapButtonView()
+    {
+
+        gameObject.SetActive(true);
+
+    }
 
     public void SwitchDisplayMap()
     {
