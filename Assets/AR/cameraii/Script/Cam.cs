@@ -89,7 +89,12 @@ public class Cam : MonoBehaviour
             thisRenderer.material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
                                                                  //実行
             //transform.rotation = Quaternion.Euler(0, 0, 180);
+            if(Application.platform==RuntimePlatform.Android){
             transform.localScale = new Vector3(-WhenStartTransformScale.x, WhenStartTransformScale.y, WhenStartTransformScale.z);
+            }
+            if(Application.platform==RuntimePlatform.IPhonePlayer){
+                            transform.localScale = new Vector3(WhenStartTransformScale.x, WhenStartTransformScale.y, WhenStartTransformScale.z);
+            }
             Debug.Log(transform.rotation);
             webcamTexture.Play();
             //}
