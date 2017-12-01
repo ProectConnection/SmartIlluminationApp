@@ -24,8 +24,7 @@ class CheckPointNotice : MonoBehaviour
         {
             if (prevSpotData != ref_SpotManager.nearestSpotData)
             {
-                ref_NoticeManager.CreateNotice(deb_constructSprite, "チェックポイント\n" + ref_SpotManager.nearestSpotData.name + "に\n到着しました！");
-                //tnotice.GetComponent<RectTransform>().position = new Vector3(-194f, 673f);
+                ref_NoticeManager.CreateNotice(deb_constructSprite, "チェックポイント\n" + ref_SpotManager.nearestSpotData.SpotName + "に\n到着しました！");
             }
         }
         prevSpotData = ref_SpotManager.nearestSpotData;
