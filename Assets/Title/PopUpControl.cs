@@ -5,11 +5,16 @@ using UnityEngine;
 public class PopUpControl : MonoBehaviour {
 
 
+    //ポップアップの表示・非表示に関する動き
+
     public GameObject PopUp;
 
-	// Use this for initialization
-	void Start () {
 
+    
+    // Use this for initialization
+    void Start () {
+
+        
     }
 	
 	// Update is called once per frame
@@ -19,14 +24,11 @@ public class PopUpControl : MonoBehaviour {
 
     }
 
-
-
-
-
     public void Unlock()
     {
 
-        Destroy(this.gameObject);
+       
+        Destroy(PopUp);
 
     }
 
