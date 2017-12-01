@@ -1914,7 +1914,6 @@ GameObject:
   - component: {fileID: 980098517}
   - component: {fileID: 980098519}
   - component: {fileID: 980098520}
-  - component: {fileID: 980098521}
   m_Layer: 5
   m_Name: CMPedmetar
   m_TagString: Untagged
@@ -2007,20 +2006,6 @@ MonoBehaviour:
   speed: 0.1
   BoxMin: 0
   BoxMax: 0
---- !u!114 &980098521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 980098515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d6f5fbf7b9a90489cf402f72b0fe15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChangeSprite: {fileID: 0}
-  Step: 0
-  Step_Achievement: 1
 --- !u!1 &982594102
 GameObject:
   m_ObjectHideFlags: 0
