@@ -11,11 +11,13 @@ public class Tutorial : MonoBehaviour {
     public GameObject Next;
     public GameObject Back;
 
-    private int PageCnt = 0;
+    //public GameObject ViewTutorial;
 
 
     // Use this for initialization
     void Start () {
+
+        gameObject.SetActive(false);
 
 
         Page1.SetActive(true);
@@ -28,6 +30,14 @@ public class Tutorial : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+    }
+
+
+    public void ViewPage()
+    {
+
+        gameObject.SetActive(true);
 
     }
 
