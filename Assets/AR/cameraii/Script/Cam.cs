@@ -88,9 +88,16 @@ public class Cam : MonoBehaviour
             webcamTexture = new WebCamTexture(devices[1].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
             thisRenderer.material.mainTexture = webcamTexture;   //オブジェクトのマテリアルを貼り付け
                                                                  //実行
-            //transform.rotation = Quaternion.Euler(0, 0, 180);
-            transform.localScale = new Vector3(-WhenStartTransformScale.x, WhenStartTransformScale.y, WhenStartTransformScale.z);
-            Debug.Log(transform.rotation);
+                                                                 //transform.rotation = Quaternion.Euler(0, 0, 180);
+            if (Application.platform == RuntimePlatform.Android)//Androidのインカメラ補正
+            {
+                transform.localScale = new Vector3(-WhenStartTransformScale.x, WhenStartTransformScale.y, WhenStartTransformScale.z);
+            }
+            if (Application.platform == RuntimePlatform.IPhonePlayer)//iOSのインカメラ補正
+            {
+                transform.localScale = new Vector3(WhenStartTransformScale.x, WhenStartTransformScale.y, WhenStartTransformScale.z);
+            }
+                Debug.Log(transform.rotation);
             webcamTexture.Play();
             //}
         }

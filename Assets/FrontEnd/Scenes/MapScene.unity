@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map: {fileID: 1252043893}
   MapSwitch: 0
+  MapCheck: {fileID: 1739808094}
 --- !u!114 &85049663
 MonoBehaviour:
   m_ObjectHideFlags: 0
