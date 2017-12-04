@@ -10,7 +10,6 @@ public class MapDisplay : MonoBehaviour {
 
     public bool MapSwitch;
 
-    public GameObject MapCheck;
 	// Use this for initialization
 	void Start () {
 
@@ -29,27 +28,7 @@ public class MapDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-            if (hit.collider.gameObject != MapCheck)
-            {
-                //追加項目****************タップされたオブジェクトがMapCheckに入れたオブジェクト出なかったときに以下の処理******************//
-                Debug.Log("trueですね");
-                Map.SetActive(false);
-                MapSwitch = false;
-                Debug.Log("てすてす" + hit.collider.gameObject.name);
-            }
-            }
-          
-        
+             
 	}
 
 

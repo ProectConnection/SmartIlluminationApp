@@ -2599,7 +2599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.528}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3193,6 +3193,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1530543802 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1530543801}
+--- !u!114 &1530543803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530543802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c914f0cfbf54b2d409ca979e3edcb7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MD: {fileID: 85049662}
 --- !u!1 &1557409140
 GameObject:
   m_ObjectHideFlags: 0
