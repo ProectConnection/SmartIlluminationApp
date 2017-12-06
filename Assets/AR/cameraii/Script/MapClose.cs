@@ -20,13 +20,15 @@ public class MapClose : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("押しているのだが");
-            if (EventSystem.current.IsPointerOverGameObject())
+
+
+            GetComponent<Renderer>().SetPropertyBlock(block);
+            if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
             {
 
                 return;
             }
-            GetComponent<Renderer>().SetPropertyBlock(block);
+            
 
             if (MD.Map == true)
             {
