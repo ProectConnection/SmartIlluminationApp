@@ -159,7 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Map: {fileID: 1252043893}
-  MapSwitch: 0
 --- !u!114 &85049663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +295,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 928.7, y: 1358.2}
+  m_SizeDelta: {x: 1014.9, y: 1504.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88370507
 MonoBehaviour:
@@ -1603,8 +1602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 451, y: 687}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 418.5, y: 681.4}
+  m_SizeDelta: {x: 165.1, y: 143.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803422465
 MonoBehaviour:
@@ -1648,17 +1647,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1520692684}
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 85049662}
-        m_MethodName: MapButtonView
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3505,8 +3493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 0.000015258789}
-  m_SizeDelta: {x: 928.7, y: 1358.2}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1014.9, y: 1504.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657765945
 MonoBehaviour:
