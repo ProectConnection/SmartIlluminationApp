@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MapDisplay : MonoBehaviour {
 
 
     public GameObject Map;
 
-    bool MapSwitch;
-
+    public bool MapSwitch;
 
 	// Use this for initialization
 	void Start () {
@@ -28,12 +28,7 @@ public class MapDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
-
-
-
-		
+             
 	}
 
     //一時的にコメントアウト
@@ -55,7 +50,8 @@ public class MapDisplay : MonoBehaviour {
             Map.SetActive(true);
             MapSwitch = true;
 
-        }else if(MapSwitch == true)
+        }
+        else if (MapSwitch == true)
         {
 
             Map.SetActive(false);
@@ -63,8 +59,4 @@ public class MapDisplay : MonoBehaviour {
         }
 
     }
-
-
- 
-
 }
