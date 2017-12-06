@@ -7,14 +7,14 @@ public class MapDisplay : MonoBehaviour {
 
     public GameObject Map;
 
-    public bool MapSwitch;
+    bool MapSwitch;
 
 
 	// Use this for initialization
 	void Start () {
 
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
 
 
 
@@ -36,13 +36,14 @@ public class MapDisplay : MonoBehaviour {
 		
 	}
 
-
-    public void MapButtonView()
+    //一時的にコメントアウト
+   /* public void MapButtonView()
     {
 
         gameObject.SetActive(true);
 
-    }
+
+    }*/
 
     public void SwitchDisplayMap()
     {

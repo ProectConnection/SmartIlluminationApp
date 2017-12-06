@@ -5,6 +5,8 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour {
 
 
+
+
     public GameObject Page1;
     public GameObject Page2;
 
@@ -19,6 +21,7 @@ public class Tutorial : MonoBehaviour {
 
         gameObject.SetActive(false);
 
+        
 
         Page1.SetActive(true);
         Page2.SetActive(false);
