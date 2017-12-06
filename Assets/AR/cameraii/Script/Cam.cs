@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using System.Runtime.InteropServices;
 
 public class Cam : MonoBehaviour
 {
@@ -108,8 +108,16 @@ public class Cam : MonoBehaviour
         webcamTexture.Play();
 */
     }
+    
     private void OnDestroy()
     {
         webcamTexture.Stop();
     }
+
+class Foo {
+  [DllImport ("__Internal")]
+  private static extern float FooPluginFunction();
+
+}
+
 }
