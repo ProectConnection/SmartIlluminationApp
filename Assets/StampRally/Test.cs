@@ -21,6 +21,7 @@ public class Test : MonoBehaviour {
     StampData Ref_stampData;
 
     public GameObject OK;
+    public GameObject TouchVisual;
     [SerializeField]
     Image GoalImage;
 
@@ -106,6 +107,8 @@ public class Test : MonoBehaviour {
         if (i <= 6){
             OK.transform.position = StampPosition[i].transform.position;
             OK.SetActive(true);
+            TouchVisual.SetActive(true);
+            
         }
     }
 
@@ -113,6 +116,8 @@ public class Test : MonoBehaviour {
     {
 
       OK.SetActive(false);
+        TouchVisual.SetActive(false);
+        
 
     }
 
