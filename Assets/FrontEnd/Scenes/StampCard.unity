@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &35704296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4351,7 +4351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1580601715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4419,9 +4419,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2032819593}
-          m_MethodName: Clicked
-          m_Mode: 0
+        - m_Target: {fileID: 2032819589}
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5516,6 +5516,7 @@ MonoBehaviour:
   - {fileID: 309852145}
   - {fileID: 1539904983}
   OK: {fileID: 35704295}
+  TouchVisual: {fileID: 1580601714}
   GoalImage: {fileID: 1981551039}
 --- !u!1 &2044938283
 GameObject:
