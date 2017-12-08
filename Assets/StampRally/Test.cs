@@ -47,10 +47,13 @@ public class Test : MonoBehaviour {
         SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
         if (neareSpotData != null)
         {
-            if (neareSpotData.spotType <= SpotType.Photo || Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+            if (!(neareSpotData.spotType <= SpotType.Photo))
+            {
+                if (Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+                else { SpotAreaIN(); }
+            }
+            else { SpotAreaOUT(); }
         }
-        else { SpotAreaOUT(); }
-
         UpdateStampCardView();
     }
 
@@ -98,16 +101,12 @@ public class Test : MonoBehaviour {
     //スポットのエリアに入ったら
     void SpotAreaIN()
     {
-       if(Ref_stampData.pressedStamp.Count == 0)
-        {
-            OK.transform.position = StampPosition[1].transform.position;
+        int i;
+        i = Ref_stampData.pressedStamp.Count;
+        if (i <= 6){
+            OK.transform.position = StampPosition[i].transform.position;
+            OK.SetActive(true);
         }
-       if (Ref_stampData.pressedStamp.Count == 1)
-        {
-            OK.transform.position = StampPosition[2].transform.position;
-        }
-        OK.SetActive(true);
-      
     }
 
     void SpotAreaOUT()
