@@ -8,6 +8,8 @@ public class Test : MonoBehaviour {
 
     [SerializeField]
     Image ClickImage;
+    [SerializeField]
+    GameObject[] StampPosition;
 
     [SerializeField]
     GameObject[] StampGameObject;
@@ -25,7 +27,7 @@ public class Test : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-
+        List<StampID> StampList = new List<StampID>();
         EventTrigger trigger = ClickImage.GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
 
@@ -36,11 +38,7 @@ public class Test : MonoBehaviour {
 
         // EventTriggerに追加
         trigger.triggers.Add(entry);
-
         
-        
-
-
         //OK.SetActive(false);
 
         Ref_stampData = StampData.GetStampData;
@@ -70,7 +68,6 @@ public class Test : MonoBehaviour {
                 else StampGameObject[j].SetActive(false);
             }
         }
-
     }
 
     //public void StampPress()
@@ -96,26 +93,27 @@ public class Test : MonoBehaviour {
 
         //}
         
-
     }
-
-
-
 
     //スポットのエリアに入ったら
     void SpotAreaIN()
     {
-
-       OK.SetActive(true);
+       if(Ref_stampData.pressedStamp.Count == 0)
+        {
+            OK.transform.position = StampPosition[1].transform.position;
+        }
+       if (Ref_stampData.pressedStamp.Count == 1)
+        {
+            OK.transform.position = StampPosition[2].transform.position;
+        }
+        OK.SetActive(true);
       
     }
 
     void SpotAreaOUT()
     {
 
- 
       OK.SetActive(false);
-      
 
     }
 
