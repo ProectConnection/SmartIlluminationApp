@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using System.Runtime.InteropServices;
 
 public class PedometerSprite : MonoBehaviour {
-
-   
     Image image;
     public Sprite ChangeSprite;
 
@@ -14,37 +12,6 @@ public class PedometerSprite : MonoBehaviour {
     DataSaver ref_DataSaver;
     public int Step;
     public int Step_Achievement;
-
-
-    //************
-
-#if UNITY_IOS && !UNITY_EDITOR
-	[DllImport("__Internal")]
-	private static extern void _ex_callSwiftMethod(string CMPedmeter);
-#endif
-
-    public static void _ex_CallSwiftMethod(string CMPedmeter)
-    {
-#if UNITY_IOS && !UNITY_EDITOR
-        _ex_callSwiftMethod(CMPedmeter);
-#endif
-    }
-
-    //************
-
-
-
-    //************
-
-    public static void CallstaticFunction(string steps)
-    {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        if (m_plugin != null){
-            m_plugin.Call("staticFunction", steps);
-        }
-#endif
-    }
-
 
     //************
 
@@ -55,32 +22,14 @@ public class PedometerSprite : MonoBehaviour {
         image = GetComponent<Image>();
         Check();
     }
-	
-	// Update is called once per frame
-	void Update () {
-
-
-        //テスト用カウント
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Step += 1000;
-            Check();
-        }
-
-
-
-    }
-
+        
     public void Check()
     {
 
         if (ref_DataSaver.Pedocount >= Step_Achievement)
         {
-           
             image.sprite = ChangeSprite;
-
         }
-       
 
     }
     
