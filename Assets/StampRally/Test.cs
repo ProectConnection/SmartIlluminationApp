@@ -8,6 +8,8 @@ public class Test : MonoBehaviour {
 
     [SerializeField]
     Image ClickImage;
+    [SerializeField]
+    GameObject[] StampPosition;
 
     [SerializeField]
     GameObject[] StampGameObject;
@@ -25,7 +27,7 @@ public class Test : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-
+        List<StampID> StampList = new List<StampID>();
         EventTrigger trigger = ClickImage.GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
 
@@ -36,11 +38,7 @@ public class Test : MonoBehaviour {
 
         // EventTriggerに追加
         trigger.triggers.Add(entry);
-
         
-        
-
-
         //OK.SetActive(false);
 
         Ref_stampData = StampData.GetStampData;
@@ -49,10 +47,13 @@ public class Test : MonoBehaviour {
         SpotData neareSpotData = SpotStamp.GetComponent<SpotManager>().nearestSpotData;
         if (neareSpotData != null)
         {
-            if (neareSpotData.spotType <= SpotType.Photo || Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+            if (!(neareSpotData.spotType <= SpotType.Photo))
+            {
+                if (Ref_stampData.IsPressedStampById(neareSpotData.stampId)) SpotAreaOUT();
+                else { SpotAreaIN(); }
+            }
+            else { SpotAreaOUT(); }
         }
-        else { SpotAreaOUT(); }
-
         UpdateStampCardView();
     }
 
@@ -70,7 +71,6 @@ public class Test : MonoBehaviour {
                 else StampGameObject[j].SetActive(false);
             }
         }
-
     }
 
     //public void StampPress()
@@ -96,26 +96,23 @@ public class Test : MonoBehaviour {
 
         //}
         
-
     }
-
-
-
 
     //スポットのエリアに入ったら
     void SpotAreaIN()
     {
-
-       OK.SetActive(true);
-      
+        int i;
+        i = Ref_stampData.pressedStamp.Count;
+        if (i <= 6){
+            OK.transform.position = StampPosition[i].transform.position;
+            OK.SetActive(true);
+        }
     }
 
     void SpotAreaOUT()
     {
 
- 
       OK.SetActive(false);
-      
 
     }
 
