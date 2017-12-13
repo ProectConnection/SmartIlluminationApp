@@ -97,6 +97,7 @@ public class screen : MonoBehaviour {
 
             case (RuntimePlatform.Android)://内部ストレージへの保存完了（他機種でのテスト必須）
             DirectoryPass = _storageDir + "/DCIM/SmartIlluminationWalk";
+                Debug.Log(DirectoryPass);
             if (!Directory.Exists(DirectoryPass)) Directory.CreateDirectory(DirectoryPass);
                 break;
 		case (RuntimePlatform.IPhonePlayer):
