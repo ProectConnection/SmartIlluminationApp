@@ -8,12 +8,10 @@ using System.Runtime.InteropServices;
 
 
 public class Thumbnails : MonoBehaviour {
-    public GameObject ButtonCheick;
-    string _storageDir ;
     // Use this for initialization
    public void OnClick()
     {
-        string DirectoryPass;
+  
         RawImage rawImage = GetComponent<RawImage>();
         DateTime nowtime = DateTime.Now;
 
