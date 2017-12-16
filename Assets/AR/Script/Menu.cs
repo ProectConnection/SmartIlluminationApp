@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class Menu : MonoBehaviour {
     public GameObject MenuDisplay;
 
 
-    bool MenuFlg;
+   public bool MenuFlg;
 
 
     // Use this for initialization
