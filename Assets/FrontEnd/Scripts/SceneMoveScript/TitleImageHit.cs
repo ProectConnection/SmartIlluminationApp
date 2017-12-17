@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TitleImageHit : MonoBehaviour{
     //UnityEngine.UI.Image image;
+    UnityEngine.UI.Button parentButton;
+    private void Start()
+    {
+         parentButton = gameObject.GetComponent<UnityEngine.UI.Button>();
+        parentButton.onClick.AddListener(OnPress);
+    }
 
     public void OnPress()
     {
