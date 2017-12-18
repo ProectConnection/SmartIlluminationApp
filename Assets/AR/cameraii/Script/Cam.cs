@@ -72,6 +72,9 @@ public class Cam : MonoBehaviour
             case (RuntimePlatform.IPhonePlayer):
                 transform.localScale = new Vector3(WhenStartTransformScale.x, -WhenStartTransformScale.y, WhenStartTransformScale.z);
                 break;
+            case (RuntimePlatform.Android):
+                transform.localScale = new Vector3(WhenStartTransformScale.x, WhenStartTransformScale.y, WhenStartTransformScale.z);
+                break;
         }
         if (CameraFlg == false)
         {

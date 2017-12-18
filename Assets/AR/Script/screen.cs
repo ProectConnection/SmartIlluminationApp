@@ -10,6 +10,8 @@ using System.Runtime.InteropServices;
 public class screen : MonoBehaviour {
 	public UnityEventQueueSystem OnCompleteCapture;
 	public UnityEventQueueSystem OnFailCapture;
+    public GameObject ThumbButton;
+    public bool ThunbButtonflg;
 
 #if !UNITY_EDITOR && UNITY_ANDROID
     AndroidJavaClass env;
@@ -32,6 +34,8 @@ public class screen : MonoBehaviour {
 	#endif
     void Start()
     {
+        ThumbButton.SetActive(false);
+        ThunbButtonflg = false;
 #if !UNITY_EDITOR && UNITY_ANDROID
         env = new AndroidJavaClass("android.os.Environment");
         AndroidJavaObject storageDir = env.CallStatic<AndroidJavaObject>("getExternalStorageDirectory");
@@ -126,4 +130,12 @@ public class screen : MonoBehaviour {
     void Update () {
 		
 	}
+    public void OnThum()
+    {
+        if (ThunbButtonflg == false)
+        {
+            ThumbButton.SetActive(true);
+            ThunbButtonflg = true;
+        }
+    }
 }

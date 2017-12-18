@@ -12,7 +12,7 @@ public class ThumbnailWindow : MonoBehaviour
     {
         RawImage rawImage = GetComponent<RawImage>();
         DateTime nowtime = DateTime.Now;
-        if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.IPhonePlayer)
+        if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor )
         {
             byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/" + ("SmartIllumination_" + (nowtime.Year % 100).ToString("00") + nowtime.Month.ToString("00") + nowtime.Day.ToString("00")
             + nowtime.Hour.ToString("00") + nowtime.Minute.ToString("00") + nowtime.Second.ToString("00") + ".png"));
@@ -36,10 +36,24 @@ public class ThumbnailWindow : MonoBehaviour
             rawImage.texture = textures;
             rawImage.SetNativeSize();
         }
-        Vector2 pos = GetComponent<RectTransform>().anchoredPosition;
-        pos.x = 537;
-        pos.y = 950;
-        GetComponent<RectTransform>().anchoredPosition = pos;
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/" + ("SmartIllumination_" + (nowtime.Year % 100).ToString("00") + nowtime.Month.ToString("00") + nowtime.Day.ToString("00")
+            + nowtime.Hour.ToString("00") + nowtime.Minute.ToString("00") + nowtime.Second.ToString("00") + ".png"));
+
+            Texture2D textures = new Texture2D(1, 1);
+            textures.filterMode = FilterMode.Trilinear;
+            textures.LoadImage(bytes);
+
+            rawImage.texture = textures;
+            rawImage.SetNativeSize();
+        }
+        RectTransform Rt = GetComponent<RectTransform>();
+        Rt.sizeDelta = new Vector2(1080/1.2f, 1920/1.2f);
+        /* Vector2 pos = GetComponent<RectTransform>().anchoredPosition;
+         pos.x = 537;
+         pos.y = 950;
+         GetComponent<RectTransform>().anchoredPosition = pos;*/
     }
   
 }
