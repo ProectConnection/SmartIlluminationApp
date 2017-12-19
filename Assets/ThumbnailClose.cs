@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MapClose : MonoBehaviour {
+public class ThumbnailClose : MonoBehaviour {
     MaterialPropertyBlock block;
-    public MapDisplay MD;
+    public ThumbnailCheck TC;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         block = new MaterialPropertyBlock();
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.GetMouseButtonUp(0))
         {
             GetComponent<Renderer>().SetPropertyBlock(null);
@@ -20,23 +22,21 @@ public class MapClose : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-
-
             GetComponent<Renderer>().SetPropertyBlock(block);
             //******  PCでデバッグをする場合以下の1f文を右のように変えてください　→　if (EventSystem.current.IsPointerOverGameObject()) ******//
-            if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
+            if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))//Input.touches[0].fingerId
             {
 
                 return;
             }
-            
 
-            if (MD.Map == true)
+
+            if (TC.Thumnailflg == true)
             {
-                MD.MapSwitch = false;
+                TC.ThumnailChecks.SetActive(false);
 
-                MD.Map.SetActive(false);
+                TC.Thumnailflg=false;
             }
         }
-	}
+    }
 }
