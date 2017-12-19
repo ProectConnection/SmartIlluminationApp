@@ -24,11 +24,27 @@ public class MapClose : MonoBehaviour {
 
             GetComponent<Renderer>().SetPropertyBlock(block);
             //******  PCでデバッグをする場合以下の1f文を右のように変えてください　→　if (EventSystem.current.IsPointerOverGameObject()) ******//
-            if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
+            //2017/12/19 大塚追記　エディタでデバッグする時に判定式が変わるように変更
+            switch (Application.platform)
             {
+                case RuntimePlatform.WindowsEditor:
+                case RuntimePlatform.OSXEditor:
+                    if (EventSystem.current.IsPointerOverGameObject())
+                    {
+                        return;
+                    }
+                    break;
+                default:
+                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))
+                    {
 
-                return;
+                        return;
+                    }
+                    break;
+                    
             }
+            
+            
             
 
             if (MD.Map == true)
