@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 108705770}
   - component: {fileID: 108705769}
   - component: {fileID: 108705768}
+  - component: {fileID: 108705771}
   m_Layer: 5
   m_Name: Flash
   m_TagString: Untagged
@@ -490,6 +491,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 108705766}
+--- !u!114 &108705771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108705766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72e69a90de4cd74eb583576937781dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AvilablePlatforms: 
 --- !u!114 &138640643 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114700823698235818, guid: abf244b9a0951d14f84a5bcfbddecfa5,
