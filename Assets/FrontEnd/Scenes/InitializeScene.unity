@@ -135,6 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dbe9c24702ff546b91c44c74576497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notiSprite1: {fileID: 21300000, guid: f279d5d53c8060a4f886ee06e65cb0a7, type: 3}
+  notiSprite2: {fileID: 21300000, guid: ab8fadb979697f44d9ceabb7201bfd12, type: 3}
+  notiSprite3: {fileID: 21300000, guid: 43542eb9046f7c945af2864c732583bc, type: 3}
+  notiSprite4: {fileID: 21300000, guid: 063384c4719ce5c43bbe8173ffc41241, type: 3}
 --- !u!4 &21649582
 Transform:
   m_ObjectHideFlags: 0
