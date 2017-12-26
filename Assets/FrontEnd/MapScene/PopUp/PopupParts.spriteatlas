@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: PopupParts
+  m_EditorData:
+    textureSettings:
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 1
+      colorSpace: 1
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+    platformSettings: []
+    packingParameters:
+      paddingPower: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    packedHash:
+      serializedVersion: 2
+      Hash: 23d9777a1f15f524156032aaa0540b63
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 47
+    hashString: 23d9777a1f15f524156032aaa0540b63
+    totalSpriteSurfaceArea: 707508
+    packables:
+    - {fileID: 21300000, guid: c9f5f951deba410478fcbc0d1dbb3783, type: 3}
+    - {fileID: 21300000, guid: 80e6e0933f8182649b50da806624fbd6, type: 3}
+    - {fileID: 21300000, guid: 3288c6dd08b36ef40830bdb8d0034689, type: 3}
+    packedSpriteRenderDataKeys:
+    - 80e6e0933f8182649b50da806624fbd6: 21300000
+    - c9f5f951deba410478fcbc0d1dbb3783: 21300000
+    - 3288c6dd08b36ef40830bdb8d0034689: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 80e6e0933f8182649b50da806624fbd6, type: 3}
+  - {fileID: 21300000, guid: c9f5f951deba410478fcbc0d1dbb3783, type: 3}
+  - {fileID: 21300000, guid: 3288c6dd08b36ef40830bdb8d0034689, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PopUpBace_R
+  - PopUpButtonBace
+  - Energency_Button
+  m_Tag: PopupParts
+  m_IsVariant: 0
