@@ -7,6 +7,8 @@ public class DataSaver : MonoBehaviour {
 
     string DataPath;
     List<StampID> pressedStamp = new List<StampID>();
+    List<NotiID> pednoti = new List<NotiID>();
+
     int pedocount = 0;
     public int Pedocount
     {
@@ -14,6 +16,8 @@ public class DataSaver : MonoBehaviour {
     }
     int initialPedoCount = 0;
     int cheatPedoCount = 0;
+
+    
     static string filename = "SIWSaveData";
     const string FileType = ".sav";
     bool IsAlreadyLoadMap = false;
@@ -70,6 +74,11 @@ public class DataSaver : MonoBehaviour {
         get { return pressedStamp; }
     }
 
+    public List<NotiID> Pednoti
+    {
+        get { return pednoti; }
+    }
+
     public int DataSave()
     {
         List<string> jsonstring = new List<string>();
@@ -77,6 +86,12 @@ public class DataSaver : MonoBehaviour {
         {
             jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("PressedStamp", (int)t)));
         }
+
+        foreach (NotiID t in pednoti)
+        {
+            jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("PedNoti", (int)t)));
+        }
+
         jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("pedoCount", pedocount)));
         jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("IsUnlocked", IsUnlocked)));
         jsonstring.Add(JsonUtility.ToJson(new JsonDataSaveClass("CheatPedo", cheatPedoCount)));
@@ -115,6 +130,9 @@ public class DataSaver : MonoBehaviour {
                 case "CheatPedo":
                     int.TryParse(tjdsc.saveObject,out cheatPedoCount);
                     break;
+                case "PedNoti":
+                    pednoti.Add((NotiID)(int.Parse(tjdsc.saveObject)));
+                    break;
             }
         }
         
@@ -127,6 +145,14 @@ public class DataSaver : MonoBehaviour {
         pressedStamp = newPressedStamp;
         DataSave();
         
+        return 0;
+    }
+
+    public int SetDataPedNoti(List<NotiID> newPedNoti)
+    {
+        pednoti = newPedNoti;
+        DataSave();
+
         return 0;
     }
 
