@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
+using System.IO;
 using TouchScript.Gestures.Base;
 using TouchScript.Layers;
 using TouchScript.Utils;
 
 [RequireComponent(typeof(Renderer))]
 public class GoogleMapDrawer : MonoBehaviour {
+    public const string GoogleMapTexFolder = "MapTexture";
     float initLatitude = 40.713728f;
     float initLongitude = -73.998672f;
     [SerializeField]
@@ -129,17 +131,51 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     public void BuildMap()
     {
-        Url = string.Format(@"https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=terrain&center={0},{1}&zoom={2}&scale={3}language=jp&style=element", calculator.GetLatitude, calculator.GetLongitude,mapSize,mapScale);
-        if(key != null && key.Length != 0)
+        Texture2D mapTexture = new Texture2D(500,500);
+        string GoogleMapTexPath = GetMapDatapath();
+        if (File.Exists(GoogleMapTexPath))
         {
-            Url += "&key=" + key;
+            GetMapNativeTexture(ref mapTexture);
+            thisMaterial.SetTexture("_MainTex", mapTexture);
         }
-        if(signeture != null && signeture.Length != 0)
+        else
         {
-            Url += "&signature=" + signeture;
+
+            Url = string.Format(@"https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=terrain&center={0},{1}&zoom={2}&scale={3}language=jp&style=element", calculator.GetLatitude, calculator.GetLongitude, mapSize, mapScale);
+            if (key != null && key.Length != 0)
+            {
+                Url += "&key=" + key;
+            }
+            if (signeture != null && signeture.Length != 0)
+            {
+                Url += "&signature=" + signeture;
+            }
+            Url = System.Uri.EscapeUriString(Url);
+            StartCoroutine(DownloadFromUrl(this.Url, (Texture2D)thisMaterial.mainTexture));
         }
-        Url = System.Uri.EscapeUriString(Url);
-        StartCoroutine(DownloadFromUrl(this.Url, (Texture2D)thisMaterial.mainTexture));
+    }
+
+    string GetMapDatapath()
+    {
+        if(!Directory.Exists(Application.temporaryCachePath + "/" + GoogleMapTexFolder))
+        {
+            Directory.CreateDirectory(Application.temporaryCachePath + "/" + GoogleMapTexFolder);
+        }
+        Debug.Log(Application.temporaryCachePath + "/" + GoogleMapTexFolder + "/" + "MapTex" + calculator.GetLongitude + "," + calculator.GetLatitude + ".png");
+        return Application.temporaryCachePath + "/" + GoogleMapTexFolder + "/" + "MapTex" + calculator.GetLongitude + "," + calculator.GetLatitude + ".png";
+    }
+
+    bool GetMapNativeTexture(ref Texture2D textureref)
+    {
+        textureref.LoadImage(File.ReadAllBytes(GetMapDatapath()), false);
+        
+        return true;
+    }
+
+    bool WriteMapNativeTexture(Texture2D fileTex)
+    {
+        File.WriteAllBytes(GetMapDatapath(), fileTex.EncodeToPNG());
+        return true;
     }
 
     IEnumerator DownloadFromUrl(string url,Texture2D texture2d)
@@ -154,6 +190,7 @@ public class GoogleMapDrawer : MonoBehaviour {
         else {
             
             www.LoadImageIntoTexture(ScriptableTexture);
+            WriteMapNativeTexture(ScriptableTexture);
             if (ref_LoadingText) ref_LoadingText.SetActive(false);
         }
 
