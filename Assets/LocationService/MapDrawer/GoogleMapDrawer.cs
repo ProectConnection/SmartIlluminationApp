@@ -1,22 +1,22 @@
 ﻿using System.Collections;
-using System;
 using UnityEngine;
 using System.IO;
-using TouchScript.Gestures.Base;
-using TouchScript.Layers;
-using TouchScript.Utils;
+
 
 [RequireComponent(typeof(Renderer))]
 public class GoogleMapDrawer : MonoBehaviour {
     public const string GoogleMapTexFolder = "MapTexture";
+    string GoogleMapDirectory;
+    [SerializeField]
     float initLatitude = 40.713728f;
+    [SerializeField]
     float initLongitude = -73.998672f;
     [SerializeField]
     bool isTrackUser;
     public string key = null;
     [SerializeField]
     string signeture = null;
-    //int MapSize = 17;
+    
     [SerializeField]
     GameObject ref_LoadingText;
     bool IsGetMapError = true;
@@ -24,29 +24,9 @@ public class GoogleMapDrawer : MonoBehaviour {
     [SerializeField]
     Texture2D FirstTexture;
     Material thisMaterial;
-    //public int mapSize
 
-    /* public static UnityEngine.Vector2  oldScreenPos1;
-     public static UnityEngine.Vector2 oldScreenPos2;
-     public static UnityEngine.Vector2 newScreenPos1;
-     public static UnityEngine.Vector2 newScreenPos2;
-
-     //public static float projectionParams;
-     public static TouchScript.Layers.ProjectionParams projectionParams;*/
      [SerializeField]
-    float MapSize=17; /*= TransformGestureBase.doScaling(oldScreenPos1, oldScreenPos2, newScreenPos1,
-                                            newScreenPos2,projectionParams);*/
-    public Plane TransformPlane;
-   /* protected override float doRotation(Vector2 oldScreenPos1, Vector2 oldScreenPos2, Vector2 newScreenPos1,
-                                            Vector2 newScreenPos2, ProjectionParams projectionParams)
-    {
-        var newVector = projectionParams.ProjectTo(newScreenPos2, TransformPlane) -
-                        projectionParams.ProjectTo(newScreenPos1, TransformPlane);
-        var oldVector = projectionParams.ProjectTo(oldScreenPos2, TransformPlane) -
-                        projectionParams.ProjectTo(oldScreenPos1, TransformPlane);
-        return newVector.magnitude / oldVector.magnitude;
-
-    }*/
+    float MapSize=17;
     public float mapSize
     {
         get
@@ -56,13 +36,13 @@ public class GoogleMapDrawer : MonoBehaviour {
         set
         {
             //Google Static Map APIで指定できるサイズでない場合の例外処理
-            if(value < 0)
+            if (value < 0)
             {
                 MapSize = 0;
             }
-            else if(value > 23)
+            else if (value > 21)
             {
-                MapSize = 23;
+                MapSize = 21;
             }
             else
             {
@@ -70,7 +50,8 @@ public class GoogleMapDrawer : MonoBehaviour {
             }
         }
     }
-    [SerializeField]
+    public Plane TransformPlane;
+
     int MapScale = 2;
     public int mapScale
     {
@@ -104,13 +85,16 @@ public class GoogleMapDrawer : MonoBehaviour {
     void Start () {
 		if(calculator == null)
         {
+
             //検索用のLocationCoordinationの参照を
             //渡す
-            calculator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().locationCoordination;
-            GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().OnLocationUpdate.AddListener(BuildMap);
+            //calculator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().locationCoordination;
+            calculator = new LocationCoordination(initLongitude,initLatitude);
+            //GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().OnLocationUpdate.AddListener(BuildMap);
              thisMaterial = GetComponent<Renderer>().material;
             ScriptableTexture = Instantiate(FirstTexture);
             thisMaterial.mainTexture = ScriptableTexture;
+            GoogleMapDirectory = Application.temporaryCachePath + "/" + GoogleMapTexFolder;
             BuildMap();
         }
 	}
@@ -157,12 +141,11 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     string GetMapDatapath()
     {
-        if(!Directory.Exists(Application.temporaryCachePath + "/" + GoogleMapTexFolder))
+        if(!Directory.Exists(GoogleMapDirectory))
         {
-            Directory.CreateDirectory(Application.temporaryCachePath + "/" + GoogleMapTexFolder);
+            Directory.CreateDirectory(GoogleMapDirectory);
         }
-        Debug.Log(Application.temporaryCachePath + "/" + GoogleMapTexFolder + "/" + "MapTex" + calculator.GetLongitude + "," + calculator.GetLatitude + ".png");
-        return Application.temporaryCachePath + "/" + GoogleMapTexFolder + "/" + "MapTex" + calculator.GetLongitude + "," + calculator.GetLatitude + ".png";
+        return GoogleMapDirectory + "/" + "MapTex" + calculator.GetLatitude + "," + calculator.GetLongitude + "," + mapSize + ".png";
     }
 
     bool GetMapNativeTexture(ref Texture2D textureref)
@@ -201,5 +184,10 @@ public class GoogleMapDrawer : MonoBehaviour {
     {
         DestroyImmediate(ScriptableTexture);
         GetComponent<Renderer>().material.mainTexture = tex;
+    }
+
+    public void SetLocationCoordinate()
+    {
+         
     }
 }

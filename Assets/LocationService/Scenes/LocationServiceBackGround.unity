@@ -162,6 +162,11 @@ Prefab:
       propertyPath: waitsecond
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114449211346802266, guid: 7cac2f3782683684d945a6d3caeadab5,
+        type: 2}
+      propertyPath: locationAnalyzeTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cac2f3782683684d945a6d3caeadab5, type: 2}
   m_IsPrefabParent: 0
