@@ -115,7 +115,7 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     public void BuildMap()
     {
-        Texture2D mapTexture = new Texture2D(500,500);
+        Texture2D mapTexture = new Texture2D(512,512);
         string GoogleMapTexPath = GetMapDatapath();
         if (File.Exists(GoogleMapTexPath))
         {
@@ -125,7 +125,7 @@ public class GoogleMapDrawer : MonoBehaviour {
         else
         {
 
-            Url = string.Format(@"https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=terrain&center={0},{1}&zoom={2}&scale={3}language=jp&style=element", calculator.GetLatitude, calculator.GetLongitude, mapSize, mapScale);
+            Url = string.Format(@"https://maps.googleapis.com/maps/api/staticmap?size=512x512&maptype=terrain&center={0},{1}&zoom={2}&scale={3}language=jp&style=element", calculator.GetLatitude, calculator.GetLongitude, mapSize, mapScale);
             if (key != null && key.Length != 0)
             {
                 Url += "&key=" + key;
