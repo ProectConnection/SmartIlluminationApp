@@ -1395,7 +1395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1413,7 +1413,7 @@ Prefab:
     - target: {fileID: 114162393557664596, guid: a5d705c5e63cf9149aa789b758ff88a2,
         type: 2}
       propertyPath: MapSize
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114162393557664596, guid: a5d705c5e63cf9149aa789b758ff88a2,
         type: 2}
@@ -1424,6 +1424,10 @@ Prefab:
         type: 2}
       propertyPath: initLongitude
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -1698,7 +1702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1707,6 +1711,10 @@ Prefab:
     - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_Name
       value: GoogleMapDrawer (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -1994,7 +2002,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2018,6 +2026,10 @@ Prefab:
         type: 2}
       propertyPath: MapSize
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -2327,7 +2339,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2336,6 +2348,10 @@ Prefab:
     - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_Name
       value: GoogleMapDrawer (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -3054,7 +3070,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3078,6 +3094,10 @@ Prefab:
         type: 2}
       propertyPath: MapSize
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -3529,7 +3549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4270a359ebd92d840bc949742caf8276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomlevel: 1
+  zoomlevel: 17
+  Prefab_GoogleMapDrawer: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2,
+    type: 2}
 --- !u!1001 &1530543801
 Prefab:
   m_ObjectHideFlags: 0
@@ -3567,7 +3589,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3586,6 +3608,10 @@ Prefab:
     - target: {fileID: 114162393557664596, guid: a5d705c5e63cf9149aa789b758ff88a2,
         type: 2}
       propertyPath: initLatitude
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3650,7 +3676,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3669,6 +3695,10 @@ Prefab:
         type: 2}
       propertyPath: initLongitude
       value: -71.99867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -4257,7 +4287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4271,6 +4301,10 @@ Prefab:
         type: 2}
       propertyPath: initLongitude
       value: -43.99867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
@@ -4450,7 +4484,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4290221054258270, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4464,6 +4498,10 @@ Prefab:
         type: 2}
       propertyPath: initLatitude
       value: 46.71373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185184679261240, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5d705c5e63cf9149aa789b758ff88a2, type: 2}

@@ -1,6 +1,10 @@
-﻿public class LocationCoordination : UnityEngine.ScriptableObject{
-    
+﻿using UnityEngine;
+
+[System.Serializable]
+public class LocationCoordination {
+    [SerializeField]
     private double longitude;
+    [SerializeField]
     private double latitude;
     
     public void SetCoordination(double tlongitude,double tlatitude)
@@ -39,5 +43,10 @@
     public LocationCoordination(DVector2 CoordinationDegrees)
     {
         SetCoordination(CoordinationDegrees.x, CoordinationDegrees.y);
+    }
+
+    public override string ToString()
+    {
+        return ("Letitude =" + latitude + "Longitude" + longitude);
     }
 }

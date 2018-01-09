@@ -75,26 +75,34 @@ public class GoogleMapDrawer : MonoBehaviour {
             }
         }
     }
-
+    [SerializeField]
     LocationCoordination calculator;
+    GoogleMapPictureCoordination GoogleMapPictureCoord;
 
     string Url = @"https://maps.googleapis.com/maps/api/staticmap?size=100x100&maptype=terrain&center=40.714728,-73.998672&zoom=17&sensor=false";
 
+    private void Awake()
+    {
+        thisMaterial = GetComponent<Renderer>().material;
+        ScriptableTexture = Instantiate(FirstTexture);
+        thisMaterial.mainTexture = ScriptableTexture;
+    }
 
     // Use this for initialization
     void Start () {
-		if(calculator == null)
+        
+
+        if (calculator == null)
         {
 
             //検索用のLocationCoordinationの参照を
             //渡す
             //calculator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().locationCoordination;
             calculator = new LocationCoordination(initLongitude,initLatitude);
+            GoogleMapPictureCoord = GoogleMapPictureCoordination.CalculateMapCoordinationFromLetiAndLong(calculator, (uint)mapSize);
             //GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>().OnLocationUpdate.AddListener(BuildMap);
-             thisMaterial = GetComponent<Renderer>().material;
-            ScriptableTexture = Instantiate(FirstTexture);
-            thisMaterial.mainTexture = ScriptableTexture;
-            GoogleMapDirectory = Application.temporaryCachePath + "/" + GoogleMapTexFolder;
+             
+            
             BuildMap();
         }
 	}
@@ -105,17 +113,13 @@ public class GoogleMapDrawer : MonoBehaviour {
         {
             return calculator;
         }
-        set
-        {
-            calculator = value;
-            BuildMap();
-        }
     }
 
 
     public void BuildMap()
     {
         Texture2D mapTexture = new Texture2D(512,512);
+        
         string GoogleMapTexPath = GetMapDatapath();
         if (File.Exists(GoogleMapTexPath))
         {
@@ -141,11 +145,12 @@ public class GoogleMapDrawer : MonoBehaviour {
 
     string GetMapDatapath()
     {
+        GoogleMapDirectory = Application.temporaryCachePath + "/" + GoogleMapTexFolder;
         if(!Directory.Exists(GoogleMapDirectory))
         {
             Directory.CreateDirectory(GoogleMapDirectory);
         }
-        return GoogleMapDirectory + "/" + "MapTex" + calculator.GetLatitude + "," + calculator.GetLongitude + "," + mapSize + ".png";
+        return GoogleMapDirectory + "/" + "MapTex" + GoogleMapPictureCoord.y + "," + GoogleMapPictureCoord.x + "," + mapSize + ".png";
     }
 
     bool GetMapNativeTexture(ref Texture2D textureref)
@@ -186,8 +191,11 @@ public class GoogleMapDrawer : MonoBehaviour {
         GetComponent<Renderer>().material.mainTexture = tex;
     }
 
-    public void SetLocationCoordinate()
+    public void SetLocationCoordinate(LocationCoordination newCoord)
     {
-         
+        calculator = newCoord;
+        GoogleMapPictureCoord = GoogleMapPictureCoordination.CalculateMapCoordinationFromLetiAndLong(calculator, (uint)MapSize);
+        calculator = GoogleMapPictureCoordination.CalculateLetiAndLongFromMapCoordination(GoogleMapPictureCoord);
+        BuildMap();
     }
 }

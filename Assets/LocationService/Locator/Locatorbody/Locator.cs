@@ -24,7 +24,7 @@ public class Locator : MonoBehaviour
     {
         OnLocationUpdate = new UnityEvent();
         locationService = Input.location;
-        locationCoordination = ScriptableObject.CreateInstance<LocationCoordination>();
+        locationCoordination = new LocationCoordination();
         distanceCalculator = gameObject.GetComponent<DistanceCalculator>();
         //googleMapDrawer = GameObject.FindGameObjectWithTag("MapDrawer").GetComponent<GoogleMapDrawer>();
         //googleMapDrawer.Calculator = locationCoordination;
