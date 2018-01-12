@@ -24,7 +24,8 @@ public class ThumbnailClose : MonoBehaviour {
         {
             GetComponent<Renderer>().SetPropertyBlock(block);
             //******  PCでデバッグをする場合以下の1f文を右のように変えてください　→　if (EventSystem.current.IsPointerOverGameObject()) ******//
-            if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))//Input.touches[0].fingerId
+            // if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId))//Input.touches[0].fingerId
+            if (EventSystem.current.IsPointerOverGameObject())
             {
 
                 return;

@@ -111,6 +111,7 @@ public class screen : MonoBehaviour {
             case (RuntimePlatform.WindowsPlayer):
             case (RuntimePlatform.WindowsEditor)://データパスへの保存(C:/user/ユーザー名/appdata/LocalLow)
                 DirectoryPass = Application.persistentDataPath;
+                Debug.Log(DirectoryPass);
                 break;
         }
         File.WriteAllBytes(DirectoryPass + "/" + fileName, bytes);
