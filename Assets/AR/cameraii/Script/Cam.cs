@@ -130,10 +130,5 @@ public class Cam : MonoBehaviour
         webcamTexture.Stop();
     }
 
-/*class Foo {
-  [DllImport ("__Internal")]
-  private static extern float FooPluginFunction();
-
-}*/
 
 }
