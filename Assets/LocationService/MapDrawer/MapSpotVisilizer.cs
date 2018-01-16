@@ -104,7 +104,10 @@ public class MapSpotVisilizer : MonoBehaviour {
     private void OnDestroy()
     {
         ref_Locator.OnLocationUpdate.RemoveListener(this.StartSpotLocationUpdate);
-        ref_SpotManager.ChangeSpotParentTransform(ref_SpotManager.transform);
-        ref_SpotManager.ChangeSpotVisiblity(false);
+        if (ref_SpotManager != null)
+        {
+            ref_SpotManager.ChangeSpotParentTransform(ref_SpotManager.transform);
+            ref_SpotManager.ChangeSpotVisiblity(false);
+        }
     }
 }
