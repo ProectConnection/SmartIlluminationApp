@@ -20,12 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FrontEnd/Scenes/MapScene.unity
     guid: 6abfd60528068f14c9529b5351247ea7
-  - enabled: 0
-    path: Assets/FrontEnd/Scenes/ARCamera.unity
-    guid: 29f1ceb92d9bec843bb212d824af3bd3
-  - enabled: 0
-    path: Assets/AR/marker/ma.unity
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/AR/cameraii/Scene/ma.unity
     guid: 259d357726599084b8aef774a3d398f1

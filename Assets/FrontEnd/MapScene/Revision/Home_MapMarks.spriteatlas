@@ -15,7 +15,7 @@ SpriteAtlas:
       colorSpace: 1
       filterMode: 1
       generateMipMaps: 0
-      readable: 0
+      readable: 1
       crunchedCompression: 0
     platformSettings: []
     packingParameters:
@@ -26,11 +26,11 @@ SpriteAtlas:
       enableTightPacking: 1
     packedHash:
       serializedVersion: 2
-      Hash: bda1f56113128f7b028af8740f42ef32
+      Hash: 269dd9c1b9f25365d8f4ccf4a37c7a79
     variantMultiplier: 1
     bindAsDefault: 1
     finalFormat: 47
-    hashString: bda1f56113128f7b028af8740f42ef32
+    hashString: 269dd9c1b9f25365d8f4ccf4a37c7a79
     totalSpriteSurfaceArea: 80000
     packables:
     - {fileID: 21300000, guid: 50bfc4b726bb4dc4b87de161c13c67c3, type: 3}

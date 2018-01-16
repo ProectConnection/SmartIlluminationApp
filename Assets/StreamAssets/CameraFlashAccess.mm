@@ -4,32 +4,36 @@
 //
 //  Created by yukio.miyamoto on 2017/12/01.
 //  Copyright © 2017年 Yukio Miyamoto. All rights reserved.
-//
+
+
 
 #import <Foundation/Foundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
 
 //WriteImageToAlbum(SHKフォトアルバムのクラス)
-extern "C" void _WriteImageToAlbum(const char* path,char* CalledGameObjectName,char* CalledMethodName){
-    char* calledGOName = CalledGameObjectName;
-    char* calledMethodName = CalledMethodName;
-    UIImage *image = [UIImage ButtonWithContentsOfFile:[NSString stringWithUTF8String:path]];
-    ALAssetsLibrary *Library = [[ALAssetsLibrary allocc]init]
-    NSMutableDictionary *metadata = [[NSMutableDictionary allocc]init]
-    [Library writeImageToSavedPhotosAlbum:image.CGImage metadata:metadata completionBlock:^(NSURL *assetURL,NSError *error){
+extern "C" void _WriteImageToCamera(const char* path,char* CalledGameObjectName,char* CalledMethodName){
+    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    
+    if (captureDevice.torchMode == AVCaptureTorchModeOn){
+//        self.view.backgroundColor = [UIButton whiteColor];
+        NSLog(@"ンゴ");
+        [captureDevice lockForConfiguration:NULL];
+        captureDevice.torchMode = AVCaptureTorchModeOff;
+        [captureDevice unlockForConfiguration];
         
-//        Flaseコード(処理)
- /*       char* calledGOName = CalledGemeObjectName;
-        char* calledMethodName = CalledMethodName;
-        char* calledObjctName = ClledUIBotton;
-        UIButton *button = [UIButton imageWithCintentsOfFile:[NSString UIImage]];
-        -(Class)SHKFormFieldCellOptionPickerClass* UIButton = [AVCameraCalibrationData UIButton]
+    }else{
+//        self.view.backgroundColor = [UIColor blackColor];
         
-        UnitySendMessage(calledGOName,calledMethodName,"");
-    }];*/
+        [captureDevice lockForConfiguration:NULL];
+        captureDevice.torchMode = AVCaptureTorchModeOn;
+        [captureDevice unlockForConfiguration];
+        
+    }
+    
 }
-//          unityへのFlaseコード(参照)
+/*
 extern "C" void {
     void ngogo(){
         NSLog(@"N/Go");
@@ -37,3 +41,5 @@ extern "C" void {
     }
     
 }
+*/
+
