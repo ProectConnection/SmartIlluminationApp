@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(GoogleMapDrawer))]
+[RequireComponent(typeof(GoogleMapManager))]
 public class MapSpotVisilizer : MonoBehaviour {
     SpotManager ref_SpotManager;
-    GoogleMapDrawer ref_GoogleMapDrawer;
+    GoogleMapManager ref_GoogleMapManager;
     Locator ref_Locator;
+    LocationCoordination StandardInitialZeroCoord;
+    Transform ref_PlayerTransform;
+    bool isStandardInitialZeroCoordHasChanged;
     [SerializeField]
     Vector2 MapZoomMagicNumber;
     [SerializeField]
@@ -23,9 +26,11 @@ public class MapSpotVisilizer : MonoBehaviour {
     void Start () {
         
         ref_SpotManager = GameObject.FindGameObjectWithTag("SpotManager").GetComponent<SpotManager>();
-        ref_GoogleMapDrawer = GameObject.FindGameObjectWithTag("CentMapDrawer").GetComponent<GoogleMapDrawer>();
+        //ref_GoogleMapDrawer = GameObject.FindGameObjectWithTag("CentMapDrawer").GetComponent<GoogleMapDrawer>();
+        ref_GoogleMapManager = GameObject.FindGameObjectWithTag("GoogleMapManager").GetComponent<GoogleMapManager>();
         ref_Locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
-        
+        ref_PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
         ref_Locator.OnLocationUpdate.AddListener(StartSpotLocationUpdate);
 
         EquatorArcLength = 2 * System.Math.PI * long_lati_calculator.Equator;
@@ -35,14 +40,22 @@ public class MapSpotVisilizer : MonoBehaviour {
     public void RefrashMapUnit()
     {
 
-        MapMeterPerOneUnit.x = (float)(EquatorArcLength / (System.Math.Pow(2, ((ref_GoogleMapDrawer.mapSize + 1) )) * transform.lossyScale.x * MapZoomMagicNumber.x));
-        MapMeterPerOneUnit.y = (float)(RadiusArcLength / (System.Math.Pow(2, ((ref_GoogleMapDrawer.mapSize + 1)  )) * transform.lossyScale.z * MapZoomMagicNumber.y));
+        MapMeterPerOneUnit.x = (float)(EquatorArcLength / (System.Math.Pow(2, ((ref_GoogleMapManager.ZoomLevel+ 1) )) * transform.lossyScale.x * MapZoomMagicNumber.x));
+        MapMeterPerOneUnit.y = (float)(RadiusArcLength / (System.Math.Pow(2, ((ref_GoogleMapManager.ZoomLevel + 1)  )) * transform.lossyScale.z * MapZoomMagicNumber.y));
         //MapMeterPerOneUnit.x = (float)(EquatorArcLength /((ref_GoogleMapDrawer.mapSize + 1) * ref_GoogleMapDrawer.mapScale * transform.lossyScale.x));
         //MapMeterPerOneUnit.y = (float)(RadiusArcLength / ((ref_GoogleMapDrawer.mapSize + 1) * ref_GoogleMapDrawer.mapScale * transform.lossyScale.z));
     }
     public void StartSpotLocationUpdate()
     {
         StartCoroutine(SpotLocationUpdate());
+    }
+
+    public void SetStandardInitialZeroCoord(LocationCoordination newCoord)
+    {
+        StandardInitialZeroCoord = newCoord;
+
+        if (isStandardInitialZeroCoordHasChanged) Debug.LogWarning("MapSpotVisilizerの基準点が複数回変更されています。\n予期しない動作が起こる可能性があります。");
+        isStandardInitialZeroCoordHasChanged = true;
     }
 
     IEnumerator SpotLocationUpdate()
@@ -52,12 +65,15 @@ public class MapSpotVisilizer : MonoBehaviour {
         ref_SpotManager.ChangeSpotParentTransform(transform);
         long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
         RefrashMapUnit();
+
+        Vector3 PlayerNextPos = CalculateByMapDistanceLocationAndReturnVec3(ref_PlayerTransform, ref_Locator.locationCoordination);
+        ref_PlayerTransform.position = PlayerNextPos;
         foreach (SpotClass spotClass in ref_SpotManager.ref_SpotClasses)
         {
             spotClass.visible = true;
             //スポットと現在位置の距離を計測
             double distance = calcInstance.CalculateLetiAndLongDistanceOfAtoB(spotClass.ThisSpotData.GetSpotCoordInDVec2,
-                                                            ref_Locator.locationCoordination.GetLocationCoordInVec2);
+                                                            StandardInitialZeroCoord.GetLocationCoordInVec2);
             //近接しているスポットの更新処理
             spotClass.isSpotNearPlayer = distance <= spotClass.ThisSpotData.spotActivateDistance;
             if (spotClass.isSpotNearPlayer)
@@ -70,26 +86,9 @@ public class MapSpotVisilizer : MonoBehaviour {
                     nearestDistance = distance;
                 }
             }
-            //現在位置が0,0で表示されている前提で移動する
-            DVector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
-                spotClass.ThisSpotData.GetSpotCoordInDVec2,
-                ref_Locator.locationCoordination.GetLocationCoordInVec2);
-            /*
-             * 変化するもの
-             mapズーム率
-             画像解像度
-             Unity上のスケール
-             1unitがmap上での何mか？ / 17レベルを基準にしたmapzoomの相対値
-            求めるもの
-            Unity座標１当たりがmapでは何メートルなのか
-             */
-
-            //Vector3 SpotPosition = new Vector3(Diff.x / ((float)(2.0 * Mathf.PI * instance.Equator ) / (zoomlevel * scale)), AttacedTransform.position.y, Diff.y / ((float)( (2.0 * Mathf.PI * instance.earthRadius )/ (zoomlevel * scale))));
-            Vector3 SpotPosition = new Vector3((float)(-(Diff.x / (MapMeterPerOneUnit.x ) )),
-                                               spotClass.thisTransform.position.y,
-                                               (float)(-(Diff.y / (MapMeterPerOneUnit.y ) ))
-                                               );
+            //マップ上でのスポット移動
             spotClass.ChangeScaleSpotRange();
+            Vector3 SpotPosition = CalculateByMapDistanceLocationAndReturnVec3(spotClass.thisTransform, new LocationCoordination(spotClass.ThisSpotData.GetSpotCoordInDVec2));
             spotClass.SetWorldPosition(SpotPosition);
             yield return new WaitForFixedUpdate();
         }
@@ -99,6 +98,23 @@ public class MapSpotVisilizer : MonoBehaviour {
         }
         yield return null;
 
+    }
+
+    Vector3 CalculateByMapDistanceLocationAndReturnVec3(Transform movetarget,LocationCoordination moveTargetLocationCoord)
+    {
+        long_lati_calculator calcInstance = long_lati_calculator.GetInstance;
+
+        //現在位置が0,0で表示されている前提で移動する
+        DVector2 Diff = calcInstance.CalculateLetiAndLongDifferenceOfAtoB(
+            moveTargetLocationCoord.GetLocationCoordInVec2,
+            StandardInitialZeroCoord.GetLocationCoordInVec2);
+
+        Vector3 movePosition = new Vector3((float)(-(Diff.x / (MapMeterPerOneUnit.x))),
+                                                   movetarget.position.y,
+                                                   (float)(-(Diff.y / (MapMeterPerOneUnit.y)))
+                                                   );
+
+        return movePosition;
     }
 
     private void OnDestroy()

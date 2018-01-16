@@ -5,13 +5,22 @@ using UnityEngine;
 public class GoogleMapManager : MonoBehaviour {
     [SerializeField]
     uint zoomlevel = 1;
+    public uint ZoomLevel
+    {
+        get { return zoomlevel; }
+        set { zoomlevel = value; }
+    }
     [SerializeField]
     GameObject Prefab_GoogleMapDrawer;
     Locator ref_locator;
     GoogleMapPictureCoordination nowLocationMapCoord;
     List<GoogleMapDrawer> ref_googleMapDrawers;
     Transform thisTransform;
-
+    [SerializeField]
+    Transform TargetTransformStandardMapAddLoad;
+    MapSpotVisilizer ref_MapSpotVisilizer;
+    LocationCoordination InitialLocationCoordinate;
+    bool isInitialLocationUpdate = true;
     private void Start()
     {
         PrefabCheck();
@@ -19,8 +28,7 @@ public class GoogleMapManager : MonoBehaviour {
         ref_googleMapDrawers = new List<GoogleMapDrawer>();
         ref_locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         ref_locator.OnLocationUpdate.AddListener(OnLocatorHasUpdate);
-
-        CreateGoogleMapDrawer(ref_Locator.locationCoordination);
+        ref_MapSpotVisilizer = GetComponent<MapSpotVisilizer>();
         ////テスト用のコード
         ////すでに配置されているGoogleMapDrawerを読み込み、配列に格納する
         //GoogleMapDrawer[] tGMDs = transform.GetComponentsInChildren<GoogleMapDrawer>();
@@ -47,8 +55,18 @@ public class GoogleMapManager : MonoBehaviour {
     }
     void CalculateMapCoordFromNowLocation()
     {
-        
+        if (isInitialLocationUpdate)
+        {
+            //チェックポイント0,0の基準点の設定・GoogleMapDrawerの作成
+            InitialLocationCoordinate = ref_locator.locationCoordination;
 
+            GoogleMapDrawer ref_ILCGMD = CreateGoogleMapDrawer(InitialLocationCoordinate);
+            ref_ILCGMD.mapSize = zoomlevel;
+            ref_ILCGMD.BuildMap();
+            ref_MapSpotVisilizer.SetStandardInitialZeroCoord(ref_ILCGMD.Calculator);
+            
+            isInitialLocationUpdate = false;
+        }
         nowLocationMapCoord = CalculateMapCoordinationFromLetiAndLong(ref_locator.locationCoordination);
         Debug.Log(nowLocationMapCoord);
         foreach (GoogleMapDrawer ref_GMD in ref_googleMapDrawers)

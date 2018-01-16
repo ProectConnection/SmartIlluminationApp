@@ -16,6 +16,7 @@ TagManager:
   - Pedometer
   - SpotRange
   - CentMapDrawer
+  - GoogleMapManager
   layers:
   - Default
   - TransparentFX

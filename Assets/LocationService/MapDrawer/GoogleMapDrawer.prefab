@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 64304873896634862}
   - component: {fileID: 23531607304572782}
   - component: {fileID: 114162393557664596}
-  - component: {fileID: 114505194757960102}
   - component: {fileID: 114973326862499586}
   - component: {fileID: 114819573833835166}
   m_Layer: 0
@@ -194,28 +193,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab63c4bfa2c9b874686fd40caad950d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initLatitude: 40.71373
+  initLongitude: -73.99867
   isTrackUser: 0
   key: AIzaSyAqBvuMfEMztHA0jHn1jvEuUHQRIdlxwb8
   signeture: 
   ref_LoadingText: {fileID: 1711457200205170}
   FirstTexture: {fileID: 2800000, guid: 3d26738c767b6c24eb3f30a4c2ed5789, type: 3}
   MapSize: 17
-  MapScale: 2
---- !u!114 &114505194757960102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185184679261240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c8eb23d1f04bb4081305a9f31f095b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MapZoomMagicNumber: {x: 2.5, y: 3}
-  MapMeterPerOneUnit: {x: 95, y: 95}
-  EquatorArcLength: 0
-  RadiusArcLength: 0
+  calculator:
+    longitude: 0
+    latitude: 0
 --- !u!114 &114819573833835166
 MonoBehaviour:
   m_ObjectHideFlags: 1
