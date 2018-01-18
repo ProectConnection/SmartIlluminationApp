@@ -24,11 +24,7 @@ public class MapAdditionalLoad : MonoBehaviour {
             DestroyThisCollider();
         }
 
-        GameObject tmpGO = other.gameObject;
-        Camera tmpCamera = tmpGO.GetComponent<Camera>();
-        if (tmpCamera == null) return;
-        
-        if (tmpCamera == mainCamera)
+        if (other.gameObject.CompareTag("MainCamera") || other.gameObject.CompareTag("Player"))
         {
             ref_GoogleMapManager.AdditinalMapLoad(nextLoadDiff,ParentTransform,ref_ParentGoogleMapDrawer.googleMapPictureCoord);
             DestroyThisCollider();
