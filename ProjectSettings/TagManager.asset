@@ -17,6 +17,7 @@ TagManager:
   - SpotRange
   - CentMapDrawer
   - GoogleMapManager
+  - AddLoadCollider
   layers:
   - Default
   - TransparentFX

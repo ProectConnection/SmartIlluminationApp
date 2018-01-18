@@ -20,7 +20,12 @@ public class GoogleMapManager : MonoBehaviour {
     Transform TargetTransformStandardMapAddLoad;
     MapSpotVisilizer ref_MapSpotVisilizer;
     LocationCoordination InitialLocationCoordinate;
+    GoogleMapPictureCoordination InitialGoogleMapPictureCoordinate;
     bool isInitialLocationUpdate = true;
+
+    Transform MainCameraTransform;
+
+    static Vector2[] AddLoadIndexs = { new Vector2(0f, -1f), new Vector2(1f, 0f), new Vector2(-1f, 0f), new Vector2(0f, 1f) };
     private void Start()
     {
         PrefabCheck();
@@ -29,6 +34,7 @@ public class GoogleMapManager : MonoBehaviour {
         ref_locator = GameObject.FindGameObjectWithTag("Locator").GetComponent<Locator>();
         ref_locator.OnLocationUpdate.AddListener(OnLocatorHasUpdate);
         ref_MapSpotVisilizer = GetComponent<MapSpotVisilizer>();
+        MainCameraTransform = Camera.main.transform;
         ////テスト用のコード
         ////すでに配置されているGoogleMapDrawerを読み込み、配列に格納する
         //GoogleMapDrawer[] tGMDs = transform.GetComponentsInChildren<GoogleMapDrawer>();
@@ -59,6 +65,7 @@ public class GoogleMapManager : MonoBehaviour {
         {
             //チェックポイント0,0の基準点の設定・GoogleMapDrawerの作成
             InitialLocationCoordinate = ref_locator.locationCoordination;
+            InitialGoogleMapPictureCoordinate = GoogleMapPictureCoordination.CalculateMapCoordinationFromLetiAndLong(InitialLocationCoordinate, ZoomLevel);
 
             GoogleMapDrawer ref_ILCGMD = CreateGoogleMapDrawer(InitialLocationCoordinate);
             ref_ILCGMD.mapSize = zoomlevel;
@@ -72,8 +79,9 @@ public class GoogleMapManager : MonoBehaviour {
         foreach (GoogleMapDrawer ref_GMD in ref_googleMapDrawers)
         {
             ref_GMD.mapSize = zoomlevel;
-            ref_GMD.BuildMap();
+            //ref_GMD.BuildMap();
         }
+
     }
 
     GoogleMapDrawer CreateGoogleMapDrawer()
@@ -91,6 +99,29 @@ public class GoogleMapManager : MonoBehaviour {
         ref_GMDsLast.SetLocationCoordinate(coord);
         return ref_GMDsLast;
     }
+
+    GoogleMapDrawer CreateGoogleMapDrawer(GoogleMapPictureCoordination coord)
+    {
+        GoogleMapDrawer ref_GMDsLast = CreateGoogleMapDrawer();
+        ref_GMDsLast.SetGoogleMapPictureCoordination(coord);
+        return ref_GMDsLast;
+    }
+
+    public void AdditinalMapLoad(Vector2 diff, Transform parentTransform,GoogleMapPictureCoordination newPicCoord)
+    {
+
+        GoogleMapDrawer cloneObject = CreateGoogleMapDrawer(new GoogleMapPictureCoordination(zoomlevel, (uint)(newPicCoord.x + (diff.x * 2)), (uint)(newPicCoord.y + (diff.y * 2))));
+        cloneObject.GetComponent<Transform>().position = new Vector3(parentTransform.position.x + (diff.x * 10), parentTransform.position.y, parentTransform.position.z + (diff.y * 10));
+
+        for (int i = 0; i < AddLoadIndexs.Length; i++) {
+            if (diff == AddLoadIndexs[i]) {
+                Destroy(cloneObject.addLoadColliders[i]);
+            }
+        }
+
+        
+    }
+
 
     public GoogleMapPictureCoordination CalculateMapCoordinationFromLetiAndLong(LocationCoordination coordination)
     {

@@ -25,6 +25,7 @@ public class GoogleMapDrawer : MonoBehaviour {
     Texture2D FirstTexture;
     Material thisMaterial;
 
+    float PrevMapSize;
      [SerializeField]
     float MapSize=17;
     public float mapSize
@@ -35,6 +36,7 @@ public class GoogleMapDrawer : MonoBehaviour {
         }
         set
         {
+            PrevMapSize = MapSize;
             //Google Static Map APIで指定できるサイズでない場合の例外処理
             if (value < 0)
             {
@@ -47,6 +49,10 @@ public class GoogleMapDrawer : MonoBehaviour {
             else
             {
                 MapSize = value;
+            }
+            if(PrevMapSize != MapSize)
+            {
+                BuildMap();
             }
         }
     }
@@ -78,8 +84,19 @@ public class GoogleMapDrawer : MonoBehaviour {
     [SerializeField]
     LocationCoordination calculator;
     GoogleMapPictureCoordination GoogleMapPictureCoord;
+    public GoogleMapPictureCoordination googleMapPictureCoord
+    {
+        get { return GoogleMapPictureCoord; }
+    }
 
     string Url = @"https://maps.googleapis.com/maps/api/staticmap?size=100x100&maptype=terrain&center=40.714728,-73.998672&zoom=17&sensor=false";
+
+    [SerializeField]
+    Collider[] AddLoadColiders;
+    public Collider[] addLoadColliders
+    {
+        get { return AddLoadColiders; }
+    }
 
     private void Awake()
     {
@@ -105,6 +122,7 @@ public class GoogleMapDrawer : MonoBehaviour {
             
             BuildMap();
         }
+        StartCoroutine(ActiveLoadCollider());
 	}
 	
     public LocationCoordination Calculator
@@ -197,5 +215,24 @@ public class GoogleMapDrawer : MonoBehaviour {
         GoogleMapPictureCoord = GoogleMapPictureCoordination.CalculateMapCoordinationFromLetiAndLong(calculator, (uint)MapSize);
         calculator = GoogleMapPictureCoordination.CalculateLetiAndLongFromMapCoordination(GoogleMapPictureCoord);
         BuildMap();
+    }
+
+    public void SetGoogleMapPictureCoordination(GoogleMapPictureCoordination newCoord)
+    {
+        GoogleMapPictureCoord = newCoord;
+        calculator = GoogleMapPictureCoordination.CalculateLetiAndLongFromMapCoordination(GoogleMapPictureCoord);
+        BuildMap();
+    }
+
+    IEnumerator ActiveLoadCollider()
+    {
+        yield return new WaitForSeconds(1.0f);
+        for(int i = 0; i < AddLoadColiders.Length; i++)
+        {
+            if(AddLoadColiders[i] != null){
+                AddLoadColiders[i].enabled = true;
+            }
+        }
+        yield return null;
     }
 }
