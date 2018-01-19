@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Pedometer_Chapters
+  m_EditorData:
+    textureSettings:
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 1
+      colorSpace: 1
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 1
+      crunchedCompression: 0
+    platformSettings: []
+    packingParameters:
+      paddingPower: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    packedHash:
+      serializedVersion: 2
+      Hash: 7ee0a8cffbcf8134f553518cda2194ef
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 47
+    hashString: 7ee0a8cffbcf8134f553518cda2194ef
+    totalSpriteSurfaceArea: 960000
+    packables:
+    - {fileID: 21300000, guid: f279d5d53c8060a4f886ee06e65cb0a7, type: 3}
+    - {fileID: 21300000, guid: ab8fadb979697f44d9ceabb7201bfd12, type: 3}
+    - {fileID: 21300000, guid: 43542eb9046f7c945af2864c732583bc, type: 3}
+    - {fileID: 21300000, guid: 063384c4719ce5c43bbe8173ffc41241, type: 3}
+    - {fileID: 21300000, guid: 1ed730e001e744a46b51f9840c960af5, type: 3}
+    - {fileID: 21300000, guid: 15c6169a75b1ce54688f9f1b9dfaffb0, type: 3}
+    - {fileID: 21300000, guid: 14412a1b733f43a4591083bb3b70b8c0, type: 3}
+    - {fileID: 21300000, guid: 5e9ab2fe8328ea749bc9ee7cd0d1cac9, type: 3}
+    packedSpriteRenderDataKeys:
+    - 5e9ab2fe8328ea749bc9ee7cd0d1cac9: 21300000
+    - 1ed730e001e744a46b51f9840c960af5: 21300000
+    - 15c6169a75b1ce54688f9f1b9dfaffb0: 21300000
+    - 14412a1b733f43a4591083bb3b70b8c0: 21300000
+    - ab8fadb979697f44d9ceabb7201bfd12: 21300000
+    - 43542eb9046f7c945af2864c732583bc: 21300000
+    - f279d5d53c8060a4f886ee06e65cb0a7: 21300000
+    - 063384c4719ce5c43bbe8173ffc41241: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5e9ab2fe8328ea749bc9ee7cd0d1cac9, type: 3}
+  - {fileID: 21300000, guid: 1ed730e001e744a46b51f9840c960af5, type: 3}
+  - {fileID: 21300000, guid: 15c6169a75b1ce54688f9f1b9dfaffb0, type: 3}
+  - {fileID: 21300000, guid: 14412a1b733f43a4591083bb3b70b8c0, type: 3}
+  - {fileID: 21300000, guid: ab8fadb979697f44d9ceabb7201bfd12, type: 3}
+  - {fileID: 21300000, guid: 43542eb9046f7c945af2864c732583bc, type: 3}
+  - {fileID: 21300000, guid: f279d5d53c8060a4f886ee06e65cb0a7, type: 3}
+  - {fileID: 21300000, guid: 063384c4719ce5c43bbe8173ffc41241, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Pedometer_chapter_off4
+  - Pedometer_chapter_off1
+  - Pedometer_chapter_off2
+  - Pedometer_chapter_off3
+  - Pedometer_chapter2
+  - Pedometer_chapter3
+  - Pedometer_chapter1
+  - Pedometer_chapter4
+  m_Tag: Pedometer_Chapters
+  m_IsVariant: 0

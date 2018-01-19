@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: StampMarks
+  m_EditorData:
+    textureSettings:
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 1
+      colorSpace: 1
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+    platformSettings: []
+    packingParameters:
+      paddingPower: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    packedHash:
+      serializedVersion: 2
+      Hash: 7bf4a084b2f2a914130d0c4977918d77
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 47
+    hashString: 7bf4a084b2f2a914130d0c4977918d77
+    totalSpriteSurfaceArea: 1500000
+    packables:
+    - {fileID: 21300000, guid: a11df702a44bbd04a98c67a35dfb27e7, type: 3}
+    - {fileID: 21300000, guid: 172d6ed3d7636ce40a7a9269205d4024, type: 3}
+    - {fileID: 21300000, guid: f537ce88222c5fb4c8f3ebbbba952b9e, type: 3}
+    - {fileID: 21300000, guid: a32de511cefdf2b46a3351ab8e0df0c9, type: 3}
+    - {fileID: 21300000, guid: f18d1db41fa62704e9887cfc50468cd4, type: 3}
+    - {fileID: 21300000, guid: 6787aae534825164da7773745b3b3e26, type: 3}
+    packedSpriteRenderDataKeys:
+    - f18d1db41fa62704e9887cfc50468cd4: 21300000
+    - a32de511cefdf2b46a3351ab8e0df0c9: 21300000
+    - 6787aae534825164da7773745b3b3e26: 21300000
+    - a11df702a44bbd04a98c67a35dfb27e7: 21300000
+    - f537ce88222c5fb4c8f3ebbbba952b9e: 21300000
+    - 172d6ed3d7636ce40a7a9269205d4024: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f18d1db41fa62704e9887cfc50468cd4, type: 3}
+  - {fileID: 21300000, guid: a32de511cefdf2b46a3351ab8e0df0c9, type: 3}
+  - {fileID: 21300000, guid: 6787aae534825164da7773745b3b3e26, type: 3}
+  - {fileID: 21300000, guid: a11df702a44bbd04a98c67a35dfb27e7, type: 3}
+  - {fileID: 21300000, guid: f537ce88222c5fb4c8f3ebbbba952b9e, type: 3}
+  - {fileID: 21300000, guid: 172d6ed3d7636ce40a7a9269205d4024, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - StampMark5
+  - StampMark4
+  - StampMark6
+  - StampMark1
+  - StampMark3
+  - StampMark2
+  m_Tag: StampMarks
+  m_IsVariant: 0
