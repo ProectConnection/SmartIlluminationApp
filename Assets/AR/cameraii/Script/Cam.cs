@@ -55,10 +55,10 @@ public class Cam : MonoBehaviour
         //アウトカム
         WebCamDevice[] devices = WebCamTexture.devices;
         int i = 0;
-        Debug.Log(devices.Length);
-        Debug.Log(devices[0].name);
-        bool aaa = devices[i].isFrontFacing;
-        Debug.Log(name + "isFrontFacing=" + aaa);
+       // Debug.Log(devices.Length);
+       // Debug.Log(devices[0].name);
+        //bool aaa = devices[i].isFrontFacing;
+        //Debug.Log(name + "isFrontFacing=" + aaa);
         // Debug.Log(devices[1].name);
         //WebCamTexture webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);//0で外カメラ、1でインカメラ;
         //デバイス名,映し出す幅,映し出す高さ,FPS値

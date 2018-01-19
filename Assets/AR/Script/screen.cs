@@ -10,9 +10,10 @@ using System.Runtime.InteropServices;
 public class screen : MonoBehaviour {
 	public UnityEventQueueSystem OnCompleteCapture;
 	public UnityEventQueueSystem OnFailCapture;
-    public GameObject ThumbButton;
+    public GameObject Thumb;
+    public GameObject ThumCheckr;
     public bool ThunbButtonflg;
-
+ 
 #if !UNITY_EDITOR && UNITY_ANDROID
     AndroidJavaClass env;
 #endif
@@ -34,8 +35,10 @@ public class screen : MonoBehaviour {
 	#endif
     void Start()
     {
-        ThumbButton.SetActive(false);
+       
+        Thumb.SetActive(false);
         ThunbButtonflg = false;
+        
 #if !UNITY_EDITOR && UNITY_ANDROID
         env = new AndroidJavaClass("android.os.Environment");
         AndroidJavaObject storageDir = env.CallStatic<AndroidJavaObject>("getExternalStorageDirectory");
@@ -46,6 +49,7 @@ public class screen : MonoBehaviour {
         ShutterSEObject = new GameObject("ShutterSEObject").AddComponent<AudioSource>();
         ShutterSEObject.clip = ShutterSound;
         ArCam = Camera.main;
+       
     }
 
 	IEnumerator WaitUntilFinishedWriting(Action callback){
@@ -88,7 +92,10 @@ public class screen : MonoBehaviour {
         screenShot.ReadPixels(new Rect(0, 0, screenShot.width, screenShot.height), 0, 0);
         screenShot.Apply();
         
-
+        RawImage raw = Thumb.GetComponent<RawImage>();
+        
+        RawImage rawbig = ThumCheckr.GetComponent<RawImage>();
+   
         byte[] bytes = screenShot.EncodeToPNG();
         UnityEngine.Object.Destroy(screenShot);
         string DirectoryPass = "";
@@ -115,7 +122,25 @@ public class screen : MonoBehaviour {
                 break;
         }
         File.WriteAllBytes(DirectoryPass + "/" + fileName, bytes);
-		//iOSの時のみ撮影処理が特殊なので例外的な処理を行う
+        byte[] byt = File.ReadAllBytes(DirectoryPass + "/" + fileName);
+
+        
+        //Debug.Log(DirectoryPass + "/" + fileName);
+       
+        Texture2D tex = new Texture2D(1, 1);
+        tex.filterMode = FilterMode.Trilinear;
+        tex.LoadImage(byt);
+        
+        raw.texture = tex;
+        raw.SetNativeSize();
+        rawbig.texture = tex;
+        rawbig.SetNativeSize();
+
+        RectTransform subThum = raw.GetComponent<RectTransform>();
+        subThum.sizeDelta = new Vector2(140, 184);
+        RectTransform bigThum = rawbig.GetComponent<RectTransform>();
+        bigThum.sizeDelta = new Vector2(1080 / 1.2f, 1920 / 1.2f);
+        //iOSの時のみ撮影処理が特殊なので例外的な処理を行う
 
 #if !UNITY_EDITOR && UNITY_IOS
 			
@@ -135,7 +160,7 @@ public class screen : MonoBehaviour {
     {
         if (ThunbButtonflg == false)
         {
-            ThumbButton.SetActive(true);
+            Thumb.SetActive(true);
             ThunbButtonflg = true;
         }
     }
