@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 108705769}
   - component: {fileID: 108705768}
   - component: {fileID: 108705771}
+  - component: {fileID: 108705772}
   m_Layer: 5
   m_Name: Flash
   m_TagString: Untagged
@@ -455,7 +456,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 108705769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 108705772}
+        m_MethodName: ToggleFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &108705769
@@ -502,7 +514,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72e69a90de4cd74eb583576937781dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvilablePlatforms: 
+  AvilablePlatforms: 08000000
+--- !u!114 &108705772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108705766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db06817d0a0234af2a967694573ab113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &138640643 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114700823698235818, guid: abf244b9a0951d14f84a5bcfbddecfa5,
