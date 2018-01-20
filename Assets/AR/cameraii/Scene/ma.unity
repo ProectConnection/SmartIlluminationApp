@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72e69a90de4cd74eb583576937781dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvilablePlatforms: 080000000b000000
+  AvilablePlatforms: 08000000
 --- !u!114 &108705772
 MonoBehaviour:
   m_ObjectHideFlags: 0
