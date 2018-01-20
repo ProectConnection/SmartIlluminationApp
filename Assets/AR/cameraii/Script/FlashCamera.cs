@@ -5,7 +5,8 @@ using System.Runtime.InteropServices;
 using UnityEngine.UI;
 
 public class FlashCamera : MonoBehaviour {
-    Button ClickButton;
+    Image ClickButtonImg;
+    Text ClickButtonText;
     [SerializeField]
     Button inCameraButton;
     // Use this for initialization
@@ -17,10 +18,12 @@ public class FlashCamera : MonoBehaviour {
     private void Start()
     {
         inCameraButton.onClick.AddListener(ToggleButtonActive);
-        ClickButton = GetComponent<Button>();
+        ClickButtonImg = GetComponent<Image>();
+        ClickButtonText = transform.GetChild(0).GetComponent<Text>();
     }
 
     public void ToggleFlash(){
+        Debug.Log("Call Toggle Flash");
         #if UNITY_IOS && !UNITY_EDITOR
 		        _WriteImageToCamera(null,this.gameObject.name,null);
         #endif
@@ -29,7 +32,8 @@ public class FlashCamera : MonoBehaviour {
 
     public void ToggleButtonActive()
     {
-        ClickButton.enabled = !ClickButton.enabled;
+        ClickButtonImg.enabled = !ClickButtonImg.enabled;
+        ClickButtonText.enabled = !ClickButtonText.enabled;
     }
 
 	
