@@ -1738,7 +1738,6 @@ GameObject:
   - component: {fileID: 617732790}
   - component: {fileID: 617732792}
   - component: {fileID: 617732791}
-  - component: {fileID: 617732793}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -1796,17 +1795,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 617732789}
---- !u!114 &617732793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 617732789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585beef85bf3ece43bec689f1aecd831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &622536702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,28 +2790,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1088260652}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 617732793}
-        m_MethodName: OnWindow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1056396541}
         m_MethodName: OnThum
         m_Mode: 1
@@ -2881,7 +2847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515f96545733ba846b8e5ee11458d536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThumbButton: {fileID: 1088260650}
+  Thumb: {fileID: 1088260650}
+  ThumCheckr: {fileID: 617732789}
   ThunbButtonflg: 0
   ShutterSound: {fileID: 8300000, guid: e94efa055329bf24ea190f828a83a7a9, type: 3}
 --- !u!95 &1056396542
@@ -2912,7 +2879,6 @@ GameObject:
   - component: {fileID: 1088260655}
   - component: {fileID: 1088260654}
   - component: {fileID: 1088260653}
-  - component: {fileID: 1088260652}
   - component: {fileID: 1088260656}
   - component: {fileID: 1088260657}
   m_Layer: 5
@@ -2938,19 +2904,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -377, y: -788.6}
-  m_SizeDelta: {x: 160, y: 216.7}
+  m_SizeDelta: {x: 160, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1088260652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1088260650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5300965356ea7274f9324c5c59e7bd04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1088260653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4288,7 +4243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
