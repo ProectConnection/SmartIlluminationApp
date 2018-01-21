@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 93412865}
   - component: {fileID: 93412868}
   - component: {fileID: 93412867}
+  - component: {fileID: 93412869}
   m_Layer: 5
   m_Name: Image (4)
   m_TagString: Untagged
@@ -379,6 +380,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &93412869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93412863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5d8008b07377746a8471692b227792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisFrameId: 4
+  ref_FrameUnlocker: {fileID: 1274684797}
 --- !u!1 &108705766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2599,7 @@ GameObject:
   - component: {fileID: 989075409}
   - component: {fileID: 989075412}
   - component: {fileID: 989075411}
+  - component: {fileID: 989075413}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -2702,6 +2717,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &989075413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 989075407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5d8008b07377746a8471692b227792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisFrameId: 2
+  ref_FrameUnlocker: {fileID: 1274684797}
 --- !u!1 &1056396536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,6 +3060,7 @@ GameObject:
   - component: {fileID: 1172488636}
   - component: {fileID: 1172488638}
   - component: {fileID: 1172488639}
+  - component: {fileID: 1172488640}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3149,6 +3178,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1172488640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172488634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5d8008b07377746a8471692b227792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisFrameId: 0
+  ref_FrameUnlocker: {fileID: 1274684797}
 --- !u!1 &1222971279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,6 +3203,7 @@ GameObject:
   - component: {fileID: 1222971281}
   - component: {fileID: 1222971284}
   - component: {fileID: 1222971283}
+  - component: {fileID: 1222971285}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -3278,6 +3321,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1222971285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1222971279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5d8008b07377746a8471692b227792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisFrameId: 3
+  ref_FrameUnlocker: {fileID: 1274684797}
 --- !u!1 &1242760098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,6 +3346,7 @@ GameObject:
   - component: {fileID: 1242760100}
   - component: {fileID: 1242760103}
   - component: {fileID: 1242760102}
+  - component: {fileID: 1242760104}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -3407,6 +3464,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1242760104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242760098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5d8008b07377746a8471692b227792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisFrameId: 1
+  ref_FrameUnlocker: {fileID: 1274684797}
 --- !u!1 &1274684793
 GameObject:
   m_ObjectHideFlags: 0
