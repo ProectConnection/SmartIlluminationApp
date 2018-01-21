@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db06817d0a0234af2a967694573ab113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inCameraButton: {fileID: 708962132}
 --- !u!114 &138640643 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114700823698235818, guid: abf244b9a0951d14f84a5bcfbddecfa5,
@@ -2198,6 +2199,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abf244b9a0951d14f84a5bcfbddecfa5, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &708962132 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114270953375666798, guid: abf244b9a0951d14f84a5bcfbddecfa5,
+    type: 2}
+  m_PrefabInternal: {fileID: 708962131}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &883269247
 GameObject:
   m_ObjectHideFlags: 0
