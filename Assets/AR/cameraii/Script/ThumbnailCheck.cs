@@ -19,7 +19,7 @@ public class ThumbnailCheck : MonoBehaviour {
 	}
     public void OnThumnail()
     {
-        
+        //ボタンが押されたら大サイズのサムネイル表示
         if (Thumnailflg == false)
         {
             ThumnailChecks.SetActive(true);
