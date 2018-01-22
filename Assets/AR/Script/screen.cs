@@ -133,13 +133,19 @@ public class screen : MonoBehaviour {
         
         raw.texture = tex;
         raw.SetNativeSize();
+
         rawbig.texture = tex;
         rawbig.SetNativeSize();
 
+        
+        //表示するミニサムネイルのWidthとHeight
         RectTransform subThum = raw.GetComponent<RectTransform>();
         subThum.sizeDelta = new Vector2(140, 184);
+
+        //表示するビッグサムネイルのWidthとHeight
         RectTransform bigThum = rawbig.GetComponent<RectTransform>();
         bigThum.sizeDelta = new Vector2(1080 / 1.2f, 1920 / 1.2f);
+
         //iOSの時のみ撮影処理が特殊なので例外的な処理を行う
 
 #if !UNITY_EDITOR && UNITY_IOS
@@ -149,15 +155,9 @@ public class screen : MonoBehaviour {
 			}));
 #endif
     }
-
-
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
     public void OnThum()
     {
+        //スクリーンボタンが押されたら小サイズのサムネイルが表示されます
         if (ThunbButtonflg == false)
         {
             Thumb.SetActive(true);
