@@ -15,22 +15,18 @@ using UnityEngine.UI;
     }
 
     [SerializeField]
-    GameObject Pre_Notice;
-    [SerializeField]
-    Transform CanvasTransform;
-    [SerializeField]
     Sprite deb_BGImage;
 
     NoticeManager ref_NoticeManager;
     DataSaver ref_DataSaver;
 
     // 必要達成歩数
-    int[] Noticount = { 3000, 4000, 5000, 6000 };
+    int[] Noticount = { 2000, 3000, 4000, 5000 };
     int i = 0;
 
     // スプライトの登録
     
-   // public Sprite Pedmeter_chapter1, Pedmeter_chapter2, Pedmeter_chapter3, Pedmeter_chapter4;
+    public Sprite Pedmeter_chapter1, Pedmeter_chapter2, Pedmeter_chapter3, Pedmeter_chapter4;
 
 
     // Use this for initialization
@@ -75,15 +71,13 @@ using UnityEngine.UI;
 
             if (ref_DataSaver.Pedocount >= Noticount[i])
             {
-                Debug.Log(ref_DataSaver.Pedocount);
-                Debug.Log(Noticount[i] + "歩達成!");
-
-                // deb_BGImageにスプライト入れる
-                deb_BGImage = Object.Instantiate(GameObject.Find("Pedmeter_chapter"+i+1).GetComponent<Sprite>());
-                ref_NoticeManager.CreateNotice(deb_BGImage);
+                
+                ref_NoticeManager.CreateNotice(deb_BGImage, Noticount[i]+"歩達成！");
+                //ref_NoticeManager.CreateNotice(deb_BGImage, "Pedmeter_chapter" + (i + 1));
                 StartCoroutine(SaveToDataSaver());
 
                 i++;
+
             }
             break;
         }
