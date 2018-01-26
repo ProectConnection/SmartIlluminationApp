@@ -133,11 +133,12 @@ namespace TouchScript.Gestures
         /// <inheritdoc />
         public void ApplyTransform(Transform target)
         {
-            Vector3 min = new Vector3(Camera.main.transform.position.x, 2, Camera.main.transform.position.z);
-            Vector3 max = new Vector3(Camera.main.transform.position.x, 8, Camera.main.transform.position.z);
-            if (!Mathf.Approximately(DeltaScale, 1f)) Camera.main.transform.position *= DeltaScale;
-            if (Camera.main.transform.position.y <= 2) Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, min.y, Camera.main.transform.position.z);
-            if (Camera.main.transform.position.y >= 8) Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, max.y, Camera.main.transform.position.z);
+            GameObject GoogleMapObject = GameObject.FindGameObjectWithTag("GoogleMapManager");
+            Vector3 min = new Vector3(transform.position.x, 4, transform.position.z);
+            Vector3 max = new Vector3(transform.position.x, 10, transform.position.z);
+            if (!Mathf.Approximately(DeltaScale, 1f))GoogleMapObject.transform.position *= DeltaScale;
+            if (GoogleMapObject.transform.position.y <= 4)GoogleMapObject.transform.position = new Vector3(GoogleMapObject.transform.position.x, min.y, GoogleMapObject.transform.position.z);
+            if (GoogleMapObject.transform.position.y >= 10)GoogleMapObject.transform.position = new Vector3(GoogleMapObject.transform.position.x, max.y, GoogleMapObject.transform.position.z);
             if (DeltaPosition != Vector3.zero) Camera.main.transform.position -= DeltaPosition;
         }
         

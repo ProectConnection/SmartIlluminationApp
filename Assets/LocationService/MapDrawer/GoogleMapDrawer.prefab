@@ -458,7 +458,7 @@ MonoBehaviour:
   sendMessageTarget: {fileID: 0}
   requireGestureToFail: {fileID: 0}
   friendlyGestures: []
-  type: 5
+  type: 7
   minScreenPointsDistance: 0.5
   screenTransformThreshold: 0.1
   Player: {fileID: 0}

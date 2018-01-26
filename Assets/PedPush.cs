@@ -63,7 +63,7 @@ using UnityEngine.UI;
     void checkPedcount()
     {
 
-        Debug.Log(ref_DataSaver.Pedocount+"aaaa");
+        //Debug.Log(ref_DataSaver.Pedocount+"aaaa");
 
         while(ref_DataSaver.Pedocount >= Noticount[3])
         {
