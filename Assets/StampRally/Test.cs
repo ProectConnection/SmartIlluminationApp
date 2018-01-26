@@ -102,7 +102,7 @@ public class Test : MonoBehaviour {
     //スポットのエリアに入ったら
     void SpotAreaIN()
     {
-        int i;
+        int i=0;
         i = Ref_stampData.pressedStamp.Count;
         if (i <= 6){
             OK.transform.position = StampPosition[i].transform.position;

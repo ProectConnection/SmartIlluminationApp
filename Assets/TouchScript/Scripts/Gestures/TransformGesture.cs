@@ -133,21 +133,12 @@ namespace TouchScript.Gestures
         /// <inheritdoc />
         public void ApplyTransform(Transform target)
         {
-            Vector3 min = new Vector3(1, 1, 1);
-            Vector3 max = new Vector3(5, 5, 5);
-            Vector3 Moveminx = new Vector3(-4, Camera.main.transform.position.y, Camera.main.transform.position.z);
-            Vector3 Movemaxx = new Vector3(4, Camera.main.transform.position.y, Camera.main.transform.position.z);
-            Vector3 Moveminy = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -4);
-            Vector3 Movemaxy = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 4);
-            if (!Mathf.Approximately(DeltaScale, 1f)) target.localScale *= DeltaScale;
-            if (target.transform.localScale.x <= 1) target.transform.localScale = min;
-            if (target.transform.localScale.x >= 5) target.transform.localScale = max;
-            if (!Mathf.Approximately(DeltaRotation, 0f)) Camera.main.transform.rotation = Quaternion.AngleAxis(DeltaRotation, RotationAxis) * target.rotation;
+            Vector3 min = new Vector3(Camera.main.transform.position.x, 2, Camera.main.transform.position.z);
+            Vector3 max = new Vector3(Camera.main.transform.position.x, 8, Camera.main.transform.position.z);
+            if (!Mathf.Approximately(DeltaScale, 1f)) Camera.main.transform.position *= DeltaScale;
+            if (Camera.main.transform.position.y <= 2) Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, min.y, Camera.main.transform.position.z);
+            if (Camera.main.transform.position.y >= 8) Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, max.y, Camera.main.transform.position.z);
             if (DeltaPosition != Vector3.zero) Camera.main.transform.position -= DeltaPosition;
-            if (Camera.main.transform.position.x <= -4) Camera.main.transform.position = Moveminx;
-            if (Camera.main.transform.position.x >= 4) Camera.main.transform.position = Movemaxx;
-            if (Camera.main.transform.position.z <= -4) Camera.main.transform.position = Moveminy;
-            if (Camera.main.transform.position.z >= 4) Camera.main.transform.position = Movemaxy;
         }
         
         
@@ -253,7 +244,7 @@ namespace TouchScript.Gestures
         }
 
         /// <inheritdoc />
-        protected override Vector3 doTwoPointTranslation(Vector2 oldScreenPos1, Vector2 oldScreenPos2,
+        /*protected override Vector3 doTwoPointTranslation(Vector2 oldScreenPos1, Vector2 oldScreenPos2,
                                                          Vector2 newScreenPos1, Vector2 newScreenPos2, float dR, float dS, ProjectionParams projectionParams)
         {
             if (isTransforming)
@@ -270,7 +261,7 @@ namespace TouchScript.Gestures
             }
 
             return Vector3.zero;
-        }
+        }*/
 
 #if TOUCHSCRIPT_DEBUG
         protected override void clearDebug()
