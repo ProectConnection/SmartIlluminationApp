@@ -1349,9 +1349,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114106264848871412, guid: 26ba97954a08c554a8f0d2190e7a9a4b,
+        type: 2}
+      propertyPath: TargetTransformStandardMapAddLoad
+      value: 
+      objectReference: {fileID: 710602961}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26ba97954a08c554a8f0d2190e7a9a4b, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &710602961 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4450998622811744, guid: 26ba97954a08c554a8f0d2190e7a9a4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 710602960}
 --- !u!1 &717596060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,7 +3500,6 @@ GameObject:
   - component: {fileID: 1707934345}
   - component: {fileID: 1707934344}
   - component: {fileID: 1707934343}
-  - component: {fileID: 1707934348}
   - component: {fileID: 1707934350}
   - component: {fileID: 1707934351}
   - component: {fileID: 1707934349}
@@ -3571,23 +3580,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1707934348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1707934342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f4ce1ddf87ec744d95bda4e8faf71a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  udLimit:
-  - 1.2
-  - -0.3
-  lrLimit:
-  - -2.4
-  - 2.4
 --- !u!65 &1707934349
 BoxCollider:
   m_ObjectHideFlags: 0
