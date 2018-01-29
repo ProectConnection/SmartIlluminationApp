@@ -15,19 +15,19 @@ using UnityEngine.UI;
     }
 
     [SerializeField]
-    GameObject Pre_Notice;
-    [SerializeField]
-    Transform CanvasTransform;
-    [SerializeField]
-    Sprite deb_constructSprite;
+    Sprite deb_BGImage;
+
     NoticeManager ref_NoticeManager;
     DataSaver ref_DataSaver;
 
     // 必要達成歩数
-    int[] Noticount = { 3000, 4000, 5000, 6000 };
+    int[] Noticount = { 2000, 3000, 4000, 5000 };
+    int i = 0;
 
     // スプライトの登録
-    public Sprite notiSprite1, notiSprite2, notiSprite3, notiSprite4;
+    
+    public Sprite Pedmeter_chapter1, Pedmeter_chapter2, Pedmeter_chapter3, Pedmeter_chapter4;
+
 
     // Use this for initialization
     void Start()
@@ -42,7 +42,10 @@ using UnityEngine.UI;
 
     void Update()
     {
-        checkPedcount();
+        if (ref_DataSaver.Pedocount <= Noticount[3])
+        {
+            checkPedcount();
+        }
     }
 
     public IEnumerator LoadToDataSaver()
@@ -62,44 +65,23 @@ using UnityEngine.UI;
 
     void checkPedcount()
     {
-
-        Debug.Log(ref_DataSaver.Pedocount+"aaaa");
-
-        while(ref_DataSaver.Pedocount >= Noticount[3])
+        
+        while (ref_DataSaver.Pedocount <= Noticount[3])
         {
 
-            if (ref_DataSaver.Pedocount >= Noticount[3])
+            if (ref_DataSaver.Pedocount >= Noticount[i])
             {
-                Debug.Log(ref_DataSaver.Pedocount);
-                Debug.Log(Noticount[3] + "歩達成!");
-
-                ref_NoticeManager.CreateNotice(deb_constructSprite);
-                //pressedStamp.Add(neareSpotData.stampId);
+                
+                ref_NoticeManager.CreateNotice(deb_BGImage, Noticount[i]+"歩達成！");
+                //ref_NoticeManager.CreateNotice(deb_BGImage, "Pedmeter_chapter" + (i + 1));
                 StartCoroutine(SaveToDataSaver());
 
-            }
-            else if (ref_DataSaver.Pedocount >= Noticount[2])
-            {
-                Debug.Log(ref_DataSaver.Pedocount);
-                Debug.Log(Noticount[2] + "歩達成!");
+                i++;
 
             }
-            else if (ref_DataSaver.Pedocount >= Noticount[1])
-            {
-                Debug.Log(ref_DataSaver.Pedocount);
-                Debug.Log(Noticount[1] + "歩達成!");
-
-            }
-            else if (ref_DataSaver.Pedocount >= Noticount[0])
-            {
-                Debug.Log(ref_DataSaver.Pedocount);
-                Debug.Log(Noticount[0] + "歩達成!");
-
-            }
-           // ref_DataSaver.AddInitialPednoti(Noticount);
             break;
         }
-
+       
     }
 
 }
