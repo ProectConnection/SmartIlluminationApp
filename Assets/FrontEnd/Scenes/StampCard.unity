@@ -142,7 +142,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2032819593}
+        - m_Target: {fileID: 2032819594}
           m_MethodName: Clicked
           m_Mode: 0
           m_Arguments:
@@ -5533,6 +5533,7 @@ GameObject:
   - component: {fileID: 2032819592}
   - component: {fileID: 2032819591}
   - component: {fileID: 2032819593}
+  - component: {fileID: 2032819594}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -5603,9 +5604,38 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2032819589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5069a8d8fb4aded48b66e6b35295f478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickImage: {fileID: 35704298}
+  StampPosition:
+  - {fileID: 293478822}
+  - {fileID: 533293153}
+  - {fileID: 390268842}
+  - {fileID: 339784367}
+  - {fileID: 309852145}
+  - {fileID: 1539904983}
+  StampGameObject:
+  - {fileID: 293478822}
+  - {fileID: 533293153}
+  - {fileID: 390268842}
+  - {fileID: 339784367}
+  - {fileID: 309852145}
+  - {fileID: 1539904983}
+  OK: {fileID: 35704295}
+  TouchVisual: {fileID: 1580601714}
+  GoalImage: {fileID: 1981551039}
+--- !u!114 &2032819594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032819589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae51b380490de0445825bd7764e036ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ClickImage: {fileID: 35704298}
