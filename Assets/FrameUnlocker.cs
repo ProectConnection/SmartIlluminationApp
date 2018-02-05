@@ -21,11 +21,6 @@ public class FrameUnlocker : MonoBehaviour {
         CheckAviliableFrame();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     void CheckAviliableFrame()
     {
         int[] PedometerUnlocktables = { 2000, 3000, 4000, 5000 };
@@ -55,14 +50,18 @@ public class FrameUnlocker : MonoBehaviour {
         switch (frameId)
         {
             case FrameId.SpotFrame:
-                for(int i = 0; i < UsedFrames.Length; i++)
-                {
-                    UsedFrames[(int)frameId] = false;
-                }
+                DeactiveAllFrame();
                 break;
         }
         UsedFrames[(int)frameId] = nextActive;
         UpdateFrame();
+    }
+
+    public void DeactiveAllFrame() {
+        for (int i = 0; i < UsedFrames.Length; i++)
+        {
+            UsedFrames[i] = false;
+        }
     }
 
     public bool GetActiveFrame(FrameId frameId)
